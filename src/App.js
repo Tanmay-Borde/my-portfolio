@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
+import Home from './components/Home';
 
 const sections = [
   { title: 'About Me', url: '/about' },
@@ -20,25 +21,22 @@ const sections = [
   { title: 'Archive', url: '/archive' },
 ];
 
-const myTheme = createTheme(
-  {
-    main: '#1976d2',
-    light: '#42a5f5',
-    dark: '#1565c0',
-    contrastText: '#fff',
-  }
-);
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
 
 function App() {
   return (
     <>
-      <ThemeProvider theme={myTheme}>
+      <ThemeProvider theme={darkTheme}>
         <CssBaseline />
         <Container maxWidth="lg">
           <Header title="Tanmay's Portfolio" sections={sections} />
           <Blog />
           <Routes>
-            <Route path='/' element={<Blog />} />
+            <Route path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
             <Route path='/experience' element={<Experience />} />
             <Route path='/blogs' element={<Blogs />} />

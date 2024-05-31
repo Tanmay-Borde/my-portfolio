@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Link } from "react-router-dom";
+import { grey } from '@mui/material/colors';
+import Button from '@mui/material/Button';
+
+const primary = grey[50];
 
 function Header(props) {
   const { sections, title } = props;
@@ -27,11 +31,18 @@ function Header(props) {
       <Toolbar
         component="nav"
         variant="dense"
-        sx={{ justifyContent: 'space-between', overflowX: 'auto' }}
+        sx={{
+          // bgcolor: primary, 
+          justifyContent: 'space-between',
+          overflowX: 'auto'
+        }}
       >
         {sections.map((section) => (
-          <Link
-            color="inherit"
+          // <Button>
+          <Button
+            component={Link}
+            raised
+            color='primary'
             noWrap
             key={section.title}
             variant="body2"
@@ -39,7 +50,8 @@ function Header(props) {
             sx={{ p: 1, flexShrink: 0 }}
           >
             {section.title}
-          </Link>
+          </Button>
+          // </Button>
         ))}
       </Toolbar>
     </React.Fragment>
