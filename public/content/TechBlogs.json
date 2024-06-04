@@ -1,0 +1,44 @@
+[
+    {
+        "id": "TB1",
+        "section": "Tech Blogs",
+        "title": "First Post",
+        "readTime": "",
+        "date": "2024-06-01",
+        "content": "This is the content of the first post.",
+        "author": "Tanmay Borde",
+        "tags": "",
+        "summary": "",
+        "imageURL": "",
+        "metaDescription": "",
+        "relatedPosts": [
+            "",
+            ""
+        ],
+        "sources": [
+            "",
+            ""
+        ]
+    },
+    {
+        "id": "TB2",
+        "section": "Tech Blogs",
+        "title": "Second Post",
+        "readTime": "",
+        "date": "2024-06-01",
+        "content": "This is the content of the first post.",
+        "author": "Tanmay Borde",
+        "tags": "",
+        "summary": "",
+        "imageURL": "",
+        "metaDescription": "",
+        "relatedPosts": [
+            "",
+            ""
+        ],
+        "sources": [
+            "",
+            ""
+        ]
+    }
+]

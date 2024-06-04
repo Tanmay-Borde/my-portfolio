@@ -1,0 +1,44 @@
+[
+    {
+        "id": "Q1",
+        "section": "Quotes",
+        "title": "First Post",
+        "readTime": "",
+        "date": "2024-06-01",
+        "content": "This is the content of the first post.",
+        "author": "Tanmay Borde",
+        "tags": "",
+        "summary": "",
+        "imageURL": "",
+        "metaDescription": "",
+        "relatedPosts": [
+            "",
+            ""
+        ],
+        "sources": [
+            "",
+            ""
+        ]
+    },
+    {
+        "id": "Q2",
+        "section": "Quotes",
+        "title": "Second Post",
+        "readTime": "",
+        "date": "2024-06-01",
+        "content": "This is the content of the first post.",
+        "author": "Tanmay Borde",
+        "tags": "",
+        "summary": "",
+        "imageURL": "",
+        "metaDescription": "",
+        "relatedPosts": [
+            "",
+            ""
+        ],
+        "sources": [
+            "",
+            ""
+        ]
+    }
+]

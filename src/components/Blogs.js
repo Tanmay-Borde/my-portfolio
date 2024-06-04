@@ -5,6 +5,9 @@ import { TabsList as BaseTabsList } from '@mui/base/TabsList';
 import { TabPanel as BaseTabPanel } from '@mui/base/TabPanel';
 import { buttonClasses } from '@mui/base/Button';
 import { Tab as BaseTab, tabClasses } from '@mui/base/Tab';
+import TechBlogs from './TechBlogs';
+import BusinessBlogs from './BusinessBlogs';
+import HumanityBlogs from './HumanityBlogs';
 
 export default function Blogs() {
   return (
@@ -15,9 +18,9 @@ export default function Blogs() {
           <Tab value={1}>Business</Tab>
           <Tab value={2}>Humanity</Tab>
         </TabsList>
-        <TabPanel value={0}>My account page</TabPanel>
-        <TabPanel value={1}>Profile page</TabPanel>
-        <TabPanel value={2}>Language page</TabPanel>
+        <TabPanel value={0}> <TechBlogs /> </TabPanel>
+        <TabPanel value={1}> <BusinessBlogs /> </TabPanel>
+        <TabPanel value={2}> <HumanityBlogs /> </TabPanel>
       </Tabs >
     </>
   );

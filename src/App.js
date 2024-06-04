@@ -11,6 +11,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import Home from './components/Home';
 import Blogs from './components/Blogs';
+import { Divider } from '@mui/material';
 
 const sections = [
   { title: 'Home', url: '/home' },
@@ -33,9 +34,11 @@ function App() {
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
         <Container maxWidth="lg">
-          <Header title="TP" sections={sections} />
+          <Header sections={sections} />
           {/* <Home /> */}
           {/* <Blog /> */}
+          <Divider />
+          <br />
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/home' element={<Home />} />

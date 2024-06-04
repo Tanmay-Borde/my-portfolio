@@ -4,6 +4,7 @@ import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import MainFeaturedPost from './MainFeaturedPost';
 import FeaturedPost from './FeaturedPost';
+import { Helmet } from 'react-helmet';
 
 const mainFeaturedPost = {
     title: 'Title of a longer featured blog post',

@@ -3,13 +3,16 @@ import PropTypes from 'prop-types';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Link } from "react-router-dom";
-import { grey } from '@mui/material/colors';
+// import { grey } from '@mui/material/colors';
 import Button from '@mui/material/Button';
+// const primary = grey[50];
 
-const primary = grey[50];
+const imgStyles = {
+  marginTop: "10px",
+}
 
 function Header(props) {
-  const { sections, title } = props;
+  const { sections } = props;
 
   return (
     <React.Fragment>
@@ -22,7 +25,17 @@ function Header(props) {
           noWrap
           sx={{ flex: 1 }}
         >
-          {title}
+          {/* {title} */}
+          <a href='/home'>
+            <img
+              alt="LOGO"
+              src={`${process.env.PUBLIC_URL}/logo.png`}
+              height={40}
+              width={40}
+              style={imgStyles}
+            />
+          </a>
+
         </Typography>
         {/* <IconButton>
           <SearchIcon />
