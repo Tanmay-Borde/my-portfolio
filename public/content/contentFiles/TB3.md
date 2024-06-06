@@ -1,0 +1,8 @@
+In other words, machine learning uses algorithms to autonomously create models from data fed into a machine learning platform. Typical programmed or rule-based systems capture an expert's knowledge in programmed rules, but when data is changing, these rules can become difficult to update and maintain. Machine learning has the advantage of being able to learn from increasing volumes of data fed into the algorithms, and it can give data driven probabilistic predictions. This capability to utilize and apply highly complex algorithms to today’s big data applications quickly and effectively is a relatively new development.
+
+Just about any discrete task that can be undertaken with a data-defined pattern or with a set of rules can be automated and therefore made far more efficient using machine learning. This allows companies to transform processes only possible previously by humans, including routing of customer service calls and reviewing resumes, among many others.
+
+The performance of a machine learning system depends on the capability of some number of algorithms for turning a data set into a model. Different algorithms are needed for different problems and tasks, and solving them depends as well on the quality of the input data and power of the computing resources. 
+
+Machine learning employs two main techniques that divide use of algorithms into different types: supervised, unsupervised, and a mix of these two. Supervised learning algorithms use labeled data, unsupervised learning algorithms find patterns in unlabeled data. Semi-supervised learning uses a mixture of labeled and unlabeled data. Reinforcement learning trains algorithms to maximize rewards based on feedback.
+
