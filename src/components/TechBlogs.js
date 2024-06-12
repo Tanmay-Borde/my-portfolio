@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -11,7 +11,6 @@ import Typography from '@mui/material/Typography';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ReactMarkdown from 'react-markdown';
-import { useCopyToClipboard } from 'react-copy-to-clipboard';
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -26,9 +25,6 @@ const ExpandMore = styled((props) => {
 
 const TechBlog = () => {
     const [posts, setPosts] = useState([]);
-    const [post, setPost] = useState(false);
-    const [copied, setCopied] = useState(false);
-    const clipboardRef = useRef(null);
 
     useEffect(() => {
         console.log('Component mounted.')
@@ -66,10 +62,12 @@ const TechBlog = () => {
                         <CardHeader
                             title={post.title}
                             subheader={`${new Date(post.date).toLocaleDateString()} • ${post.readTime} min read`}
+                            action={
+                                <IconButton aria-label="share">
+                                    <ShareIcon />
+                                </IconButton>
+                            }
                         />
-                        {/* <IconButton aria-label="share">
-                            <ShareIcon />
-                        </IconButton> */}
                         <CardMedia
                             component="img"
                             height={post.expanded ? 400 : 100}
