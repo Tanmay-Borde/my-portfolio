@@ -35,8 +35,6 @@ function App() {
         <CssBaseline />
         <Container maxWidth="lg">
           <Header sections={sections} />
-          {/* <Home /> */}
-          {/* <Blog /> */}
           <Divider />
           <br />
           <Routes>

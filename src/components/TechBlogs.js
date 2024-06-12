@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -6,15 +6,12 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Collapse from '@mui/material/Collapse';
-// import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-// import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ReactMarkdown from 'react-markdown';
-// import MoreVertIcon from '@mui/icons-material/MoreVert';
-// import { Divider, Stack } from '@mui/material';
+import { useCopyToClipboard } from 'react-copy-to-clipboard';
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -29,28 +26,20 @@ const ExpandMore = styled((props) => {
 
 const TechBlog = () => {
     const [posts, setPosts] = useState([]);
-    // const [expanded, setExpanded] = React.useState(false);
-
-    const handleExpandClick = (postId) => {
-        setPosts((prevPosts) =>
-            prevPosts.map((post) =>
-                post.id === postId ? { ...post, expanded: !post.expanded } : post
-            )
-        );
-    };
+    const [post, setPost] = useState(false);
+    const [copied, setCopied] = useState(false);
+    const clipboardRef = useRef(null);
 
     useEffect(() => {
+        console.log('Component mounted.')
         const fetchPosts = async () => {
             const response = await fetch(`${process.env.PUBLIC_URL}/content/TechBlogs.json`);
             const data = await response.json();
 
             const postsWithContent = await Promise.all(
                 data.map(async (post) => {
-                    const contentResponse = await fetch(`${process.env.PUBLIC_URL}/content/contentFiles/TB1.md`);
+                    const contentResponse = await fetch(`${process.env.PUBLIC_URL}${post.contentFile}`);
                     const content = await contentResponse.text();
-                    console.log("post: ", post)
-                    console.log("contentResponse: ", contentResponse);
-                    console.log("content: ", content);
                     return { ...post, content };
                 })
             );
@@ -61,45 +50,35 @@ const TechBlog = () => {
         fetchPosts();
     }, []);
 
-
-    // useEffect(() => {
-    //     fetch(`${ process.env.PUBLIC_URL } / content / TechBlogs.json`)
-    //         .then(response => response.json())
-    //         .then(data => setPosts(data))
-    //         .catch(err => console.error('Error fetching posts:', err));
-    // }, []);
+    const handleExpandClick = (postId) => {
+        setPosts((prevPosts) =>
+            prevPosts.map((post) =>
+                post.id === postId ? { ...post, expanded: !post.expanded } : post
+            )
+        );
+    };
 
     return (
         <>
-            <div style={{ display: 'grid' }}>
+            <div style={{ display: 'grid', alignItems: 'center' }}>
                 {posts.map((post) => (
-                    <Card key={post.id} sx={{ maxWidth: 500, marginBlock: 2 }} >
+                    <Card key={post.id} sx={{ marginBlock: 1, }} >
                         <CardHeader
                             title={post.title}
+                            subheader={`${new Date(post.date).toLocaleDateString()} • ${post.readTime} min read`}
                         />
-                        {/* <Stack> <Typography fontSize={12} margin={1}> | {post.readTime} min read </Typography> </Stack> */}
-                        <span style={{ margin: 10 }}>
-                            <p><small>{new Date(post.date).toLocaleDateString()} ● {post.readTime} min read</small></p>
-                        </span>
+                        {/* <IconButton aria-label="share">
+                            <ShareIcon />
+                        </IconButton> */}
                         <CardMedia
                             component="img"
-                            height={100}
-                            image="https://source.unsplash.com/random?wallpapers"
-                            alt="Paella dish"
+                            height={post.expanded ? 400 : 100}
+                            image={`${process.env.PUBLIC_URL}${post.imageURL}`}
+                            alt={post.credits}
                         />
+                        <Typography fontSize={5}>Image by {post.credits}</ Typography>
                         <CardHeader subheader={post.summary} />
-                        {/* <CardContent>
-                            <Typography variant="body2" color="text.secondary">
-                                <ReactMarkdown children={post.content} />
-                            </Typography>
-                        </CardContent> */}
                         <CardActions disableSpacing>
-                            {/* <IconButton aria-label="add to favorites">
-                                <FavoriteIcon />
-                            </IconButton> */}
-                            <IconButton aria-label="share">
-                                <ShareIcon />
-                            </IconButton>
                             <ExpandMore
                                 expand={post.expanded}
                                 onClick={() => handleExpandClick(post.id)}

@@ -26,7 +26,7 @@ function Header(props) {
           sx={{ flex: 1 }}
         >
           {/* {title} */}
-          <a href='/home'>
+          <Link to='/home'>
             <img
               alt="LOGO"
               src={`${process.env.PUBLIC_URL}/logo.png`}
@@ -34,7 +34,7 @@ function Header(props) {
               width={40}
               style={imgStyles}
             />
-          </a>
+          </Link>
 
         </Typography>
         {/* <IconButton>
@@ -51,10 +51,9 @@ function Header(props) {
         }}
       >
         {sections.map((section) => (
-          // <Button>
           <Button
             component={Link}
-            raised
+            // raised
             color='primary'
             noWrap
             key={section.title}
@@ -64,7 +63,6 @@ function Header(props) {
           >
             {section.title}
           </Button>
-          // </Button>
         ))}
       </Toolbar>
     </React.Fragment>
