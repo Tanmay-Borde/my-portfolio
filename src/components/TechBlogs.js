@@ -23,7 +23,7 @@ const ExpandMore = styled((props) => {
     }),
 }));
 
-const TechBlog = () => {
+const TechBlogs = () => {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
@@ -101,4 +101,4 @@ const TechBlog = () => {
     );
 };
 
-export default TechBlog;
+export default TechBlogs;

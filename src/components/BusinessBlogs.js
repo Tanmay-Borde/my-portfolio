@@ -23,7 +23,7 @@ const ExpandMore = styled((props) => {
     }),
 }));
 
-const BusinessBlog = () => {
+const BusinessBlogs = () => {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
@@ -101,4 +101,4 @@ const BusinessBlog = () => {
     );
 };
 
-export default BusinessBlog;
+export default BusinessBlogs;
