@@ -58,5 +58,49 @@
             "",
             ""
         ]
+    },
+    {
+        "id": "TB4",
+        "section": "Tech Blogs",
+        "title": "Title of TB4.",
+        "readTime": "3",
+        "date": "2024-06-01",
+        "contentFile": "/content/contentFiles/TB4.md",
+        "author": "Tanmay Borde",
+        "tags": "",
+        "summary": "This is the summary of TB4 post.",
+        "imageURL": "/content/images/TB4.jpg",
+        "credits": "TechCrunch",
+        "metaDescription": "",
+        "relatedPosts": [
+            "",
+            ""
+        ],
+        "sources": [
+            "",
+            ""
+        ]
+    },
+    {
+        "id": "TB5",
+        "section": "Tech Blogs",
+        "title": "Title of TB5.",
+        "readTime": "3",
+        "date": "2024-06-01",
+        "contentFile": "/content/contentFiles/TB5.md",
+        "author": "Tanmay Borde",
+        "tags": "",
+        "summary": "This is the summary of TB5 post.",
+        "imageURL": "/content/images/TB5.jpg",
+        "credits": "TechCrunch",
+        "metaDescription": "",
+        "relatedPosts": [
+            "",
+            ""
+        ],
+        "sources": [
+            "",
+            ""
+        ]
     }
 ]
