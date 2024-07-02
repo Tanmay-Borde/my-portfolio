@@ -1,15 +1,32 @@
 [
     {
-        "id": "HB1",
-        "section": "Humanity Blogs",
-        "title": "First Post",
-        "readTime": "",
+        "id": "TB1",
+        "section": "Tech Blogs",
+        "title": "HB Post 1.",
+        "readTime": "2",
         "date": "2024-06-01",
-        "content": "This is the content of the first post.",
+        "contentFile": "/content/contentFiles/HBMD/HB1.md",
+        "author": "Tanmay Borde",
+        "tags": [],
+        "summary": "This is the summary of TB1 post.",
+        "imageURL": "/content/images/TB1.jpg",
+        "credits": "TechCrunch",
+        "metaDescription": [],
+        "relatedPosts": [],
+        "sources": []
+    },
+    {
+        "id": "TB2",
+        "section": "Tech Blogs",
+        "title": "HB Post 2.",
+        "readTime": "3",
+        "date": "2024-06-01",
+        "contentFile": "/content/contentFiles/HBMD/HB2.md",
         "author": "Tanmay Borde",
         "tags": "",
-        "summary": "",
-        "imageURL": "",
+        "summary": "This is the summary of TB2 post.",
+        "imageURL": "/content/images/TB2.jpg",
+        "credits": "TechCrunch",
         "metaDescription": "",
         "relatedPosts": [
             "",
@@ -21,16 +38,61 @@
         ]
     },
     {
-        "id": "HB2",
-        "section": "Humanity Blogs",
-        "title": "Second Post",
-        "readTime": "",
+        "id": "TB3",
+        "section": "Tech Blogs",
+        "title": "HB Post 3.",
+        "readTime": "3",
         "date": "2024-06-01",
-        "content": "This is the content of the first post.",
+        "contentFile": "/content/contentFiles/HBMD/HB3.md",
         "author": "Tanmay Borde",
         "tags": "",
-        "summary": "",
-        "imageURL": "",
+        "summary": "This is the summary of TB3 post.",
+        "imageURL": "/content/images/TB3.jpg",
+        "credits": "TechCrunch",
+        "metaDescription": "",
+        "relatedPosts": [
+            "",
+            ""
+        ],
+        "sources": [
+            "",
+            ""
+        ]
+    },
+    {
+        "id": "TB4",
+        "section": "Tech Blogs",
+        "title": "HB Post 4.",
+        "readTime": "3",
+        "date": "2024-06-01",
+        "contentFile": "/content/contentFiles/HBMD/HB4.md",
+        "author": "Tanmay Borde",
+        "tags": "",
+        "summary": "This is the summary of TB4 post.",
+        "imageURL": "/content/images/TB4.jpg",
+        "credits": "TechCrunch",
+        "metaDescription": "",
+        "relatedPosts": [
+            "",
+            ""
+        ],
+        "sources": [
+            "",
+            ""
+        ]
+    },
+    {
+        "id": "TB5",
+        "section": "Tech Blogs",
+        "title": "HB Post 5.",
+        "readTime": "3",
+        "date": "2024-06-01",
+        "contentFile": "/content/contentFiles/HBMD/HB5.md",
+        "author": "Tanmay Borde",
+        "tags": "",
+        "summary": "This is the summary of TB5 post.",
+        "imageURL": "/content/images/TB5.jpg",
+        "credits": "TechCrunch",
         "metaDescription": "",
         "relatedPosts": [
             "",

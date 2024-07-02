@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -12,7 +12,6 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ReactMarkdown from 'react-markdown';
 import { Link, useLocation } from 'react-router-dom';
-import { NoSsr } from '@mui/base/NoSsr';
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -28,7 +27,6 @@ const ExpandMore = styled((props) => {
 const TechBlogs = () => {
     const [posts, setPosts] = useState([]);
     const location = useLocation();
-    const hashRef = useRef(null);
 
     useEffect(() => {
         const fetchPosts = async () => {
