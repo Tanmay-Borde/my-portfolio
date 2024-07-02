@@ -1,0 +1,7 @@
+As with WWDC events since 2020, WWDC 2024 will be an online event that is open to all developers at no cost. Though WWDC 2024 is primarily online, Apple is once again holding a special event for select developers, students, and members of the media, which is set to take place on June 10 at the Apple Park campus in Cupertino, California. Developer and student attendees will be able to watch the keynote and State of the Union presentations at Apple Park, as well as meet Apple employees and attend the Apple Design Awards.
+
+Apple normally holds a Swift Student Challenge when the WWDC dates are announced, but the challenge kicked off earlier this year and winners were announced on March 28. Some winners were invited to attend the special event at Apple Park through the lottery process, and 50 Distinguished Winners were invited to Cupertino for a three-day experience.
+
+At WWDC, Apple offers developers and Apple customers a first look at new versions of iOS, iPadOS, macOS, watchOS, and tvOS, plus this year we'll see a new version of visionOS. Developers are able to engage with Apple engineers through engineering sessions, one-on-one lab appointments, and the Apple Developer Forums, all with the aim of learning how to integrate new OS features into their apps.
+
+Apple always streams the WWDC keynote on Apple.com, the Apple Developer app, the Apple Developer website, the Apple TV, and YouTube. Developer sessions throughout the week will be shared in the Apple Developer app and for the first time, on YouTube.
