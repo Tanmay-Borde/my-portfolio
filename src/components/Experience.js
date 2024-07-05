@@ -23,9 +23,8 @@ const experiences = [
         company: 'Veritas',
         tenure: 'JUN 2022 - Present',
         companyLogo: '/Veritas.png',
-        highlights: 'Responsible for the development of multiple existing business facing critical web applications encompassing business flow from OM to Product Entitlement.',
-        brief: `Successfully delivered multiple critical projects for various webapps encompassing business flow from Order Management to Product Entitlement.
-            Worked on both front-end and back-end development including troubleshooting, debugging and patch fixing.
+        highlights: 'Responsible for the development of critical business facing web applications encompassing business flow from OM to Product Entitlement.',
+        brief: `Worked on both front-end and back-end development including troubleshooting, debugging and patch fixing of multiple Web Applications.
             Successfully designed and implemented high-performance Java microservices for the company's entitlement management system, improving business efficiency by 30%.
             Database Management: Designed and Optimized Oracle DB for efficient interaction with Java Web Microservices and UI optimizing the backend by 20%.
             Agile Development: Successfully implemented Agile methodologies for iterative development and project management.
@@ -111,8 +110,7 @@ export default function Experience() {
                                     onClose={handleTooltipClose}
                                     open={open}
                                     disableHoverListener={isMobile}
-                                // disableFocusListener
-                                // disableHoverListener
+                                    disableFocusListener
                                 >
                                     <Typography>
                                         {experience.title}

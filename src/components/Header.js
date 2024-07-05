@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Link } from "react-router-dom";
-// import { grey } from '@mui/material/colors';
 import Button from '@mui/material/Button';
-// const primary = grey[50];
 
 const imgStyles = {
   marginTop: "10px",
@@ -37,9 +35,6 @@ function Header(props) {
           </Link>
 
         </Typography>
-        {/* <IconButton>
-          <SearchIcon />
-        </IconButton> */}
       </Toolbar>
       <Toolbar
         component="nav"

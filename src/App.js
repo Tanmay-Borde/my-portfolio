@@ -50,8 +50,8 @@ function App() {
             <Route path='/archive' element={<Archive />} />
           </Routes>
           <Footer
-            title="Footer"
-            description="Something here to give the footer a purpose!"
+            title="Quick Connect"
+            description="Crafted by Tanmay & Gemini."
           />
         </Container>
       </ThemeProvider>
