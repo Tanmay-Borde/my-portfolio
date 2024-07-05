@@ -38,16 +38,16 @@ export default function Home() {
     return (
         <>
             <Helmet>
-                <title>My Blog - Home</title>
+                <title>Tanmay's Portfolio</title>
                 <meta name="description" content="Welcome to My Blog. Explore articles on various topics." />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <meta property="og:title" content="Tanmay's Portfolio - Home" />
                 <meta property="og:description" content="Welcome to My Blog. Explore articles on various topics." />
                 <meta property="og:image" content="https://example.com/image.jpg" />
                 <meta property="og:url" content="https://example.com" />
-            </Helmet>
+            </Helmet >
 
-            <CssBaseline />
+            < CssBaseline />
             <Container maxWidth="lg">
                 <main>
                     <MainFeaturedPost post={mainFeaturedPost} />

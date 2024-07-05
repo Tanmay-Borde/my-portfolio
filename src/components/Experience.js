@@ -6,13 +6,15 @@ import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
 import TimelineDot from '@mui/lab/TimelineDot';
-import { Avatar, Card, CardContent, Chip, Divider, Stack, Tooltip } from '@mui/material';
+import { Avatar, Card, CardContent, Chip, Divider, Stack, Tooltip, useMediaQuery } from '@mui/material';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Fade from '@mui/material/Fade';
+import Box from '@mui/material/Box';
+import { Grid } from '@mui/material';
 
 const experiences = [
     {
@@ -45,7 +47,7 @@ const experiences = [
         companyLogo: '/Veritas.png',
         highlights: 'Played a major role in designing and developing a webapp that played a pivotal role in the system implemetation project of the company.',
         brief: `Designed and developed a brand new webapp for business users from scratch that boosted their business process efficiency by 40%.
-        Cross team collaboration for requirement gathering and business demos and presentations.
+        Cross team collaboration for requirement gathering, business demos and presentations.
         Key Achievement: Our team's presentation was well received and spotlighted by the Tower Lead.
         Active participation in various extra curricular activities of the company and hosting a live virtual show.`,
         placement: 'right',
@@ -56,6 +58,8 @@ const experiences = [
 export default function Experience() {
     const [expanded, setExpanded] = React.useState('');
     const [open, setOpen] = React.useState(false);
+    const mobileBreakpoint = 'md';
+    const isMobile = useMediaQuery(`(max-width: ${mobileBreakpoint})`);
 
     const handleChange = (panel) => (event, isExpanded) => {
         setOpen(true);
@@ -68,7 +72,6 @@ export default function Experience() {
 
     return (
         <>
-            {console.log(`${process.env.PUBLIC_URL}`)}
             <Timeline position="alternate">
                 {experiences.map((experience, index) => (
                     <TimelineItem key={index}>
@@ -107,10 +110,13 @@ export default function Experience() {
                                     }}
                                     onClose={handleTooltipClose}
                                     open={open}
+                                    disableHoverListener={isMobile}
                                 // disableFocusListener
                                 // disableHoverListener
                                 >
-                                    <Typography>{experience.title} </Typography>
+                                    <Typography>
+                                        {experience.title}
+                                    </Typography>
                                 </Tooltip>
                             </Typography>
                         </TimelineContent>
@@ -139,41 +145,27 @@ export default function Experience() {
                                     <Typography>
                                         Skills involved:
                                     </Typography><br />
-                                    <Stack direction="row" spacing={1}>
-                                        {experience.skills.map((skill, index) => (
-                                            <Chip avatar={<Avatar src={`${process.env.PUBLIC_URL}/content/images/${skill}.png`} />} label={skill} />
-                                        ))
-                                        }
-                                    </Stack>
+                                    <Box sx={{ maxHeight: 300, overflowY: 'auto' }}>
+                                        <Stack direction={isMobile ? 'column' : 'row'} spacing={1}>
+                                            {experience.skills.map((skill, index) => (
+                                                <Grid item xs={12} md={3} key={index}>
+                                                    <Chip avatar={<Avatar src={`${process.env.PUBLIC_URL}/content/images/${skill}.png`} />} label={skill} />
+                                                </Grid>
+                                            ))
+                                            }
+                                        </Stack>
+                                    </Box>
                                 </CardContent>
                             </Card>
                             <Typography variant='caption'>
                                 {experience.brief.split('\n').map((line, i) => (
-                                    <ul key={i} style={{ listStyle: 'disc', paddingLeft: 15 }}>{line}<br /></ul>
+                                    <ul key={i} style={{ listStyle: 'disc', paddingLeft: 20 }}>{line}<br /></ul>
                                 ))}
                             </Typography>
-
                         </AccordionDetails>
                     </Accordion >
                 ))
             }
-
-            {/* <Divider />
-                    <Card sx={{ minWidth: 275 }}>
-                        <CardContent>
-                            <Typography variant="h5" component="div">
-                                Skills
-                            </Typography>
-                            <Stack direction="row" spacing={1}>
-                                <Chip avatar={<Avatar>M</Avatar>} label="Avatar" />
-                                <Chip
-                                    avatar={<Avatar alt="Natacha" src="/static/images/avatar/1.jpg" />}
-                                    label="Avatar"
-                                    variant="outlined"
-                                />
-                            </Stack>
-                        </CardContent>
-                    </Card> */}
 
         </>
     )

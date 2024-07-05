@@ -5,19 +5,21 @@ import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Archive from './components/Archive';
 import Header from './components/Header';
-// import Footer from './components/Footer';
+import Footer from './components/Footer';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import Home from './components/Home';
 import Blogs from './components/Blogs';
 import { Divider } from '@mui/material';
+import Publications from './components/Publications';
 
 const sections = [
   { title: 'Home', url: '/home' },
   { title: 'About Me', url: '/about' },
   { title: 'Experience', url: '/experience' },
   { title: 'Projects', url: '/projects' },
+  { title: 'Publications', url: '/publications' },
   { title: 'Blogs', url: '/blogs' },
   { title: 'Archive', url: '/archive' },
 ];
@@ -44,12 +46,13 @@ function App() {
             <Route path='/experience' element={<Experience />} />
             <Route path='/blogs' element={<Blogs />} />
             <Route path='/projects' element={<Projects />} />
+            <Route path='/publications' element={<Publications />} />
             <Route path='/archive' element={<Archive />} />
           </Routes>
-          {/* <Footer
+          <Footer
             title="Footer"
             description="Something here to give the footer a purpose!"
-          /> */}
+          />
         </Container>
       </ThemeProvider>
     </>
