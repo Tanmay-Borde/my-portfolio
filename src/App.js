@@ -49,6 +49,8 @@ function App() {
             <Route path='/publications' element={<Publications />} />
             <Route path='/archive' element={<Archive />} />
           </Routes>
+          <br />
+          <Divider />
           <Footer
             title="Quick Connect"
             description="Crafted by Tanmay & Gemini."
