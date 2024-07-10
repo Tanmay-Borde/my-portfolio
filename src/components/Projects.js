@@ -7,6 +7,7 @@ import Grid from '@mui/material/Grid';
 import { Avatar, Chip, Container, Stack } from '@mui/material';
 import { isMobile } from 'react-device-detect';
 import Link from '@mui/material/Link';
+import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 
 const projects = [
     {
@@ -82,7 +83,7 @@ export default function Projects() {
                     </Grid>
                 </Box>
             </Container >
-            <Link href="https://github.com/Tanmay-Borde?tab=repositories" underline="none" target="_blank">View more projects...</Link>
+            <Link href="https://github.com/Tanmay-Borde?tab=repositories" underline="none" target="_blank">View more projects...<ArrowOutwardIcon fontSize='small' /></Link>
         </>
     );
 }

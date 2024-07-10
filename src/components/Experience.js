@@ -6,7 +6,7 @@ import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
 import TimelineDot from '@mui/lab/TimelineDot';
-import { Avatar, Card, CardContent, Chip, Divider, Stack, Tooltip, useMediaQuery } from '@mui/material';
+import { Avatar, Card, CardContent, Chip, Divider, Stack, Tooltip } from '@mui/material';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -15,6 +15,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Fade from '@mui/material/Fade';
 import Box from '@mui/material/Box';
 import { Grid } from '@mui/material';
+import { isMobile } from 'react-device-detect';
 
 const experiences = [
     {
@@ -57,8 +58,6 @@ const experiences = [
 export default function Experience() {
     const [expanded, setExpanded] = React.useState('');
     const [open, setOpen] = React.useState(false);
-    const mobileBreakpoint = 'md';
-    const isMobile = useMediaQuery(`(max-width: ${mobileBreakpoint})`);
 
     const handleChange = (panel) => (event, isExpanded) => {
         setOpen(true);
@@ -98,24 +97,25 @@ export default function Experience() {
                                 {experience.company}
                             </Typography>
                             <Typography>
-                                <Tooltip
-                                    arrow
-                                    title={experience.highlights}
-                                    placement={experience.placement}
-                                    TransitionComponent={Fade}
-                                    TransitionProps={{ timeout: 400 }}
-                                    PopperProps={{
-                                        disablePortal: true,
-                                    }}
-                                    onClose={handleTooltipClose}
-                                    open={open}
-                                    disableHoverListener={isMobile}
-                                    disableFocusListener
-                                >
-                                    <Typography>
-                                        {experience.title}
-                                    </Typography>
-                                </Tooltip>
+                                {!isMobile && (
+                                    <Tooltip
+                                        arrow
+                                        title={experience.highlights}
+                                        placement={experience.placement}
+                                        TransitionComponent={Fade}
+                                        TransitionProps={{ timeout: 400 }}
+                                        PopperProps={{
+                                            disablePortal: true,
+                                        }}
+                                        onClose={handleTooltipClose}
+                                        open={open}
+                                        disableFocusListener
+                                    >
+                                        <Typography>
+                                            {experience.title}
+                                        </Typography>
+                                    </Tooltip>
+                                )}
                             </Typography>
                         </TimelineContent>
                     </TimelineItem>
@@ -143,8 +143,8 @@ export default function Experience() {
                                     <Typography>
                                         Skills involved:
                                     </Typography><br />
-                                    <Box sx={{ maxHeight: 300, overflowY: 'auto' }}>
-                                        <Stack direction={isMobile ? 'column' : 'row'} spacing={1}>
+                                    <Box sx={{ maxHeight: 300, overflowX: 'auto' }}>
+                                        <Stack direction={'row'} spacing={1}>
                                             {experience.skills.map((skill, index) => (
                                                 <Grid item xs={12} md={3} key={index}>
                                                     <Chip avatar={<Avatar src={`${process.env.PUBLIC_URL}/content/images/${skill}.png`} />} label={skill} />
@@ -164,7 +164,6 @@ export default function Experience() {
                     </Accordion >
                 ))
             }
-
         </>
     )
 }
