@@ -49,10 +49,9 @@ const projects = [
 ]
 
 export default function Projects() {
-    console.log(isMobile ? 'Mobile device' : 'Desktop');
     return (
         <>
-            <Container sx={{ display: 'flex', padding: 2 }}>
+            <Container sx={{ display: 'flex', padding: 1 }}>
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={1} direction={isMobile ? 'column' : 'row'} flexWrap={'wrap'} >
                         {projects.map((project, index) => (

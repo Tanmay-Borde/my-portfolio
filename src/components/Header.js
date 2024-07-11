@@ -23,8 +23,6 @@ function Header(props) {
   const { sections } = props;
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  // const [expanded, setExpanded] = React.useState([]);
-
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -33,10 +31,6 @@ function Header(props) {
   const handleListItemClick = (section) => {
     setMobileOpen(false);
   };
-
-  // const handleChange = (panel) => (event, isExpanded) => {
-  //   setExpanded(isExpanded ? [...expanded, panel] : expanded.filter((i) => i !== panel));
-  // };
 
   const drawerContent = (
     <div>
