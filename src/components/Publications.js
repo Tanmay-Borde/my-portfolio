@@ -6,8 +6,6 @@ import Box from '@mui/material/Box';
 import ButtonBase from '@mui/material/ButtonBase';
 import Typography from '@mui/material/Typography';
 import { isMobile } from 'react-device-detect';
-// import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
-// import { Link } from 'react-router-dom';
 
 const publications = [
     {
