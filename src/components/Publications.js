@@ -77,29 +77,6 @@ const Image = styled('span')(({ theme }) => ({
     color: theme.palette.common.white,
 }));
 
-// const LinkButton = styled(Button)(({ theme }) => ({
-//     padding: 0, // Remove default padding
-//     minWidth: 40, // Smaller width for icon clickability
-//     height: '100%', // Match parent height
-//     backgroundColor: 'transparent', // Inherit transparency
-//     border: 'none', // Remove border
-//     '&:hover, &.Mui-focusVisible': {
-//         zIndex: 1,
-//     },
-// }));
-
-// const ImageOverlay = styled(Box)(({ theme }) => ({
-//     position: 'absolute',
-//     top: 0,
-//     left: 0,
-//     right: 0,
-//     bottom: 0,
-//     backgroundColor: 'transparent', // Transparent overlay
-//     display: 'flex',
-//     justifyContent: 'flex-end', // Align content to the right
-//     alignItems: 'center',
-// }));
-
 const ImageBackdrop = styled('span')(({ theme }) => ({
     position: 'absolute',
     left: 0,
@@ -163,25 +140,9 @@ export default function Publications() {
                                     {publication.title}
                                     <ImageMarked className="MuiImageMarked-root" />
                                 </Typography>
-                                {/* <ImageOverlay>
-                                    <LinkButton component={Link} href={publication.url} underline="none" target="_blank">
-                                        <ArrowOutwardIcon color='inherit' />
-                                    </LinkButton>
-                                </ImageOverlay> */}
                             </Image>
                         </ImageButton>
                     ))}
-                    {/* <Stack p={2} direction="row" spacing={44} sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly' }}>
-                        <Link component={Link} href={view} underline="none" target="_blank">
-                            <ArrowOutwardIcon color='primary' />
-                        </Link>
-                        <Link component={Link} href={view} underline="none" target="_blank">
-                            <ArrowOutwardIcon color='primary' />
-                        </Link>
-                        <Link component={Link} href={view} underline="none" target="_blank">
-                            <ArrowOutwardIcon color='primary' />
-                        </Link>
-                    </Stack> */}
                     <Backdrop
                         sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
                         open={open}

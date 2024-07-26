@@ -10,6 +10,8 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import ArticleIcon from '@mui/icons-material/Article';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import EmailIcon from '@mui/icons-material/Email';
+import Tooltip from '@mui/material/Tooltip';
+import XIcon from '@mui/icons-material/X';
 
 function Copyright() {
   return (
@@ -35,19 +37,34 @@ function Footer(props) {
         </Typography>
         <Stack direction="row" spacing={2} sx={{ justifyContent: 'center', alignItems: 'center' }}>
           <Link href="mailto:tanmayborde64@gmail.com?subject=Hi from the Portfolio" underline="none" target="_blank">
-            <EmailIcon />
+            <Tooltip title='E-mail' placement='left' arrow>
+              <EmailIcon fontSize='small' />
+            </Tooltip>
           </Link>
           <Link href="https://www.linkedin.com/in/tanmay-borde-88668b141/" underline="none" target="_blank">
-            <LinkedInIcon />
+            <Tooltip title='LinkedIn' placement='top' arrow>
+              <LinkedInIcon fontSize='small' />
+            </Tooltip>
+          </Link>
+          <Link href="https://x.com/tanmay_borde?s=21" underline="none" target="_blank">
+            <Tooltip title='X (Twitter)' placement='top' arrow>
+              <XIcon fontSize='small' />
+            </Tooltip>
           </Link>
           <Link href="https://github.com/Tanmay-Borde" underline="none" target="_blank">
-            <GitHubIcon />
+            <Tooltip title='GitHub' placement='top' arrow>
+              <GitHubIcon fontSize='small' />
+            </Tooltip>
           </Link>
           <Link href={`${process.env.PUBLIC_URL}#/blogs`} underline="none" target="_blank">
-            <ArticleIcon />
+            <Tooltip title='Blogs' placement='top' arrow>
+              <ArticleIcon fontSize='small' />
+            </Tooltip>
           </Link>
           <Link href="https://docs.google.com/document/d/1xiuDjQRr6vCYP9wvctCO4CM5xerXb1kkQ0hklAgA4QE/edit?usp=sharing" underline="none" target="_blank">
-            <AccountCircleIcon />
+            <Tooltip title='Resume' placement='right' arrow>
+              <AccountCircleIcon fontSize='small' />
+            </Tooltip>
           </Link>
         </Stack>
         <Typography
