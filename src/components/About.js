@@ -1,4 +1,4 @@
-import { Avatar, Backdrop, BottomNavigation, BottomNavigationAction, Card, CardContent, CardMedia, Chip, Container, Divider, Grid, IconButton, Stack } from "@mui/material";
+import { Avatar, Backdrop, BottomNavigation, BottomNavigationAction, Button, Card, CardContent, CardMedia, Chip, Container, Divider, Grid, IconButton, Slide, Stack } from "@mui/material";
 import * as React from 'react';
 import Tabs, { tabsClasses } from '@mui/material/Tabs';
 import PropTypes from 'prop-types';
@@ -14,11 +14,14 @@ import FullscreenIcon from '@mui/icons-material/Fullscreen';
 import PersonIcon from '@mui/icons-material/Person';
 import CodeIcon from '@mui/icons-material/Code';
 import SchoolIcon from '@mui/icons-material/School';
-import { TabContext, TabList } from "@mui/lab";
+import Dialog from '@mui/material/Dialog';
 import { MilitaryTech } from "@mui/icons-material";
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import ContactPageIcon from '@mui/icons-material/ContactPage';
 import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import CloseIcon from '@mui/icons-material/Close';
 
 const about = {
     name: 'Tanmay Borde',
@@ -215,22 +218,16 @@ function a11yProps(index) {
     };
 }
 
-const Overview = () => {
-    return
-    <>
-        <h3>Overview tab (func call)</h3>
-    </>
-}
+const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+});
 
 export default function About() {
     const [value, setValue] = React.useState(0);
     const [open, setOpen] = React.useState(false);
     const [view, setView] = React.useState('');
-    const [value1, setValue1] = React.useState(0);
-
-    const handleChange1 = (event1, newValue1) => {
-        setValue1(newValue1);
-    };
+    const filetype = 'docx'
+    const file_url = 'https://docs.google.com/document/d/1xiuDjQRr6vCYP9wvctCO4CM5xerXb1kkQ0hklAgA4QE'
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -485,7 +482,35 @@ export default function About() {
                             </Box>
                         </TabPanel>
                         <TabPanel value={value} index={5}>
-                            RESUME
+                            <Button variant="outlined" onClick={handleOpen}>
+                                Open Resume
+                            </Button>
+                            <Dialog
+                                fullScreen
+                                open={open}
+                                onClose={handleClose}
+                                TransitionComponent={Transition}
+                            >
+                                <AppBar sx={{ position: 'relative' }}>
+                                    <Toolbar>
+                                        <IconButton
+                                            edge="start"
+                                            color="inherit"
+                                            onClick={handleClose}
+                                            aria-label="close"
+                                        >
+                                            <CloseIcon />
+                                        </IconButton>
+                                        <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
+                                            Tanmay's Resume
+                                        </Typography>
+                                        <Button autoFocus color="inherit" onClick={handleClose}>
+                                            Download
+                                        </Button>
+                                    </Toolbar>
+                                </AppBar>
+                                <iframe className={filetype} width='100%' height='100%' frameborder="0" src={`${file_url}`}></iframe>
+                            </Dialog>
                         </TabPanel>
                         <TabPanel value={value} index={6}>
                             CONTACT ME

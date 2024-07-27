@@ -8,7 +8,7 @@ import { Stack } from '@mui/material';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import ArticleIcon from '@mui/icons-material/Article';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import ContactPageIcon from '@mui/icons-material/ContactPage';
 import EmailIcon from '@mui/icons-material/Email';
 import Tooltip from '@mui/material/Tooltip';
 import XIcon from '@mui/icons-material/X';
@@ -63,7 +63,7 @@ function Footer(props) {
           </Link>
           <Link href="https://docs.google.com/document/d/1xiuDjQRr6vCYP9wvctCO4CM5xerXb1kkQ0hklAgA4QE/edit?usp=sharing" underline="none" target="_blank">
             <Tooltip title='Resume' placement='right' arrow>
-              <AccountCircleIcon fontSize='small' />
+              <ContactPageIcon fontSize='small' />
             </Tooltip>
           </Link>
         </Stack>
