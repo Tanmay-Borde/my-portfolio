@@ -13,6 +13,7 @@ import Home from './components/Home';
 import Blogs from './components/Blogs';
 import { Divider } from '@mui/material';
 import Publications from './components/Publications';
+import { Helmet } from 'react-helmet';
 
 const sections = [
   { title: 'Home', url: '/home' },
@@ -33,12 +34,15 @@ const darkTheme = createTheme({
 function App() {
   return (
     <>
+      <Helmet>
+        <title>Tanmay's Portfolio</title>
+        <meta name='Tanmay Portfolio'></meta>
+      </Helmet>
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
         <Container maxWidth="lg">
           <Header sections={sections} />
           <Divider />
-          <br />
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/home' element={<Home />} />

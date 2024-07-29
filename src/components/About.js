@@ -1,6 +1,6 @@
-import { Avatar, Backdrop, BottomNavigation, BottomNavigationAction, Button, Card, CardContent, CardMedia, Chip, Container, Divider, Grid, IconButton, Slide, Stack } from "@mui/material";
+import { Alert, Avatar, Backdrop, Card, CardContent, CardMedia, Chip, Container, Divider, Grid, IconButton, Slide, Snackbar, Stack } from "@mui/material";
 import * as React from 'react';
-import Tabs, { tabsClasses } from '@mui/material/Tabs';
+import Tabs from '@mui/material/Tabs';
 import PropTypes from 'prop-types';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
@@ -22,6 +22,11 @@ import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import CloseIcon from '@mui/icons-material/Close';
+import ShareIcon from '@mui/icons-material/Share';
+import DownloadIcon from '@mui/icons-material/Download';
+
+const embedded_resume = 'https://docs.google.com/document/d/e/2PACX-1vTryJQDskPq33vxEQFd6cjANxgBb9dcmSkzBODBZM7YSpqL5mz8mwjsyrlZAbcK1m-eSrqAZ5SyLBQz/pub?embedded=true'
+const shareable_resume = 'https://docs.google.com/document/d/1xiuDjQRr6vCYP9wvctCO4CM5xerXb1kkQ0hklAgA4QE/edit?usp=sharing'
 
 const about = {
     name: 'Tanmay Borde',
@@ -226,8 +231,8 @@ export default function About() {
     const [value, setValue] = React.useState(0);
     const [open, setOpen] = React.useState(false);
     const [view, setView] = React.useState('');
-    const filetype = 'docx'
-    const file_url = 'https://docs.google.com/document/d/1xiuDjQRr6vCYP9wvctCO4CM5xerXb1kkQ0hklAgA4QE'
+    const [isCopied, setIsCopied] = React.useState(false);
+    const [progress, setProgress] = React.useState(10);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -240,6 +245,61 @@ export default function About() {
     const handleOpen = (imgDetails) => {
         setOpen(true);
         setView(imgDetails);
+    };
+
+    const handleOpenFullScreen = () => {
+        setOpen(true);
+    };
+
+    const handleCopy = () => {
+        navigator.clipboard.writeText(embedded_resume)
+            .then(() => {
+                setIsCopied(true);
+                setTimeout(() => setIsCopied(false), 6000);
+            })
+            .catch(err => {
+                setIsCopied(false);
+                console.error('Failed to copy: ', err);
+            });
+    };
+
+    const fullScreenDialogBox = () => {
+        return (
+            <Dialog
+                fullScreen
+                open={open}
+                onClose={handleClose}
+                TransitionComponent={Transition}
+            >
+                <AppBar sx={{ position: 'relative' }}>
+                    <Toolbar>
+                        <IconButton
+                            edge="start"
+                            color="inherit"
+                            onClick={handleClose}
+                            aria-label="close"
+                        >
+                            <CloseIcon />
+                        </IconButton>
+                        <Typography sx={{ ml: 1, flex: 1 }} variant="h6" component="div">
+                            {`Tanmay's Resume`}
+                        </Typography>
+                        <IconButton onClick={handleCopy}>
+                            <ShareIcon />
+                        </IconButton>
+                        <IconButton href={shareable_resume} target="_blank">
+                            <DownloadIcon />
+                        </IconButton>
+                        <Snackbar open={isCopied} autoHideDuration={6000}>
+                            <Alert severity='success' variant='standard'>
+                                {`Link Copied Successfully`}
+                            </Alert>
+                        </Snackbar>
+                    </Toolbar>
+                </AppBar>
+                <iframe align='center' width={'100%'} height={'100%'} src={embedded_resume} />
+            </Dialog>
+        )
     }
 
     return (
@@ -482,35 +542,28 @@ export default function About() {
                             </Box>
                         </TabPanel>
                         <TabPanel value={value} index={5}>
-                            <Button variant="outlined" onClick={handleOpen}>
-                                Open Resume
-                            </Button>
-                            <Dialog
-                                fullScreen
-                                open={open}
-                                onClose={handleClose}
-                                TransitionComponent={Transition}
-                            >
-                                <AppBar sx={{ position: 'relative' }}>
-                                    <Toolbar>
-                                        <IconButton
-                                            edge="start"
-                                            color="inherit"
-                                            onClick={handleClose}
-                                            aria-label="close"
-                                        >
-                                            <CloseIcon />
-                                        </IconButton>
-                                        <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-                                            Tanmay's Resume
-                                        </Typography>
-                                        <Button autoFocus color="inherit" onClick={handleClose}>
-                                            Download
-                                        </Button>
-                                    </Toolbar>
-                                </AppBar>
-                                <iframe className={filetype} width='100%' height='100%' frameborder="0" src={`${file_url}`}></iframe>
-                            </Dialog>
+                            <Box sx={{
+                                display: 'flex', justifyContent: 'space-around', alignItems: 'center', flexGrow: 1
+                            }}>
+                                <Tabs
+                                    orientation="vertical"
+                                    variant="scrollable"
+                                    value={value}
+                                    // onChange={handleChange}
+                                    aria-label="Resume Options"
+                                    sx={{ borderRight: 1, borderColor: 'divider' }}
+                                >
+                                    <Tab icon={<ShareIcon fontSize='small' />} onClick={handleCopy} />
+                                    <Snackbar open={isCopied} autoHideDuration={6000}>
+                                        <Alert severity='success' variant='standard'>
+                                            {`Link Copied Successfully`}
+                                        </Alert>
+                                    </Snackbar>
+                                    <Tab icon={<FullscreenIcon fontSize='small' />} onClick={handleOpenFullScreen} />
+                                    <Tab icon={<DownloadIcon fontSize='small' />} href={shareable_resume} target='_blank' />
+                                </Tabs>
+                                <iframe loading='lazy' width={'900'} height={'350'} src={embedded_resume} />
+                            </Box>
                         </TabPanel>
                         <TabPanel value={value} index={6}>
                             CONTACT ME
@@ -526,6 +579,7 @@ export default function About() {
                             }}
                                 src={`${process.env.PUBLIC_URL}/content/images/${view}.jpg`} />
                         </Backdrop>
+                        {fullScreenDialogBox()}
                     </Box >
                 )
                 }
@@ -534,7 +588,7 @@ export default function About() {
                         <>
                             <Box width={'100%'} sx={{ minHeight: 500, justifyContent: 'center' }}>
                                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                                    <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+                                    <Tabs value={value} onChange={handleChange} aria-label="About me tabs">
                                         <Tab icon={<PersonIcon />} {...a11yProps(0)} />
                                         <Tab icon={<CodeIcon />} {...a11yProps(1)} />
                                         <Tab icon={<SchoolIcon />} {...a11yProps(2)} />
