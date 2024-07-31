@@ -76,7 +76,6 @@ function Header(props) {
             component="nav"
             variant="dense"
             sx={{
-              // bgcolor: primary, 
               justifyContent: 'space-between',
               overflowX: 'auto'
             }}

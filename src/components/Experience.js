@@ -71,100 +71,100 @@ export default function Experience() {
 
     return (
         <>
-            <Timeline position="alternate">
-                {experiences.map((experience, index) => (
-                    <TimelineItem key={index}>
-                        <TimelineOppositeContent
-                            sx={{ m: 'auto 0' }}
-                            variant="body2"
-                            color="text.secondary"
-                        >
-                            {experience.tenure}
-                        </TimelineOppositeContent>
-                        <TimelineSeparator>
-                            <TimelineConnector />
-                            <TimelineDot>
-                                <img
-                                    src={`${process.env.PUBLIC_URL}${experience.companyLogo}`}
-                                    width={30}
-                                    height={30}
-                                    alt="Veritas Logo"
-                                />
-                            </TimelineDot>
-                            <TimelineConnector />
-                        </TimelineSeparator>
-                        <TimelineContent sx={{ py: '12px', px: 2 }}>
-                            <Typography variant="h6" component="span">
-                                {experience.company}
-                            </Typography>
-                            <Typography>
-                                {!isMobile && (
-                                    <Tooltip
-                                        arrow
-                                        title={experience.highlights}
-                                        placement={experience.placement}
-                                        TransitionComponent={Fade}
-                                        TransitionProps={{ timeout: 400 }}
-                                        PopperProps={{
-                                            disablePortal: true,
-                                        }}
-                                        onClose={handleTooltipClose}
-                                        open={open}
-                                        disableFocusListener
-                                    >
+            <Box sx={{ justifyContent: 'center', width: '100%', minHeight: 400 }}>
+                <Timeline position="alternate">
+                    {experiences.map((experience, index) => (
+                        <TimelineItem key={index}>
+                            <TimelineOppositeContent
+                                sx={{ m: 'auto 0' }}
+                                variant="body2"
+                                color="text.secondary"
+                            >
+                                {experience.tenure}
+                            </TimelineOppositeContent>
+                            <TimelineSeparator>
+                                <TimelineConnector />
+                                <TimelineDot>
+                                    <img
+                                        src={`${process.env.PUBLIC_URL}${experience.companyLogo}`}
+                                        width={30}
+                                        height={30}
+                                        alt="Veritas Logo"
+                                    />
+                                </TimelineDot>
+                                <TimelineConnector />
+                            </TimelineSeparator>
+                            <TimelineContent sx={{ py: '12px', px: 2 }}>
+                                <Typography variant="h6" component="span">
+                                    {experience.company}
+                                </Typography>
+                                <Typography>
+                                    {!isMobile && (
+                                        <Tooltip
+                                            arrow
+                                            title={experience.highlights}
+                                            placement={experience.placement}
+                                            TransitionComponent={Fade}
+                                            TransitionProps={{ timeout: 400 }}
+                                            PopperProps={{
+                                                disablePortal: true,
+                                            }}
+                                            onClose={handleTooltipClose}
+                                            open={open}
+                                            disableFocusListener
+                                        >
+                                            <Typography>
+                                                {experience.title}
+                                            </Typography>
+                                        </Tooltip>
+                                    )}
+                                </Typography>
+                            </TimelineContent>
+                        </TimelineItem>
+                    ))}
+                </Timeline >
+                <Divider /><br />
+                {
+                    experiences.map((experience, index) => (
+                        <Accordion expanded={expanded === `panel${index + 1}`} onChange={handleChange(`panel${index + 1}`)}>
+                            <AccordionSummary
+                                expandIcon={<ExpandMoreIcon />}
+                                aria-controls="panel1bh-content"
+                                id="panel1bh-header"
+                            >
+                                <Typography sx={{ width: '33%', flexShrink: 0 }}>
+                                    Key highlights
+                                </Typography>
+                                <Typography sx={{ color: 'text.secondary' }}> {experience.title} </Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <Card sx={{ minWidth: 275 }}>
+                                    <CardContent>
                                         <Typography>
-                                            {experience.title}
-                                        </Typography>
-                                    </Tooltip>
-                                )}
-                            </Typography>
-                        </TimelineContent>
-                    </TimelineItem>
-                ))}
-            </Timeline >
-
-            <Divider /><br />
-
-            {
-                experiences.map((experience, index) => (
-                    <Accordion expanded={expanded === `panel${index + 1}`} onChange={handleChange(`panel${index + 1}`)}>
-                        <AccordionSummary
-                            expandIcon={<ExpandMoreIcon />}
-                            aria-controls="panel1bh-content"
-                            id="panel1bh-header"
-                        >
-                            <Typography sx={{ width: '33%', flexShrink: 0 }}>
-                                Key highlights
-                            </Typography>
-                            <Typography sx={{ color: 'text.secondary' }}> {experience.title} </Typography>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                            <Card sx={{ minWidth: 275 }}>
-                                <CardContent>
-                                    <Typography>
-                                        Skills involved:
-                                    </Typography><br />
-                                    <Box sx={{ maxHeight: 300, overflowX: 'auto' }}>
-                                        <Stack direction={'row'} spacing={1}>
-                                            {experience.skills.map((skill, index) => (
-                                                <Grid item xs={12} md={3} key={index}>
-                                                    <Chip avatar={<Avatar src={`${process.env.PUBLIC_URL}/content/images/${skill}.png`} />} label={skill} />
-                                                </Grid>
-                                            ))
-                                            }
-                                        </Stack>
-                                    </Box>
-                                </CardContent>
-                            </Card>
-                            <Typography variant='caption'>
-                                {experience.brief.split('\n').map((line, i) => (
-                                    <ul key={i} style={{ listStyle: 'disc', paddingLeft: 20 }}>{line}<br /></ul>
-                                ))}
-                            </Typography>
-                        </AccordionDetails>
-                    </Accordion >
-                ))
-            }
+                                            Skills involved:
+                                        </Typography><br />
+                                        <Box sx={{ maxHeight: 300, overflowX: 'auto' }}>
+                                            <Stack direction={'row'} spacing={1}>
+                                                {experience.skills.map((skill, index) => (
+                                                    <Grid item xs={12} md={3} key={index}>
+                                                        <Chip avatar={<Avatar src={`${process.env.PUBLIC_URL}/content/images/${skill}.png`} />} label={skill} />
+                                                    </Grid>
+                                                ))
+                                                }
+                                            </Stack>
+                                        </Box>
+                                    </CardContent>
+                                </Card>
+                                <Typography variant='caption'>
+                                    {experience.brief.split('\n').map((line, i) => (
+                                        <ul key={i} style={{ listStyle: 'disc', paddingLeft: 20 }}>{line}<br /></ul>
+                                    ))}
+                                </Typography>
+                            </AccordionDetails>
+                        </Accordion >
+                    ))
+                }
+            </Box >
         </>
     )
 }

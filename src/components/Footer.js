@@ -56,16 +56,6 @@ function Footer(props) {
               <GitHubIcon fontSize='small' />
             </Tooltip>
           </Link>
-          <Link href={`${process.env.PUBLIC_URL}#/blogs`} underline="none" target="_blank">
-            <Tooltip title='Blogs' placement='top' arrow>
-              <ArticleIcon fontSize='small' />
-            </Tooltip>
-          </Link>
-          <Link href="https://docs.google.com/document/d/1xiuDjQRr6vCYP9wvctCO4CM5xerXb1kkQ0hklAgA4QE/edit?usp=sharing" underline="none" target="_blank">
-            <Tooltip title='Resume' placement='right' arrow>
-              <ContactPageIcon fontSize='small' />
-            </Tooltip>
-          </Link>
         </Stack>
         <Typography
           variant="subtitle1"

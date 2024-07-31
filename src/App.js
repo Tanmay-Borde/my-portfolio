@@ -54,7 +54,7 @@ function App() {
             <Route path='/archive' element={<Archive />} />
           </Routes>
           <br />
-          <Divider />
+          <Divider flexItem='true' />
           <Footer
             title="Quick Connect"
             description="Crafted by Tanmay & Gemini."
