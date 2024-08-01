@@ -1,4 +1,4 @@
-import { Alert, Avatar, Backdrop, Card, CardContent, CardMedia, Chip, Container, Divider, Grid, IconButton, Slide, Snackbar, Stack, Tooltip } from "@mui/material";
+import { Alert, Avatar, Backdrop, BottomNavigation, BottomNavigationAction, Card, CardContent, CardMedia, Chip, Container, Divider, Grid, IconButton, Slide, Snackbar, Stack, Tooltip } from "@mui/material";
 import * as React from 'react';
 import Tabs from '@mui/material/Tabs';
 import PropTypes from 'prop-types';
@@ -37,8 +37,9 @@ import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
 
-const embedded_resume = 'https://docs.google.com/document/d/e/2PACX-1vTryJQDskPq33vxEQFd6cjANxgBb9dcmSkzBODBZM7YSpqL5mz8mwjsyrlZAbcK1m-eSrqAZ5SyLBQz/pub?embedded=true'
-const shareable_resume = 'https://docs.google.com/document/d/1xiuDjQRr6vCYP9wvctCO4CM5xerXb1kkQ0hklAgA4QE/edit?usp=sharing'
+const embedded_resume = 'https://docs.google.com/document/d/e/2PACX-1vTryJQDskPq33vxEQFd6cjANxgBb9dcmSkzBODBZM7YSpqL5mz8mwjsyrlZAbcK1m-eSrqAZ5SyLBQz/pub?embedded=true';
+const shareable_resume = 'https://docs.google.com/document/d/1xiuDjQRr6vCYP9wvctCO4CM5xerXb1kkQ0hklAgA4QE/edit?usp=sharing';
+const portfolio_link = 'https://tanmay-borde.github.io/my-portfolio/';
 
 const about = {
     name: 'Tanmay Borde',
@@ -120,15 +121,23 @@ const honors = [
     {
         id: 'RP1',
         title: 'Research Paper Presentation',
+        issuedDate: 'Issued Feb 2022'
     },
     {
         id: 'RP2',
         title: 'Research Paper Presentation',
+        issuedDate: 'Issued Feb 2022'
     },
     {
         id: 'RP3',
         title: 'Seminar Competition',
+        issuedDate: 'Issued Feb 2020'
     },
+    {
+        id: 'Seed',
+        title: 'Seed Certification',
+        issuedDate: 'Issued July 2018'
+    }
 ];
 
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
@@ -243,6 +252,7 @@ export default function About() {
     const [value, setValue] = React.useState(0);
     const [open, setOpen] = React.useState(false);
     const [openDialog, setOpenDialog] = React.useState(false);
+    const [openContactCard, setOpenContactCard] = React.useState(false);
     const [view, setView] = React.useState('');
     const [isCopied, setIsCopied] = React.useState(false);
 
@@ -267,8 +277,16 @@ export default function About() {
         setOpenDialog(false);
     };
 
-    const handleCopy = () => {
-        navigator.clipboard.writeText(shareable_resume)
+    const handleOpenContactCard = () => {
+        setOpenContactCard(true);
+    };
+
+    const handleCloseContactCard = () => {
+        setOpenContactCard(false);
+    }
+
+    const handleCopy = (copy_link) => {
+        navigator.clipboard.writeText(copy_link)
             .then(() => {
                 setIsCopied(true);
                 setTimeout(() => setIsCopied(false), 6000);
@@ -278,6 +296,105 @@ export default function About() {
                 console.error('Failed to copy: ', err);
             });
     };
+
+    const fullScreenContactCard = () => {
+        return (
+            <Box sx={{ display: 'flex', justifyContent: 'center', flexGrow: 1, width: '100%', alignItems: 'center' }}>
+                <Dialog
+                    fullScreen
+                    open={openContactCard}
+                    onClose={handleCloseContactCard}
+                    TransitionComponent={Transition}>
+                    <AppBar sx={{ position: 'relative' }}>
+                        <Toolbar>
+                            <IconButton
+                                edge="start"
+                                color="inherit"
+                                onClick={handleCloseContactCard}
+                                aria-label="close"
+                            >
+                                <CloseIcon />
+                            </IconButton>
+                            <Typography sx={{ ml: 1, flex: 1 }} variant="h6" component="div">
+                                {`Tanmay's Contact Card`}
+                            </Typography>
+                            <IconButton onClick={() => handleCopy(portfolio_link)}>
+                                <ShareIcon />
+                            </IconButton>
+                            <Snackbar open={isCopied} autoHideDuration={6000}>
+                                <Alert severity='success' variant='standard'>
+                                    {`Link Copied Successfully`}
+                                </Alert>
+                            </Snackbar>
+                        </Toolbar>
+                    </AppBar>
+                    <Card variant='elevation' sx={{ display: 'flex', justifyContent: 'center' }}>
+                        <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                            <CardContent sx={{ flex: '1 0 auto' }}>
+                                <Typography component='div' variant='h5'>
+                                    {about.name}
+                                </Typography>
+                                <Typography variant='subtitle2' color='text.secondary' component={'div'} p={0.2}>
+                                    {`Techologist | Software Developer`}
+                                </Typography>
+                            </CardContent>
+                            <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 2 }}>
+                                <Stack direction="row" spacing={0.8} sx={{ justifyContent: 'center', alignItems: 'center' }}>
+                                    <IconButton href="https://www.linkedin.com/in/tanmay-borde-88668b141/" underline="none" target="_blank">
+                                        <Tooltip title='LinkedIn' placement='top' arrow>
+                                            <LinkedInIcon />
+                                        </Tooltip>
+                                    </IconButton>
+                                    <IconButton href="https://x.com/tanmay_borde?s=21" underline="none" target="_blank">
+                                        <Tooltip title='X (Twitter)' placement='top' arrow>
+                                            <XIcon />
+                                        </Tooltip>
+                                    </IconButton>
+                                    <IconButton href="https://github.com/Tanmay-Borde" underline="none" target="_blank">
+                                        <Tooltip title='GitHub' placement='top' arrow>
+                                            <GitHubIcon />
+                                        </Tooltip>
+                                    </IconButton>
+                                    <IconButton href={`${process.env.PUBLIC_URL}#/blogs`} underline="none" target="_blank">
+                                        <Tooltip title='Blogs' placement='top' arrow>
+                                            <ArticleIcon />
+                                        </Tooltip>
+                                    </IconButton>
+                                    <IconButton href={shareable_resume} underline="none" target="_blank">
+                                        <Tooltip title='Resume' placement='top' arrow>
+                                            <ContactPageIcon />
+                                        </Tooltip>
+                                    </IconButton>
+                                </Stack>
+                            </Box>
+                            <Divider flexItem='true' variant='middle' />
+                            <CardContent>
+                                <Stack direction="row" spacing={0.8} sx={{ justifyContent: 'center', alignItems: 'center' }}>
+                                    <IconButton href="mailto:tanmayborde64@gmail.com?subject=Hi from the Portfolio" underline="none" target="_blank">
+                                        <Tooltip title='E-mail' placement='top' arrow>
+                                            <EmailIcon fontSize="small" />
+                                        </Tooltip>
+                                    </IconButton>
+                                    <IconButton href="https://wa.me/918668286922" target="_blank">
+                                        <Tooltip title='WhatsApp' placement="top" arrow>
+                                            <WhatsAppIcon fontSize="small" />
+                                        </Tooltip>
+                                    </IconButton>
+                                    <IconButton href="https://tanmay-borde.github.io/my-portfolio/" underline="none" >
+                                        <Tooltip title='Portfolio' placement='top' arrow>
+                                            <AccountCircleIcon fontSize="small" />
+                                        </Tooltip>
+                                    </IconButton>
+                                </Stack>
+                            </CardContent>
+                        </Box>
+                        <Divider orientation='vertical' flexItem='true' variant='middle' />
+                        <CardMedia component='img' sx={{ p: 2, maxWidth: 200, maxHeight: 200, pt: 3 }} image={`${process.env.PUBLIC_URL}/logo.png`} />
+                    </Card>
+                </Dialog>
+            </Box>
+        )
+    }
 
     const fullScreenDialogBox = () => {
         return (
@@ -300,7 +417,7 @@ export default function About() {
                         <Typography sx={{ ml: 1, flex: 1 }} variant="h6" component="div">
                             {`Tanmay's Resume`}
                         </Typography>
-                        <IconButton onClick={handleCopy}>
+                        <IconButton onClick={() => handleCopy(shareable_resume)}>
                             <ShareIcon />
                         </IconButton>
                         <IconButton href={shareable_resume} target="_blank">
@@ -316,7 +433,7 @@ export default function About() {
                 <iframe title="Tanmay's Resume" align='center' width={'100%'} height={'100%'} src={embedded_resume} />
             </Dialog>
         )
-    }
+    };
 
     return (
         <>
@@ -405,7 +522,7 @@ export default function About() {
                         </TabPanel>
                         {/* EDUCATION */}
                         <TabPanel value={value} index={2}>
-                            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexGrow: 1, width: '100%', minWidth: 1000, pr: 20, pt: 10, pl: 2 }}>
+                            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexGrow: 1, width: '100%', minWidth: 1000, minHeight: 500, pr: 20, pl: 2 }}>
                                 <Timeline
                                     position='left'
                                     sx={{
@@ -547,7 +664,7 @@ export default function About() {
                                         onClick={() => handleOpen(certificate.id)}
                                         key={certificate.title}
                                         style={{
-                                            width: '30%',
+                                            width: '20%',
                                         }}
                                     >
                                         <ImageSrc style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/content/images/${certificate.id}.jpg)` }} />
@@ -593,7 +710,7 @@ export default function About() {
                                     aria-label="Resume Options"
                                     sx={{ borderRight: 1, borderColor: 'divider' }}
                                 >
-                                    <Tab icon={<ShareIcon fontSize='small' />} onClick={handleCopy} />
+                                    <Tab icon={<ShareIcon fontSize='small' />} onClick={() => handleCopy(shareable_resume)} />
                                     <Snackbar open={isCopied} autoHideDuration={6000}>
                                         <Alert severity='success' variant='standard'>
                                             {`Link Copied Successfully`}
@@ -606,8 +723,8 @@ export default function About() {
                             </Box>
                         </TabPanel>
                         {/* CONTACT CARD */}
-                        <TabPanel value={value} index={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', width: '100%', minHeight: 500 }}>
-                            <Box sx={{ display: 'flex', justifyContent: 'center', flexGrow: 1, width: '100%', minWidth: 1000, alignItems: 'center', pt: 15 }}>
+                        <TabPanel value={value} index={6}>
+                            <Box sx={{ display: 'flex', justifyContent: 'center', flexGrow: 1, width: '100%', minWidth: 1000, alignItems: 'center', minHeight: 500 }}>
                                 <Card variant='elevation' sx={{ display: 'flex', justifyContent: 'center' }}>
                                     <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                                         <CardContent sx={{ flex: '1 0 auto' }}>
@@ -693,15 +810,16 @@ export default function About() {
                         <>
                             <Box width={'100%'} sx={{ minHeight: 500, justifyContent: 'center' }}>
                                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                                    <Tabs value={value} onChange={handleChange} aria-label="About me tabs">
+                                    <Tabs value={value} onChange={handleChange} aria-label="About me tabs" >
                                         <Tab icon={<PersonIcon />} {...a11yProps(0)} />
                                         <Tab icon={<CodeIcon />} {...a11yProps(1)} />
                                         <Tab icon={<SchoolIcon />} {...a11yProps(2)} />
                                         <Tab icon={<MilitaryTech />} {...a11yProps(3)} />
                                     </Tabs>
                                 </Box>
+                                {/* OVERVIEW */}
                                 <TabPanel value={value} index={0} >
-                                    <Card variant='outlined' raised='true' sx={{ width: '100%', minHeight: 350, flexGrow: 1 }}>
+                                    <Card variant='outlined' raised='true' sx={{ width: '100%', minHeight: 800, flexGrow: 1 }}>
                                         <CardContent sx={{ display: 'flex', flexWrap: 'wrap', flexGrow: 1 }}>
                                             <Typography gutterBottom variant="h5" component="div">
                                                 {`Hey, I'm ${about.name}`}
@@ -712,14 +830,23 @@ export default function About() {
                                                 ))}
                                             </Typography>
                                         </CardContent>
+                                        <Box>
+                                            <BottomNavigation
+                                                showLabels
+                                            >
+                                                <BottomNavigationAction onClick={handleOpenDialog} label="Resume" icon={<ContactPageIcon />} />
+                                                <BottomNavigationAction onClick={handleOpenContactCard} label="Contact" icon={<ContactPhoneIcon />} />
+                                            </BottomNavigation>
+                                        </Box>
                                     </Card>
                                 </TabPanel>
+                                {/* SKILLS */}
                                 <TabPanel value={value} index={1}>
-                                    <Card variant='outlined' raised='true' sx={{ width: '100%', display: 'flex', flexGrow: 1, minHeight: 500, minWidth: 350 }}>
+                                    <Card variant='outlined' raised='true' sx={{ width: '100%', display: 'flex', flexGrow: 1, minHeight: 800, minWidth: 350 }}>
                                         <CardContent sx={{ display: 'flex', flexWrap: 'wrap', flexGrow: 1, justifyContent: 'center' }}>
                                             <Box sx={{ maxHeight: 300, flexFlow: 1, flexWrap: 'wrap' }}>
                                                 <Divider>{`Programming Languages`}</Divider>
-                                                <Stack p={1} direction='row' spacing={2} display={'flex'} flexGrow={1} flexWrap={'wrap'} justifyContent={'center'}>
+                                                <Stack p={2} direction='row' spacing={2} display={'flex'} flexGrow={1} flexWrap={'wrap'} justifyContent={'center'}>
                                                     {about.programmingLanguages.map((programmingLanguage, index) => (
                                                         <Grid item xs={12} md={4} key={index} p={1}>
                                                             <Chip avatar={<Avatar src={`${process.env.PUBLIC_URL}/content/images/${programmingLanguage}.png`} />} label={programmingLanguage} />
@@ -728,7 +855,7 @@ export default function About() {
                                                     }
                                                 </Stack>
                                                 <Divider>{`Frameworks`}</Divider>
-                                                <Stack p={1} direction='row' spacing={2} display={'flex'} flexGrow={1} flexWrap={'wrap'} justifyContent={'center'}>
+                                                <Stack p={2} direction='row' spacing={2} display={'flex'} flexGrow={1} flexWrap={'wrap'} justifyContent={'center'}>
                                                     {about.frameworks.map((framework, index) => (
                                                         <Grid item xs={12} md={4} key={index} p={1}>
                                                             <Chip avatar={<Avatar src={`${process.env.PUBLIC_URL}/content/images/${framework}.png`} />} label={framework} />
@@ -737,7 +864,7 @@ export default function About() {
                                                     }
                                                 </Stack>
                                                 <Divider>{`Database`}</Divider>
-                                                <Stack p={1} direction='row' spacing={2} display={'flex'} flexGrow={1} flexWrap={'wrap'} justifyContent={'center'}>
+                                                <Stack p={2} direction='row' spacing={2} display={'flex'} flexGrow={1} flexWrap={'wrap'} justifyContent={'center'}>
                                                     {about.databases.map((database, index) => (
                                                         <Grid item xs={12} md={4} key={index} p={1}>
                                                             <Chip avatar={<Avatar src={`${process.env.PUBLIC_URL}/content/images/${database}.png`} />} label={database} />
@@ -746,7 +873,7 @@ export default function About() {
                                                     }
                                                 </Stack>
                                                 <Divider>{`Tools`}</Divider>
-                                                <Stack p={1} direction='row' spacing={2} display={'flex'} flexGrow={1} flexWrap={'wrap'} justifyContent={'center'}>
+                                                <Stack p={2} direction='row' spacing={2} display={'flex'} flexGrow={1} flexWrap={'wrap'} justifyContent={'center'}>
                                                     {about.tools.map((tool, index) => (
                                                         <Grid item xs={12} md={4} key={index} p={1}>
                                                             <Chip avatar={<Avatar src={`${process.env.PUBLIC_URL}/content/images/${tool}.png`} />} label={tool} />
@@ -758,10 +885,11 @@ export default function About() {
                                         </CardContent>
                                     </Card>
                                 </TabPanel>
+                                {/* EDUCATION */}
                                 <TabPanel value={value} index={2}>
-                                    <Card variant='outlined' raised='true' sx={{ width: '100%', display: 'flex', flexGrow: 1, minHeight: 500, minWidth: 350 }}>
+                                    <Card variant='outlined' raised='true' sx={{ width: '100%', display: 'flex', flexGrow: 1, minHeight: 800, minWidth: 350 }}>
                                         <Grid container spacing={1} direction='column' flexWrap={'wrap'} >
-                                            <Grid container spacing={1}>
+                                            <Grid item>
                                                 <Grid item>
                                                     <ButtonBase
                                                         href="https://mitwpu.edu.in/"
@@ -771,7 +899,7 @@ export default function About() {
                                                         <Img height={100} width={100} alt="mit-wpu" src={`${process.env.PUBLIC_URL}/content/images/mit-wpu.png`} />
                                                     </ButtonBase>
                                                 </Grid>
-                                                <Grid item xs={12} sm container>
+                                                <Grid item xs={12} sm container p={1}>
                                                     <Grid item xs container direction="column" spacing={2}>
                                                         <Grid item xs>
                                                             <a href="https://mitwpu.edu.in/"
@@ -793,18 +921,19 @@ export default function About() {
                                                     </Grid>
                                                 </Grid>
                                             </Grid><br />
-                                            <Grid container spacing={1}>
+                                            <Grid item>
+                                                {/* <Grid item> */}
                                                 <Grid item>
                                                     <ButtonBase href="http://www.unipune.ac.in/" target="_blank" sx={{ width: 120, height: 120 }} rel="noopener noreferrer">
                                                         <Img height={100} width={100} alt="sppu" src={`${process.env.PUBLIC_URL}/content/images/sppu.jpg`} />
                                                     </ButtonBase>
                                                 </Grid>
-                                                <Grid item xs={12} sm container>
+                                                <Grid item xs={12} sm container p={1}>
                                                     <Grid item xs container direction="column" spacing={2}>
                                                         <Grid item xs>
                                                             <a href="http://www.unipune.ac.in/" target="_blank" style={{ textDecoration: 'none', color: 'inherit' }} rel="noopener noreferrer">
                                                                 <Typography gutterBottom variant='h6' component="div">
-                                                                    {`Modern College of Arts, Science & Commerce`}
+                                                                    {`Modern College of ASC`}
                                                                 </Typography>
                                                             </a>
                                                             <Typography variant="body2" gutterBottom>
@@ -820,12 +949,98 @@ export default function About() {
                                                     </Grid>
                                                 </Grid>
                                             </Grid>
+                                            {/* </Grid> */}
                                         </Grid>
                                     </Card>
                                 </TabPanel>
+                                {/* CERTIFICATIONS */}
                                 <TabPanel value={value} index={3}>
-                                    Item Four
+                                    <Card variant='outlined' raised='true' sx={{ width: '100%', minHeight: 800, flexGrow: 1, maxWidth: 400 }}>
+                                        <Box sx={{ display: 'flex', flexWrap: 'wrap', flexGrow: 1, overflowY: 'auto', minHeight: 800, flexDirection: 'column' }}>
+                                            <Grid container spacing={2} direction='column' flexWrap={'wrap'}>
+                                                {certifications.map((certification, index) => (
+                                                    <Grid key={index} item xs={6} spacing={2}>
+                                                        <Card key={index} sx={{ display: 'flex', justifyContent: 'space-between', flexGrow: 1, minHeight: 170 }}>
+                                                            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                                                                <CardContent sx={{ flex: '1 0 auto' }}>
+                                                                    <Typography component="div" variant="h6">
+                                                                        {certification.title}
+                                                                    </Typography>
+                                                                    <Typography variant="subtitle2" color="text.secondary" component="div">
+                                                                        {certification.issuedDate}
+                                                                    </Typography>
+                                                                </CardContent>
+                                                                <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
+                                                                    <IconButton aria-label="redirect" href={certification.url} target="_blank">
+                                                                        <OpenInNewIcon fontSize="small" />
+                                                                    </IconButton>
+                                                                    <IconButton aria-label="view" onClick={() => handleOpen(certification.title)}>
+                                                                        <FullscreenIcon fontSize="small" />
+                                                                    </IconButton>
+                                                                </Box>
+                                                            </Box>
+                                                            <CardMedia
+                                                                component="img"
+                                                                sx={{ width: 180, cursor: 'pointer' }}
+                                                                image={`${process.env.PUBLIC_URL}/content/images/${certification.title}.jpg`}
+                                                                alt={certification.title}
+                                                                onClick={() => handleOpen(certification.title)}
+                                                            />
+                                                        </Card>
+                                                    </Grid>
+                                                ))}
+                                            </Grid>
+                                        </Box>
+                                    </Card>
+                                    <Divider flexItem='true' variant='middle' sx={{ pt: 3 }}>{`HONORS`}</Divider><br />
+                                    <Card variant='outlined' raised='true' sx={{ width: '100%', minHeight: 800, flexGrow: 1 }}>
+                                        <Box sx={{ display: 'flex', flexWrap: 'wrap', flexGrow: 1, maxWidth: 1000, overflowY: 'auto', minHeight: 800, flexDirection: 'column' }}>
+                                            <Grid container spacing={2} direction='column' flexWrap={'wrap'}>
+                                                {honors.map((honor, index) => (
+                                                    <Grid key={index} item xs={6} spacing={2}>
+                                                        <Card key={index} sx={{ display: 'flex', justifyContent: 'space-between', flexGrow: 1, minHeight: 170 }}>
+                                                            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                                                                <CardContent sx={{ flex: '1 0 auto' }}>
+                                                                    <Typography component="div" variant="h6">
+                                                                        {honor.title}
+                                                                    </Typography>
+                                                                    <Typography variant="subtitle2" color="text.secondary" component="div">
+                                                                        {honor.issuedDate}
+                                                                    </Typography>
+                                                                </CardContent>
+                                                                <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
+                                                                    <IconButton aria-label="view" onClick={() => handleOpen(honor.id)}>
+                                                                        <FullscreenIcon fontSize="small" />
+                                                                    </IconButton>
+                                                                </Box>
+                                                            </Box>
+                                                            <CardMedia
+                                                                component="img"
+                                                                sx={{ width: 180, cursor: 'pointer' }}
+                                                                image={`${process.env.PUBLIC_URL}/content/images/${honor.id}.jpg`}
+                                                                alt={honor.title}
+                                                                onClick={() => handleOpen(honor.id)}
+                                                            />
+                                                        </Card>
+                                                    </Grid>
+                                                ))}
+                                            </Grid>
+                                        </Box>
+                                    </Card>
                                 </TabPanel>
+                                <Backdrop
+                                    sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                                    open={open}
+                                    onClick={handleClose}
+                                >
+                                    <img className='contain' alt={view} style={{
+                                        height: '100%',
+                                        width: '100%',
+                                    }}
+                                        src={`${process.env.PUBLIC_URL}/content/images/${view}.jpg`} />
+                                </Backdrop>
+                                {fullScreenDialogBox()}
+                                {fullScreenContactCard()}
                             </Box>
                         </>
                     )
