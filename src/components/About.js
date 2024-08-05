@@ -448,13 +448,112 @@ export default function About() {
                             aria-label="About me"
                             sx={{ borderRight: 1, borderColor: 'divider', display: 'flex' }}
                         >
-                            <Tab sx={{ pt: 4 }} icon={<PersonIcon />} {...a11yProps(0)} />
-                            <Tab sx={{ pt: 4 }} icon={<CodeIcon />} {...a11yProps(1)} />
-                            <Tab sx={{ pt: 4 }} icon={<SchoolIcon />} {...a11yProps(2)} />
-                            <Tab sx={{ pt: 4 }} icon={<MilitaryTech />} {...a11yProps(3)} />
-                            <Tab sx={{ pt: 4 }} icon={<EmojiEventsIcon />} {...a11yProps(4)} />
-                            <Tab sx={{ pt: 4 }} icon={<ContactPageIcon />} {...a11yProps(5)} />
-                            <Tab sx={{ pt: 4 }} icon={<ContactPhoneIcon />} {...a11yProps(6)} />
+                            <Tooltip title='Overview' placement='left' arrow
+                                slotProps={{
+                                    popper: {
+                                        modifiers: [
+                                            {
+                                                name: 'offset',
+                                                options: {
+                                                    offset: [0, -14],
+                                                },
+                                            },
+                                        ],
+                                    },
+                                }}
+                            >
+                                <Tab sx={{ pt: 4 }} icon={<PersonIcon />} {...a11yProps(0)} />
+                            </Tooltip>
+                            <Tooltip title='Skills' placement='left' arrow
+                                slotProps={{
+                                    popper: {
+                                        modifiers: [
+                                            {
+                                                name: 'offset',
+                                                options: {
+                                                    offset: [0, -14],
+                                                },
+                                            },
+                                        ],
+                                    },
+                                }}>
+                                <Tab sx={{ pt: 4 }} icon={<CodeIcon />} {...a11yProps(1)} />
+                            </Tooltip>
+                            <Tooltip title='Education' placement='left' arrow
+                                slotProps={{
+                                    popper: {
+                                        modifiers: [
+                                            {
+                                                name: 'offset',
+                                                options: {
+                                                    offset: [0, -14],
+                                                },
+                                            },
+                                        ],
+                                    },
+                                }}>
+                                <Tab sx={{ pt: 4 }} icon={<SchoolIcon />} {...a11yProps(2)} />
+                            </Tooltip>
+                            <Tooltip title='Certificates' placement='left' arrow
+                                slotProps={{
+                                    popper: {
+                                        modifiers: [
+                                            {
+                                                name: 'offset',
+                                                options: {
+                                                    offset: [0, -14],
+                                                },
+                                            },
+                                        ],
+                                    },
+                                }}>
+                                <Tab sx={{ pt: 4 }} icon={<MilitaryTech />} {...a11yProps(3)} />
+                            </Tooltip>
+                            <Tooltip title='Honors' placement='left' arrow
+                                slotProps={{
+                                    popper: {
+                                        modifiers: [
+                                            {
+                                                name: 'offset',
+                                                options: {
+                                                    offset: [0, -14],
+                                                },
+                                            },
+                                        ],
+                                    },
+                                }}>
+                                <Tab sx={{ pt: 4 }} icon={<EmojiEventsIcon />} {...a11yProps(4)} />
+                            </Tooltip>
+                            <Tooltip title='Resume' placement='left' arrow
+                                slotProps={{
+                                    popper: {
+                                        modifiers: [
+                                            {
+                                                name: 'offset',
+                                                options: {
+                                                    offset: [0, -14],
+                                                },
+                                            },
+                                        ],
+                                    },
+                                }}>
+                                <Tab sx={{ pt: 4 }} icon={<ContactPageIcon />} {...a11yProps(5)} />
+                            </Tooltip>
+                            <Tooltip title='Contact' placement='left' arrow
+                                slotProps={{
+                                    popper: {
+                                        modifiers: [
+                                            {
+                                                name: 'offset',
+                                                options: {
+                                                    offset: [0, -14],
+                                                },
+                                            },
+                                        ],
+                                    },
+                                }}>
+                                <Tab sx={{ pt: 4 }} icon={<ContactPhoneIcon />} {...a11yProps(6)} />
+                            </Tooltip>
                         </Tabs>
                         {/* OVERVIEW */}
                         <TabPanel value={value} index={0}>

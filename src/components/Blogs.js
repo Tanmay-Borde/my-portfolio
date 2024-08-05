@@ -8,20 +8,24 @@ import { Tab as BaseTab, tabClasses } from '@mui/base/Tab';
 import TechBlogs from './TechBlogs';
 import BusinessBlogs from './BusinessBlogs';
 import HumanityBlogs from './HumanityBlogs';
+import { Container } from '@mui/material';
+import { isMobile } from 'react-device-detect';
 
 export default function Blogs() {
   return (
     <>
-      <Tabs defaultValue={0}>
-        <TabsList>
-          <Tab value={0}>Technology</Tab>
-          <Tab value={1}>Business</Tab>
-          <Tab value={2}>Humanity</Tab>
-        </TabsList>
-        <TabPanel value={0}> <TechBlogs /> </TabPanel>
-        <TabPanel value={1}> <BusinessBlogs /> </TabPanel>
-        <TabPanel value={2}> <HumanityBlogs /> </TabPanel>
-      </Tabs >
+      <Container sx={{ display: 'flex', justifyContent: 'center', flexGrow: 1, width: '100%', height: '100%', mt: 1, minWidth: isMobile ? '100%' : 1000 }}>
+        <Tabs defaultValue={0}>
+          <TabsList>
+            <Tab value={0}>{`Technology`}</Tab>
+            <Tab value={1}>{`Business`}</Tab>
+            <Tab value={2}>{`Humanity`}</Tab>
+          </TabsList>
+          <TabPanel value={0}> <TechBlogs /> </TabPanel>
+          <TabPanel value={1}> <BusinessBlogs /> </TabPanel>
+          <TabPanel value={2}> <HumanityBlogs /> </TabPanel>
+        </Tabs >
+      </Container>
     </>
   );
 }
@@ -40,7 +44,6 @@ const grey = {
 };
 
 const Tab = styled(BaseTab)`
-  font-family: 'IBM Plex Sans', sans-serif;
   color: #fff;
   cursor: pointer;
   font-size: 0.875rem;
@@ -76,9 +79,8 @@ const Tab = styled(BaseTab)`
 
 const TabPanel = styled(BaseTabPanel)(({ theme }) => `
   width: 100%;
-  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 0.875rem;
-  padding: 20px 12px;
+  padding: 2px 2px;
   background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
   border: 1px solid ${theme.palette.mode === 'dark' ? grey[900] : grey[200]};
   border-radius: 12px;
@@ -89,7 +91,7 @@ const TabsList = styled(BaseTabsList)(({ theme }) => `
   min-width: 400px;
   background-color: ${grey[900]};
   border-radius: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 1px;
   display: flex;
   align-items: center;
   justify-content: center;

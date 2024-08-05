@@ -51,30 +51,30 @@ const projects = [
 export default function Projects() {
     return (
         <>
-            <Container sx={{ display: 'flex', padding: 1 }}>
-                <Box sx={{ flexGrow: 1 }}>
-                    <Grid container spacing={1} direction={isMobile ? 'column' : 'row'} flexWrap={'wrap'} >
+            <Container sx={{ display: 'flex', justifyContent: 'center', width: '100%', height: '100%', mt: 1 }}>
+                <Box>
+                    <Grid container spacing={1} direction={isMobile ? 'column' : 'row'} flexWrap={'wrap'}>
                         {projects.map((project, index) => (
                             <Grid item xs={6} spacing={2}>
-                                <Card key={index} sx={{ minHeight: 240, flexGrow: 1 }} >
+                                <Card key={index} sx={{ minHeight: 200 }}>
                                     <CardContent>
                                         <Typography variant="h5" component="div">
                                             {project.projectTitle}
                                         </Typography>
-                                        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                                        </Typography>
-                                        <Typography variant="body2">
+                                        <Typography variant="body2" mt={1}>
                                             {project.projectBrief}
                                         </Typography>
-                                        <Grid justifyContent={'flex-end'}>
-                                            <Stack spacing={1} padding={2} direction={isMobile ? 'column' : 'row'} flexGrow={1} marginBottom="auto" >
-                                                {project.skills.map((skill, index) => (
-                                                    <Grid item direction={isMobile ? 'column' : 'row'}>
-                                                        <Chip avatar={<Avatar src={`${process.env.PUBLIC_URL}/content/images/${skill}.png`} />} label={skill} />
-                                                    </Grid>
-                                                ))}
-                                            </Stack>
-                                        </Grid>
+                                        <Box sx={{ alignItems: 'flex-end', pb: 0, mt: 'auto' }}>
+                                            <Grid sx={{ alignItems: 'flex-end', pb: 0, mt: 1 }}>
+                                                <Stack spacing={1} padding={1} direction='row' sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'flex-end', mt: 'auto' }}>
+                                                    {project.skills.map((skill, index) => (
+                                                        <Grid item direction={isMobile ? 'column' : 'row'}>
+                                                            <Chip avatar={<Avatar src={`${process.env.PUBLIC_URL}/content/images/${skill}.png`} />} label={skill} />
+                                                        </Grid>
+                                                    ))}
+                                                </Stack>
+                                            </Grid>
+                                        </Box>
                                     </CardContent>
                                 </Card>
                             </Grid>

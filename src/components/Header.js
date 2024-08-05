@@ -83,7 +83,7 @@ function Header(props) {
             {sections.map((section) => (
               <Button
                 component={Link}
-                // raised
+                raised
                 color='primary'
                 noWrap
                 key={section.title}
@@ -176,10 +176,10 @@ function Header(props) {
                 {/* </Box> */}
               </Box>
             </Drawer>
+            <Divider />
           </Box >
         )
       }
-
     </>
   );
 }

@@ -12,6 +12,8 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ReactMarkdown from 'react-markdown';
 import { Link, useLocation } from 'react-router-dom';
+import { Box, CircularProgress, Container } from '@mui/material';
+import { isMobile } from 'react-device-detect';
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -27,6 +29,7 @@ const ExpandMore = styled((props) => {
 const HumanityBlogs = () => {
     const [posts, setPosts] = useState([]);
     const location = useLocation();
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -42,6 +45,7 @@ const HumanityBlogs = () => {
             );
 
             setPosts(postsWithContent);
+            setIsLoading(false);
         };
 
         fetchPosts();
@@ -74,49 +78,55 @@ const HumanityBlogs = () => {
 
     return (
         <>
-            <div style={{ display: 'grid', alignItems: 'center' }}>
-                {posts.map((post) => (
-                    <Link to={`#post-${post.id}`} key={post.id} style={{ textDecoration: 'none' }}>
-                        <Card key={post.id} sx={{ marginBlock: 1, }} id={`post-${post.id}`} >
-                            <CardHeader
-                                title={post.title}
-                                subheader={`${new Date(post.date).toLocaleDateString()} • ${post.readTime} min read`}
-                                action={
-                                    <IconButton aria-label="share">
-                                        <ShareIcon />
-                                    </IconButton>
-                                }
-                            />
-                            <CardMedia
-                                component="img"
-                                height={post.expanded ? 400 : 100}
-                                image={`${process.env.PUBLIC_URL}${post.imageURL}`}
-                                alt={post.credits}
-                            />
-                            <Typography fontSize={5}>Image by {post.credits}</ Typography>
-                            <CardHeader subheader={post.summary} />
-                            <CardActions disableSpacing>
-                                <ExpandMore
-                                    expand={post.expanded}
-                                    onClick={() => handleExpandClick(post.id)}
-                                    aria-expanded={post.expanded}
-                                    aria-label="show more"
-                                    label="Read more"
-                                >
-                                    <ExpandMoreIcon />
-                                </ExpandMore>
-                            </CardActions>
-                            <Collapse in={post.expanded} timeout="auto" unmountOnExit>
-                                <CardContent>
-                                    <Typography paragraph>
-                                        <ReactMarkdown children={post.content} />
-                                    </Typography>
-                                </CardContent>
-                            </Collapse>
-                        </Card >
-                    </Link>
-                ))}
-            </div>
+            <Container sx={{ display: 'flex', justifyContent: 'center', width: '100%', height: '100%', mt: 1, flexGrow: 1, minHeight: 800, minWidth: isMobile ? '100%' : 1000 }}>
+                {isLoading ? (
+                    <CircularProgress sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }} />
+                ) : (
+                    <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', flexGrow: 1, minHeight: 800, minWidth: isMobile ? '100%' : 1000 }}>
+                        {posts.map((post) => (
+                            <Link to={`#post-${post.id}`} key={post.id} style={{ textDecoration: 'none' }}>
+                                <Card key={post.id} id={`post-${post.id}`} >
+                                    <CardHeader
+                                        title={post.title}
+                                        subheader={`${new Date(post.date).toLocaleDateString()} • ${post.readTime} min read`}
+                                        action={
+                                            <IconButton aria-label="share">
+                                                <ShareIcon />
+                                            </IconButton>
+                                        }
+                                    />
+                                    <CardMedia
+                                        component="img"
+                                        height={post.expanded ? 400 : 200}
+                                        image={`${process.env.PUBLIC_URL}${post.imageURL}`}
+                                        alt={post.credits}
+                                    />
+                                    <Typography fontSize={5}>{`Image by`} {post.credits}</ Typography>
+                                    <CardHeader subheader={post.summary} />
+                                    <CardActions disableSpacing>
+                                        <ExpandMore
+                                            expand={post.expanded}
+                                            onClick={() => handleExpandClick(post.id)}
+                                            aria-expanded={post.expanded}
+                                            aria-label="show more"
+                                            label="Read more"
+                                        >
+                                            <ExpandMoreIcon />
+                                        </ExpandMore>
+                                    </CardActions>
+                                    <Collapse in={post.expanded} timeout="auto" unmountOnExit>
+                                        <CardContent>
+                                            <Typography paragraph>
+                                                <ReactMarkdown children={post.content} />
+                                            </Typography>
+                                        </CardContent>
+                                    </Collapse>
+                                </Card >
+                            </Link>
+                        ))}
+                    </Box>
+                )}
+            </Container>
         </>
     );
 };

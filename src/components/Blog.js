@@ -107,7 +107,7 @@ export default function Blog() {
             </Grid>
           </main>
         </Container>
-      </ThemeProvider>
+      </ThemeProvider >
     </>
   );
 }
