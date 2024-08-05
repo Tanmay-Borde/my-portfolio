@@ -42,7 +42,7 @@ function App() {
         <CssBaseline />
         <Container maxWidth="lg">
           <Header sections={sections} />
-          <Divider />
+          <Divider flexItem='true' />
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/home' element={<Home />} />
@@ -53,7 +53,6 @@ function App() {
             <Route path='/publications' element={<Publications />} />
             <Route path='/archive' element={<Archive />} />
           </Routes>
-          <br />
           <Divider flexItem='true' />
           <Footer
             title="Quick Connect"

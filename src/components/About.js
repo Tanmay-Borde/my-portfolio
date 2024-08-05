@@ -338,7 +338,7 @@ export default function About() {
                                     {`Techologist | Software Developer`}
                                 </Typography>
                             </CardContent>
-                            <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 2 }}>
+                            <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 2, p: 1 }}>
                                 <Stack direction="row" spacing={0.8} sx={{ justifyContent: 'center', alignItems: 'center' }}>
                                     <IconButton href="https://www.linkedin.com/in/tanmay-borde-88668b141/" underline="none" target="_blank">
                                         <Tooltip title='LinkedIn' placement='top' arrow>
@@ -819,214 +819,224 @@ export default function About() {
                                 </Box>
                                 {/* OVERVIEW */}
                                 <TabPanel value={value} index={0} >
-                                    <Card variant='outlined' raised='true' sx={{ width: '100%', minHeight: 800, flexGrow: 1 }}>
-                                        <CardContent sx={{ display: 'flex', flexWrap: 'wrap', flexGrow: 1 }}>
-                                            <Typography gutterBottom variant="h5" component="div">
-                                                {`Hey, I'm ${about.name}`}
-                                            </Typography>
-                                            <Typography variant="body2" color='inherit'>
-                                                {about.briefOverview.split('\n').map((line, i) => (
-                                                    <ul key={i} style={{ listStyle: 'disc', paddingLeft: 2 }}>{line}<br /></ul>
-                                                ))}
-                                            </Typography>
-                                        </CardContent>
-                                        <Box>
-                                            <BottomNavigation
-                                                showLabels
-                                            >
-                                                <BottomNavigationAction onClick={handleOpenDialog} label="Resume" icon={<ContactPageIcon />} />
-                                                <BottomNavigationAction onClick={handleOpenContactCard} label="Contact" icon={<ContactPhoneIcon />} />
-                                            </BottomNavigation>
-                                        </Box>
-                                    </Card>
+                                    <Box sx={{ minHeight: 800 }}>
+                                        <Card variant='outlined' raised='true' sx={{ width: '100%', flexGrow: 1 }}>
+                                            <CardContent sx={{ display: 'flex', flexWrap: 'wrap', flexGrow: 1 }}>
+                                                <Typography gutterBottom variant="h5" component="div">
+                                                    {`Hey, I'm ${about.name}`}
+                                                </Typography>
+                                                <Typography variant="body2" color='inherit'>
+                                                    {about.briefOverview.split('\n').map((line, i) => (
+                                                        <ul key={i} style={{ listStyle: 'disc', paddingLeft: 2 }}>{line}<br /></ul>
+                                                    ))}
+                                                </Typography>
+                                            </CardContent>
+                                            <Box>
+                                                <BottomNavigation
+                                                    showLabels
+                                                >
+                                                    <BottomNavigationAction onClick={handleOpenDialog} label="Resume" icon={<ContactPageIcon />} />
+                                                    <BottomNavigationAction onClick={handleOpenContactCard} label="Contact" icon={<ContactPhoneIcon />} />
+                                                </BottomNavigation>
+                                            </Box>
+                                        </Card>
+                                    </Box>
                                 </TabPanel>
                                 {/* SKILLS */}
                                 <TabPanel value={value} index={1}>
-                                    <Card variant='outlined' raised='true' sx={{ width: '100%', display: 'flex', flexGrow: 1, minHeight: 800, minWidth: 350 }}>
-                                        <CardContent sx={{ display: 'flex', flexWrap: 'wrap', flexGrow: 1, justifyContent: 'center' }}>
-                                            <Box sx={{ maxHeight: 300, flexFlow: 1, flexWrap: 'wrap' }}>
-                                                <Divider>{`Programming Languages`}</Divider>
-                                                <Stack p={2} direction='row' spacing={2} display={'flex'} flexGrow={1} flexWrap={'wrap'} justifyContent={'center'}>
-                                                    {about.programmingLanguages.map((programmingLanguage, index) => (
-                                                        <Grid item xs={12} md={4} key={index} p={1}>
-                                                            <Chip avatar={<Avatar src={`${process.env.PUBLIC_URL}/content/images/${programmingLanguage}.png`} />} label={programmingLanguage} />
-                                                        </Grid>
-                                                    ))
-                                                    }
-                                                </Stack>
-                                                <Divider>{`Frameworks`}</Divider>
-                                                <Stack p={2} direction='row' spacing={2} display={'flex'} flexGrow={1} flexWrap={'wrap'} justifyContent={'center'}>
-                                                    {about.frameworks.map((framework, index) => (
-                                                        <Grid item xs={12} md={4} key={index} p={1}>
-                                                            <Chip avatar={<Avatar src={`${process.env.PUBLIC_URL}/content/images/${framework}.png`} />} label={framework} />
-                                                        </Grid>
-                                                    ))
-                                                    }
-                                                </Stack>
-                                                <Divider>{`Database`}</Divider>
-                                                <Stack p={2} direction='row' spacing={2} display={'flex'} flexGrow={1} flexWrap={'wrap'} justifyContent={'center'}>
-                                                    {about.databases.map((database, index) => (
-                                                        <Grid item xs={12} md={4} key={index} p={1}>
-                                                            <Chip avatar={<Avatar src={`${process.env.PUBLIC_URL}/content/images/${database}.png`} />} label={database} />
-                                                        </Grid>
-                                                    ))
-                                                    }
-                                                </Stack>
-                                                <Divider>{`Tools`}</Divider>
-                                                <Stack p={2} direction='row' spacing={2} display={'flex'} flexGrow={1} flexWrap={'wrap'} justifyContent={'center'}>
-                                                    {about.tools.map((tool, index) => (
-                                                        <Grid item xs={12} md={4} key={index} p={1}>
-                                                            <Chip avatar={<Avatar src={`${process.env.PUBLIC_URL}/content/images/${tool}.png`} />} label={tool} />
-                                                        </Grid>
-                                                    ))
-                                                    }
-                                                </Stack>
-                                            </Box>
-                                        </CardContent>
-                                    </Card>
+                                    <Box sx={{ minHeight: 800 }}>
+                                        <Card variant='outlined' raised='true' sx={{ width: '100%', flexGrow: 1, minHeight: 600 }}>
+                                            <CardContent sx={{ display: 'flex', flexWrap: 'wrap', flexGrow: 1, justifyContent: 'center' }}>
+                                                <Box sx={{ maxHeight: 300, flexFlow: 1, flexWrap: 'wrap' }}>
+                                                    <Divider>{`Programming Languages`}</Divider>
+                                                    <Stack p={2} direction='row' spacing={2} display={'flex'} flexGrow={1} flexWrap={'wrap'} justifyContent={'center'}>
+                                                        {about.programmingLanguages.map((programmingLanguage, index) => (
+                                                            <Grid item xs={12} md={4} key={index} p={1}>
+                                                                <Chip avatar={<Avatar src={`${process.env.PUBLIC_URL}/content/images/${programmingLanguage}.png`} />} label={programmingLanguage} />
+                                                            </Grid>
+                                                        ))
+                                                        }
+                                                    </Stack>
+                                                    <Divider>{`Frameworks`}</Divider>
+                                                    <Stack p={2} direction='row' spacing={2} display={'flex'} flexGrow={1} flexWrap={'wrap'} justifyContent={'center'}>
+                                                        {about.frameworks.map((framework, index) => (
+                                                            <Grid item xs={12} md={4} key={index} p={1}>
+                                                                <Chip avatar={<Avatar src={`${process.env.PUBLIC_URL}/content/images/${framework}.png`} />} label={framework} />
+                                                            </Grid>
+                                                        ))
+                                                        }
+                                                    </Stack>
+                                                    <Divider>{`Database`}</Divider>
+                                                    <Stack p={2} direction='row' spacing={2} display={'flex'} flexGrow={1} flexWrap={'wrap'} justifyContent={'center'}>
+                                                        {about.databases.map((database, index) => (
+                                                            <Grid item xs={12} md={4} key={index} p={1}>
+                                                                <Chip avatar={<Avatar src={`${process.env.PUBLIC_URL}/content/images/${database}.png`} />} label={database} />
+                                                            </Grid>
+                                                        ))
+                                                        }
+                                                    </Stack>
+                                                    <Divider>{`Tools`}</Divider>
+                                                    <Stack p={2} direction='row' spacing={2} display={'flex'} flexGrow={1} flexWrap={'wrap'} justifyContent={'center'}>
+                                                        {about.tools.map((tool, index) => (
+                                                            <Grid item xs={12} md={4} key={index} p={1}>
+                                                                <Chip avatar={<Avatar src={`${process.env.PUBLIC_URL}/content/images/${tool}.png`} />} label={tool} />
+                                                            </Grid>
+                                                        ))
+                                                        }
+                                                    </Stack>
+                                                </Box>
+                                            </CardContent>
+                                        </Card>
+                                    </Box>
                                 </TabPanel>
                                 {/* EDUCATION */}
-                                <TabPanel value={value} index={2}>
-                                    <Card variant='outlined' raised='true' sx={{ width: '100%', display: 'flex', flexGrow: 1, minHeight: 800, minWidth: 350 }}>
-                                        <Grid container spacing={1} direction='column' flexWrap={'wrap'} >
-                                            <Grid item>
-                                                <Grid item>
-                                                    <ButtonBase
-                                                        href="https://mitwpu.edu.in/"
-                                                        target="_blank"
-                                                        sx={{ width: 120, height: 120 }}
-                                                        rel="noopener noreferrer">
-                                                        <Img height={100} width={100} alt="mit-wpu" src={`${process.env.PUBLIC_URL}/content/images/mit-wpu.png`} />
-                                                    </ButtonBase>
-                                                </Grid>
-                                                <Grid item xs={12} sm container p={1}>
-                                                    <Grid item xs container direction="column" spacing={2}>
-                                                        <Grid item xs>
-                                                            <a href="https://mitwpu.edu.in/"
-                                                                target="_blank" style={{ textDecoration: 'none', color: 'inherit' }} rel="noopener noreferrer">
-                                                                <Typography gutterBottom variant='h5' component="div">
-                                                                    {`MIT WPU`}
-                                                                </Typography>
-                                                            </a>
-                                                            <Typography variant="body2" gutterBottom>
-                                                                {`Master's Degree, Computer Science.`}
-                                                            </Typography>
-                                                            <Typography variant="body2" gutterBottom>
-                                                                {`2020 - 2022`}
-                                                            </Typography>
-                                                            <Typography variant="body2" color="text.secondary">
-                                                                {`2nd prize for debate competition • Host for International Reserach Paper Conference.`}
-                                                            </Typography>
+                                <TabPanel value={value} index={2} sx={{ minHeight: 800 }}>
+                                    <Box sx={{ minHeight: 800 }}>
+                                        <Card variant='outlined' raised='true' sx={{ width: '100%', flexGrow: 1 }}>
+                                            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                                                <Grid container spacing={1} direction='column'>
+                                                    <Grid item sx={{ display: 'flex', justifyContent: 'center' }}>
+                                                        <Grid item>
+                                                            <ButtonBase
+                                                                href="https://mitwpu.edu.in/"
+                                                                target="_blank"
+                                                                sx={{ width: 120, height: 120 }}
+                                                                rel="noopener noreferrer">
+                                                                <Img height={100} width={100} alt="mit-wpu" src={`${process.env.PUBLIC_URL}/content/images/mit-wpu.png`} />
+                                                            </ButtonBase>
+                                                        </Grid>
+                                                        <Grid item xs={12} sm container p={1} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                                            <Grid item xs container direction="column" spacing={2}>
+                                                                <Grid item xs>
+                                                                    <a href="https://mitwpu.edu.in/"
+                                                                        target="_blank" style={{ textDecoration: 'none', color: 'inherit' }} rel="noopener noreferrer">
+                                                                        <Typography gutterBottom variant='h5' component="div">
+                                                                            {`MIT WPU`}
+                                                                        </Typography>
+                                                                    </a>
+                                                                    <Typography variant="body2" gutterBottom>
+                                                                        {`Master's Degree, Computer Science.`}
+                                                                    </Typography>
+                                                                    <Typography variant="body2" gutterBottom>
+                                                                        {`2020 - 2022`}
+                                                                    </Typography>
+                                                                    <Typography variant="body2" color="text.secondary">
+                                                                        {`2nd prize for debate competition • Host for International Reserach Paper Conference.`}
+                                                                    </Typography>
+                                                                </Grid>
+                                                            </Grid>
                                                         </Grid>
                                                     </Grid>
-                                                </Grid>
-                                            </Grid><br />
-                                            <Grid item>
-                                                {/* <Grid item> */}
-                                                <Grid item>
-                                                    <ButtonBase href="http://www.unipune.ac.in/" target="_blank" sx={{ width: 120, height: 120 }} rel="noopener noreferrer">
-                                                        <Img height={100} width={100} alt="sppu" src={`${process.env.PUBLIC_URL}/content/images/sppu.jpg`} />
-                                                    </ButtonBase>
-                                                </Grid>
-                                                <Grid item xs={12} sm container p={1}>
-                                                    <Grid item xs container direction="column" spacing={2}>
-                                                        <Grid item xs>
-                                                            <a href="http://www.unipune.ac.in/" target="_blank" style={{ textDecoration: 'none', color: 'inherit' }} rel="noopener noreferrer">
-                                                                <Typography gutterBottom variant='h6' component="div">
-                                                                    {`Modern College of ASC`}
-                                                                </Typography>
-                                                            </a>
-                                                            <Typography variant="body2" gutterBottom>
-                                                                {`Bachelor's Degree, Computer Science.`}
-                                                            </Typography>
-                                                            <Typography variant="body2" gutterBottom>
-                                                                {`2017 - 2020`}
-                                                            </Typography>
-                                                            <Typography variant="body2" color="text.secondary">
-                                                                {`Bagged 1st prize in Seminar Competition on AI • Author for college magazine.`}
-                                                            </Typography>
+                                                    <Divider />
+                                                    <Grid item sx={{ display: 'flex', justifyContent: 'center' }}>
+                                                        <Grid item>
+                                                            <ButtonBase href="http://www.unipune.ac.in/" target="_blank" sx={{ width: 120, height: 120 }} rel="noopener noreferrer">
+                                                                <Img height={100} width={100} alt="sppu" src={`${process.env.PUBLIC_URL}/content/images/sppu.jpg`} />
+                                                            </ButtonBase>
+                                                        </Grid>
+                                                        <Grid item xs={12} sm container p={1}>
+                                                            <Grid item xs container direction="column" spacing={2}>
+                                                                <Grid item xs>
+                                                                    <a href="http://www.unipune.ac.in/" target="_blank" style={{ textDecoration: 'none', color: 'inherit' }} rel="noopener noreferrer">
+                                                                        <Typography gutterBottom variant='h6' component="div">
+                                                                            {`Modern College of ASC (Pune University)`}
+                                                                        </Typography>
+                                                                    </a>
+                                                                    <Typography variant="body2" gutterBottom>
+                                                                        {`Bachelor's Degree, Computer Science.`}
+                                                                    </Typography>
+                                                                    <Typography variant="body2" gutterBottom>
+                                                                        {`2017 - 2020`}
+                                                                    </Typography>
+                                                                    <Typography variant="body2" color="text.secondary">
+                                                                        {`Bagged 1st prize in Seminar Competition on AI • Author for college magazine.`}
+                                                                    </Typography>
+                                                                </Grid>
+                                                            </Grid>
                                                         </Grid>
                                                     </Grid>
+                                                    <Divider />
                                                 </Grid>
-                                            </Grid>
-                                            {/* </Grid> */}
-                                        </Grid>
-                                    </Card>
+                                            </Box>
+                                        </Card>
+                                    </Box>
                                 </TabPanel>
                                 {/* CERTIFICATIONS */}
                                 <TabPanel value={value} index={3}>
-                                    <Card variant='outlined' raised='true' sx={{ width: '100%', minHeight: 800, flexGrow: 1, maxWidth: 400 }}>
-                                        <Box sx={{ display: 'flex', flexWrap: 'wrap', flexGrow: 1, overflowY: 'auto', minHeight: 800, flexDirection: 'column' }}>
-                                            <Grid container spacing={2} direction='column' flexWrap={'wrap'}>
-                                                {certifications.map((certification, index) => (
-                                                    <Grid key={index} item xs={6} spacing={2}>
-                                                        <Card key={index} sx={{ display: 'flex', justifyContent: 'space-between', flexGrow: 1, minHeight: 170 }}>
-                                                            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                                                                <CardContent sx={{ flex: '1 0 auto' }}>
-                                                                    <Typography component="div" variant="h6">
-                                                                        {certification.title}
-                                                                    </Typography>
-                                                                    <Typography variant="subtitle2" color="text.secondary" component="div">
-                                                                        {certification.issuedDate}
-                                                                    </Typography>
-                                                                </CardContent>
-                                                                <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
-                                                                    <IconButton aria-label="redirect" href={certification.url} target="_blank">
-                                                                        <OpenInNewIcon fontSize="small" />
-                                                                    </IconButton>
-                                                                    <IconButton aria-label="view" onClick={() => handleOpen(certification.title)}>
-                                                                        <FullscreenIcon fontSize="small" />
-                                                                    </IconButton>
+                                    <Box sx={{ minHeight: 800 }}>
+                                        <Card variant='outlined' raised='true' sx={{ width: '100%', minHeight: 800, flexGrow: 1 }}>
+                                            <Box sx={{ display: 'flex', flexWrap: 'wrap', flexGrow: 1, overflowY: 'auto', minHeight: 800, flexDirection: 'column' }}>
+                                                <Grid container spacing={2} direction='column' flexWrap={'wrap'}>
+                                                    {certifications.map((certification, index) => (
+                                                        <Grid key={index} item xs={6} spacing={2}>
+                                                            <Card key={index} sx={{ display: 'flex', justifyContent: 'space-between', flexGrow: 1, minHeight: 170 }}>
+                                                                <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                                                                    <CardContent sx={{ flex: '1 0 auto' }}>
+                                                                        <Typography component="div" variant="h6">
+                                                                            {certification.title}
+                                                                        </Typography>
+                                                                        <Typography variant="subtitle2" color="text.secondary" component="div">
+                                                                            {certification.issuedDate}
+                                                                        </Typography>
+                                                                    </CardContent>
+                                                                    <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
+                                                                        <IconButton aria-label="redirect" href={certification.url} target="_blank">
+                                                                            <OpenInNewIcon fontSize="small" />
+                                                                        </IconButton>
+                                                                        <IconButton aria-label="view" onClick={() => handleOpen(certification.title)}>
+                                                                            <FullscreenIcon fontSize="small" />
+                                                                        </IconButton>
+                                                                    </Box>
                                                                 </Box>
-                                                            </Box>
-                                                            <CardMedia
-                                                                component="img"
-                                                                sx={{ width: 180, cursor: 'pointer' }}
-                                                                image={`${process.env.PUBLIC_URL}/content/images/${certification.title}.jpg`}
-                                                                alt={certification.title}
-                                                                onClick={() => handleOpen(certification.title)}
-                                                            />
-                                                        </Card>
-                                                    </Grid>
-                                                ))}
-                                            </Grid>
-                                        </Box>
-                                    </Card>
-                                    <Divider flexItem='true' variant='middle' sx={{ pt: 3 }}>{`HONORS`}</Divider><br />
-                                    <Card variant='outlined' raised='true' sx={{ width: '100%', minHeight: 800, flexGrow: 1 }}>
-                                        <Box sx={{ display: 'flex', flexWrap: 'wrap', flexGrow: 1, maxWidth: 1000, overflowY: 'auto', minHeight: 800, flexDirection: 'column' }}>
-                                            <Grid container spacing={2} direction='column' flexWrap={'wrap'}>
-                                                {honors.map((honor, index) => (
-                                                    <Grid key={index} item xs={6} spacing={2}>
-                                                        <Card key={index} sx={{ display: 'flex', justifyContent: 'space-between', flexGrow: 1, minHeight: 170 }}>
-                                                            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                                                                <CardContent sx={{ flex: '1 0 auto' }}>
-                                                                    <Typography component="div" variant="h6">
-                                                                        {honor.title}
-                                                                    </Typography>
-                                                                    <Typography variant="subtitle2" color="text.secondary" component="div">
-                                                                        {honor.issuedDate}
-                                                                    </Typography>
-                                                                </CardContent>
-                                                                <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
-                                                                    <IconButton aria-label="view" onClick={() => handleOpen(honor.id)}>
-                                                                        <FullscreenIcon fontSize="small" />
-                                                                    </IconButton>
+                                                                <CardMedia
+                                                                    component="img"
+                                                                    sx={{ width: 180, cursor: 'pointer' }}
+                                                                    image={`${process.env.PUBLIC_URL}/content/images/${certification.title}.jpg`}
+                                                                    alt={certification.title}
+                                                                    onClick={() => handleOpen(certification.title)}
+                                                                />
+                                                            </Card>
+                                                        </Grid>
+                                                    ))}
+                                                </Grid>
+                                            </Box>
+                                        </Card>
+                                        <Divider flexItem='true' variant='middle' sx={{ pt: 3 }}>{`HONORS`}</Divider><br />
+                                        <Card variant='outlined' raised='true' sx={{ width: '100%', minHeight: 800, flexGrow: 1 }}>
+                                            <Box sx={{ display: 'flex', flexWrap: 'wrap', flexGrow: 1, maxWidth: 1000, overflowY: 'auto', minHeight: 800, flexDirection: 'column' }}>
+                                                <Grid container spacing={2} direction='column' flexWrap={'wrap'}>
+                                                    {honors.map((honor, index) => (
+                                                        <Grid key={index} item xs={6} spacing={2}>
+                                                            <Card key={index} sx={{ display: 'flex', justifyContent: 'space-between', flexGrow: 1, minHeight: 170 }}>
+                                                                <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                                                                    <CardContent sx={{ flex: '1 0 auto' }}>
+                                                                        <Typography component="div" variant="h6">
+                                                                            {honor.title}
+                                                                        </Typography>
+                                                                        <Typography variant="subtitle2" color="text.secondary" component="div">
+                                                                            {honor.issuedDate}
+                                                                        </Typography>
+                                                                    </CardContent>
+                                                                    <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
+                                                                        <IconButton aria-label="view" onClick={() => handleOpen(honor.id)}>
+                                                                            <FullscreenIcon fontSize="small" />
+                                                                        </IconButton>
+                                                                    </Box>
                                                                 </Box>
-                                                            </Box>
-                                                            <CardMedia
-                                                                component="img"
-                                                                sx={{ width: 180, cursor: 'pointer' }}
-                                                                image={`${process.env.PUBLIC_URL}/content/images/${honor.id}.jpg`}
-                                                                alt={honor.title}
-                                                                onClick={() => handleOpen(honor.id)}
-                                                            />
-                                                        </Card>
-                                                    </Grid>
-                                                ))}
-                                            </Grid>
-                                        </Box>
-                                    </Card>
+                                                                <CardMedia
+                                                                    component="img"
+                                                                    sx={{ width: 180, cursor: 'pointer' }}
+                                                                    image={`${process.env.PUBLIC_URL}/content/images/${honor.id}.jpg`}
+                                                                    alt={honor.title}
+                                                                    onClick={() => handleOpen(honor.id)}
+                                                                />
+                                                            </Card>
+                                                        </Grid>
+                                                    ))}
+                                                </Grid>
+                                            </Box>
+                                        </Card>
+                                    </Box>
                                 </TabPanel>
                                 <Backdrop
                                     sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}

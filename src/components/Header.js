@@ -96,84 +96,88 @@ function Header(props) {
             ))}
           </Toolbar>
         </Box>
-      )}
-      {isMobile && (
-        <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Typography
-            component="h2"
-            variant="h5"
-            color="inherit"
-            align="center"
-            noWrap
-            sx={{ flex: 1, display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}
-          >
-            <Link to='/home'>
-              <img
-                alt="LOGO"
-                src={`${process.env.PUBLIC_URL}/logo.png`}
-                height={40}
-                width={40}
-                style={imgStyles}
-              />
-            </Link>
-          </Typography>
-          <IconButton color="inherit" aria-label="open drawer" edge="end" onClick={handleDrawerToggle} sx={{ display: { xs: 'block', md: 'none' } }}>
-            <MenuIcon />
-          </IconButton>
-          <Toolbar component="nav" variant="dense" sx={{ justifyContent: 'space-between', overflowX: 'auto', display: { xs: 'none', md: 'flex' } }}>
-            {sections.map((section) => (
-              <Button
-                component={Link}
-                color='primary'
-                noWrap
-                key={section.title}
-                variant="body2"
-                to={section.url}
-                sx={{ p: 1, flexShrink: 0 }}
-              >
-                {section.title}
-              </Button>
-            ))}
-          </Toolbar>
-          <Drawer
-            variant="temporary"
-            anchor={theme.direction === 'rtl' ? 'left' : 'right'}
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            ModalProps={{
-              keepMounted: true, // Better performance on mobile
-            }}
-            sx={{
-              display: { xs: 'block', md: 'none' },
-              '& .MuiDrawer-paper': { width: 240, boxSizing: 'border-box' },
-            }}
-          >
-            {drawerContent}
-            <Divider />
-            <Typography variant="h7" align="center" gutterBottom p={2}>
-              {`Quick Connect`}
-            </Typography>
-            <Stack direction="row" spacing={2} sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'flex-end' }}>
-              <Link href="mailto:tanmayborde64@gmail.com?subject=Hi from the Portfolio" underline="none" target="_blank">
-                <EmailIcon color='primary' />
-              </Link>
-              <Link href="https://www.linkedin.com/in/tanmay-borde-88668b141/" underline="none" target="_blank">
-                <LinkedInIcon color='primary' />
-              </Link>
-              <Link href="https://github.com/Tanmay-Borde" underline="none" target="_blank">
-                <GitHubIcon color='primary' />
-              </Link>
-              <Link href={`${process.env.PUBLIC_URL}#/blogs`} underline="none" target="_blank">
-                <ArticleIcon color='primary' />
-              </Link>
-              <Link href="https://docs.google.com/document/d/1xiuDjQRr6vCYP9wvctCO4CM5xerXb1kkQ0hklAgA4QE/edit?usp=sharing" underline="none" target="_blank">
-                <AccountCircleIcon color='primary' />
-              </Link>
-            </Stack>
-          </Drawer>
-
-        </Box >
       )
+      }
+      {
+        isMobile && (
+          <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+            <Typography
+              component="h2"
+              variant="h5"
+              color="inherit"
+              align="center"
+              noWrap
+              sx={{ flex: 1, display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}
+            >
+              <Link to='/home'>
+                <img
+                  alt="LOGO"
+                  src={`${process.env.PUBLIC_URL}/logo.png`}
+                  height={40}
+                  width={40}
+                  style={imgStyles}
+                />
+              </Link>
+            </Typography>
+            <IconButton color="inherit" aria-label="open drawer" edge="end" onClick={handleDrawerToggle} sx={{ display: { xs: 'block', md: 'none' } }}>
+              <MenuIcon />
+            </IconButton>
+            <Toolbar component="nav" variant="dense" sx={{ justifyContent: 'space-between', overflowX: 'auto', display: { xs: 'none', md: 'flex' } }}>
+              {sections.map((section) => (
+                <Button
+                  component={Link}
+                  color='primary'
+                  noWrap
+                  key={section.title}
+                  variant="body2"
+                  to={section.url}
+                  sx={{ p: 1, flexShrink: 0 }}
+                >
+                  {section.title}
+                </Button>
+              ))}
+            </Toolbar>
+            <Drawer
+              variant="temporary"
+              anchor={theme.direction === 'rtl' ? 'left' : 'right'}
+              open={mobileOpen}
+              onClose={handleDrawerToggle}
+              ModalProps={{
+                keepMounted: true, // Better performance on mobile
+              }}
+              sx={{
+                display: { xs: 'block', md: 'none' },
+                '& .MuiDrawer-paper': { width: 240, boxSizing: 'border-box' },
+              }}
+            >
+              {drawerContent}
+              <Box sx={{ alignItems: 'flex-end', pb: 1, mt: 'auto' }}>
+                <Divider />
+                <Typography variant="h7" sx={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', p: 2 }}>
+                  {`Quick Connect`}
+                </Typography>
+                <Stack direction="row" spacing={2} sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'flex-end', pb: 4, mt: 'auto' }}>
+                  <Link href="mailto:tanmayborde64@gmail.com?subject=Hi from the Portfolio" underline="none" target="_blank">
+                    <EmailIcon color='primary' />
+                  </Link>
+                  <Link href="https://www.linkedin.com/in/tanmay-borde-88668b141/" underline="none" target="_blank">
+                    <LinkedInIcon color='primary' />
+                  </Link>
+                  <Link href="https://github.com/Tanmay-Borde" underline="none" target="_blank">
+                    <GitHubIcon color='primary' />
+                  </Link>
+                  <Link href={`${process.env.PUBLIC_URL}#/blogs`} underline="none" target="_blank">
+                    <ArticleIcon color='primary' />
+                  </Link>
+                  <Link href="https://docs.google.com/document/d/1xiuDjQRr6vCYP9wvctCO4CM5xerXb1kkQ0hklAgA4QE/edit?usp=sharing" underline="none" target="_blank">
+                    <AccountCircleIcon color='primary' />
+                  </Link>
+                </Stack>
+                {/* </Box> */}
+              </Box>
+            </Drawer>
+          </Box >
+        )
       }
 
     </>
