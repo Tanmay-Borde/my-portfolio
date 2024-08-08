@@ -14,6 +14,9 @@ import Blogs from './components/Blogs';
 import { Divider } from '@mui/material';
 import Publications from './components/Publications';
 import { Helmet } from 'react-helmet';
+import TechBlogs from './components/TechBlogs';
+import BusinessBlogs from './components/BusinessBlogs';
+import HumanityBlogs from './components/HumanityBlogs';
 
 const sections = [
   { title: 'Home', url: '/home' },
@@ -35,7 +38,7 @@ function App() {
   return (
     <>
       <Helmet>
-        <title>Tanmay's Portfolio</title>
+        <title>{`Tanmay's Portfolio`}</title>
         <meta name='Tanmay Portfolio'></meta>
       </Helmet>
       <ThemeProvider theme={darkTheme}>
@@ -52,6 +55,12 @@ function App() {
             <Route path='/projects' element={<Projects />} />
             <Route path='/publications' element={<Publications />} />
             <Route path='/archive' element={<Archive />} />
+            <Route path='/blogs' element={<Blogs />}>
+              <Route path='tech-blogs' element={<TechBlogs />} />
+              <Route path='business-blogs' element={<BusinessBlogs />} />
+              <Route path='humanity-blogs' element={<HumanityBlogs />} />
+              <Route index element={<TechBlogs />} />
+            </Route>
           </Routes>
           <Divider flexItem='true' />
           <Footer

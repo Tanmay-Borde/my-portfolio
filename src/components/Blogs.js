@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { styled } from '@mui/system';
 import { Tabs } from '@mui/base/Tabs';
 import { TabsList as BaseTabsList } from '@mui/base/TabsList';
@@ -10,24 +10,55 @@ import BusinessBlogs from './BusinessBlogs';
 import HumanityBlogs from './HumanityBlogs';
 import { Container } from '@mui/material';
 import { isMobile } from 'react-device-detect';
+import { Link, useLocation } from "react-router-dom";
+import PropTypes from 'prop-types';
+
+const RouterLink = React.forwardRef(function RouterLink(props, ref) {
+  const { ownerState, ...other } = props;
+  return <Link {...other} ref={ref} />
+});
+
+RouterLink.propTypes = {
+  ownerState: PropTypes.object.isRequired,
+};
 
 export default function Blogs() {
+  const location = useLocation();
+  const [selectedtab, setSelectedTab] = useState('tech-blogs');
+
+  useEffect(() => {
+    setSelectedTab(location.pathname.split('/')[2]);
+  }, [location])
+
   return (
     <>
       <Container sx={{ display: 'flex', justifyContent: 'center', flexGrow: 1, width: '100%', height: '100%', mt: 1, minWidth: isMobile ? '100%' : 1000 }}>
-        <Tabs defaultValue={0}>
-          <TabsList>
-            <Tab value={0}>{`Technology`}</Tab>
-            <Tab value={1}>{`Business`}</Tab>
-            <Tab value={2}>{`Humanity`}</Tab>
+        <Tabs value={selectedtab || 'tech-blogs'} >
+          <TabsList >
+            <Tab value={'tech-blogs'} to={'tech-blogs'} slots={{ root: Link }} style={{ textDecoration: 'none' }}>
+              {`Technology`}
+            </Tab>
+            <Tab value={'business-blogs'} to={'business-blogs'} slots={{ root: Link }} style={{ textDecoration: 'none' }}>
+              {`Business`}
+            </Tab>
+            <Tab value={'humanity-blogs'} to={'humanity-blogs'} slots={{ root: Link }} style={{ textDecoration: 'none' }}>
+              {`Humanity`}
+            </Tab>
           </TabsList>
-          <TabPanel value={0}> <TechBlogs /> </TabPanel>
-          <TabPanel value={1}> <BusinessBlogs /> </TabPanel>
-          <TabPanel value={2}> <HumanityBlogs /> </TabPanel>
-        </Tabs >
+          <TabPanel value={'tech-blogs'}>
+            <TechBlogs />
+          </TabPanel>
+          <TabPanel value={'business-blogs'}>
+            <BusinessBlogs />
+          </TabPanel>
+          <TabPanel value={'humanity-blogs'}>
+            <HumanityBlogs />
+          </TabPanel>
+        </Tabs>
       </Container>
     </>
-  );
+  )
+
 }
 
 const grey = {
