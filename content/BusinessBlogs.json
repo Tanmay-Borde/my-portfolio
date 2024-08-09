@@ -1,7 +1,7 @@
 [
     {
         "id": "BB1",
-        "section": "Business Blogs",
+        "section": "business-blogs",
         "title": "Business Post 1.",
         "readTime": "2",
         "date": "2024-06-01",
@@ -17,7 +17,7 @@
     },
     {
         "id": "BB2",
-        "section": "Business Blogs",
+        "section": "business-blogs",
         "title": "Business Post 2.",
         "readTime": "3",
         "date": "2024-06-01",
@@ -39,7 +39,7 @@
     },
     {
         "id": "BB3",
-        "section": "Business Blogs",
+        "section": "business-blogs",
         "title": "Business Post 3.",
         "readTime": "3",
         "date": "2024-06-01",
@@ -61,7 +61,7 @@
     },
     {
         "id": "BB4",
-        "section": "Business Blogs",
+        "section": "business-blogs",
         "title": "Business Post 4.",
         "readTime": "3",
         "date": "2024-06-01",
@@ -83,7 +83,7 @@
     },
     {
         "id": "BB5",
-        "section": "Business Blogs",
+        "section": "business-blogs",
         "title": "Business Post 5.",
         "readTime": "3",
         "date": "2024-06-01",

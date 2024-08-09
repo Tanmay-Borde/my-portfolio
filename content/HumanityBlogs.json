@@ -1,7 +1,7 @@
 [
     {
-        "id": "TB1",
-        "section": "Tech Blogs",
+        "id": "HB1",
+        "section": "humanity-blogs",
         "title": "HB Post 1.",
         "readTime": "2",
         "date": "2024-06-01",
@@ -16,8 +16,8 @@
         "sources": []
     },
     {
-        "id": "TB2",
-        "section": "Tech Blogs",
+        "id": "HB2",
+        "section": "humanity-blogs",
         "title": "HB Post 2.",
         "readTime": "3",
         "date": "2024-06-01",
@@ -38,8 +38,8 @@
         ]
     },
     {
-        "id": "TB3",
-        "section": "Tech Blogs",
+        "id": "HB3",
+        "section": "humanity-blogs",
         "title": "HB Post 3.",
         "readTime": "3",
         "date": "2024-06-01",
@@ -60,8 +60,8 @@
         ]
     },
     {
-        "id": "TB4",
-        "section": "Tech Blogs",
+        "id": "HB4",
+        "section": "humanity-blogs",
         "title": "HB Post 4.",
         "readTime": "3",
         "date": "2024-06-01",
@@ -82,8 +82,8 @@
         ]
     },
     {
-        "id": "TB5",
-        "section": "Tech Blogs",
+        "id": "HB5",
+        "section": "humanity-blogs",
         "title": "HB Post 5.",
         "readTime": "3",
         "date": "2024-06-01",
