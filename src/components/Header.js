@@ -166,7 +166,7 @@ function Header(props) {
                   <Link href="https://github.com/Tanmay-Borde" underline="none" target="_blank">
                     <GitHubIcon color='primary' />
                   </Link>
-                  <Link href={`${process.env.PUBLIC_URL}#/blogs`} underline="none" target="_blank">
+                  <Link href={`${process.env.PUBLIC_URL}/blogs`} underline="none" target="_blank">
                     <ArticleIcon color='primary' />
                   </Link>
                   <Link href="https://docs.google.com/document/d/1xiuDjQRr6vCYP9wvctCO4CM5xerXb1kkQ0hklAgA4QE/edit?usp=sharing" underline="none" target="_blank">

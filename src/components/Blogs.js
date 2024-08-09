@@ -10,31 +10,25 @@ import BusinessBlogs from './BusinessBlogs';
 import HumanityBlogs from './HumanityBlogs';
 import { Container } from '@mui/material';
 import { isMobile } from 'react-device-detect';
-import { Link, useLocation } from "react-router-dom";
-import PropTypes from 'prop-types';
-
-const RouterLink = React.forwardRef(function RouterLink(props, ref) {
-  const { ownerState, ...other } = props;
-  return <Link {...other} ref={ref} />
-});
-
-RouterLink.propTypes = {
-  ownerState: PropTypes.object.isRequired,
-};
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function Blogs() {
   const location = useLocation();
-  const [selectedtab, setSelectedTab] = useState('tech-blogs');
+  const navigate = useNavigate();
+  const [selectedtab, setSelectedTab] = useState('');
 
   useEffect(() => {
     setSelectedTab(location.pathname.split('/')[2]);
-  }, [location])
+    if (location.pathname === '/blogs') {
+      navigate('/blogs/tech-blogs');
+    }
+  }, [location, navigate]);
 
   return (
     <>
       <Container sx={{ display: 'flex', justifyContent: 'center', flexGrow: 1, width: '100%', height: '100%', mt: 1, minWidth: isMobile ? '100%' : 1000 }}>
-        <Tabs value={selectedtab || 'tech-blogs'} >
-          <TabsList >
+        <Tabs value={selectedtab || 'tech-blogs'}>
+          <TabsList sx={{ display: 'flex', justifyContent: 'center', flexGrow: 1, width: '100%', minWidth: isMobile ? '100%' : 1000 }}>
             <Tab value={'tech-blogs'} to={'tech-blogs'} slots={{ root: Link }} style={{ textDecoration: 'none' }}>
               {`Technology`}
             </Tab>

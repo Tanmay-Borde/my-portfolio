@@ -8,7 +8,7 @@ import { isMobile } from 'react-device-detect';
 const FeaturedBlogs = [
     {
         "id": "TB1",
-        "section": "Tech Blogs",
+        "section": "tech-blogs",
         "title": "Why NVIDIA is pushing hard for on-device ML accelerators?",
         "readTime": "2",
         "date": "2024-06-01",
@@ -20,11 +20,11 @@ const FeaturedBlogs = [
         "credits": "TechCrunch",
         "metaDescription": [],
         "relatedPosts": [],
-        "sources": []
+        "sources": [],
     },
     {
         "id": "BB2",
-        "section": "Business Blogs",
+        "section": "business-blogs",
         "title": "Business Post 2.",
         "readTime": "3",
         "date": "2024-06-01",
@@ -45,26 +45,20 @@ const FeaturedBlogs = [
         ]
     },
     {
-        "id": "TB3",
-        "section": "Tech Blogs",
-        "title": "HB Post 3.",
-        "readTime": "3",
+        "id": "HB1",
+        "section": "humanity-blogs",
+        "title": "HB Post 1.",
+        "readTime": "2",
         "date": "2024-06-01",
-        "contentFile": "/content/contentFiles/HBMD/HB3.md",
+        "contentFile": "/content/contentFiles/HBMD/HB1.md",
         "author": "Tanmay Borde",
-        "tags": "",
-        "summary": "This is the summary of TB3 post.",
-        "imageURL": "/content/images/TB3.jpg",
+        "tags": [],
+        "summary": "This is the summary of TB1 post.",
+        "imageURL": "/content/images/TB1.jpg",
         "credits": "TechCrunch",
-        "metaDescription": "",
-        "relatedPosts": [
-            "",
-            ""
-        ],
-        "sources": [
-            "",
-            ""
-        ]
+        "metaDescription": [],
+        "relatedPosts": [],
+        "sources": []
     },
 ]
 
@@ -77,7 +71,7 @@ export default function Home() {
         autoplay: true,
         autoplaySpeed: 2000,
         pauseOnHover: true,
-
+        arrows: isMobile ? false : true
     }
 
     return (
@@ -92,7 +86,8 @@ export default function Home() {
                     </Typography>
                     <Slider {...settings}>
                         {FeaturedBlogs.map((post) => (
-                            <Link href={`${process.env.PUBLIC_URL}/#/blogs#post-${post.id}`} underline="none" target="_blank">
+                            <Link href={`${process.env.PUBLIC_URL}#/blogs/${post.section}#post-${post.id}`} underline="none">
+                                {console.log(`${process.env.PUBLIC_URL}#/blogs/${post.section}#post-${post.id}`)}
                                 <Card sx={{ width: '100%' }}>
                                     <CardActionArea>
                                         <CardMedia

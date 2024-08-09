@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -11,7 +11,7 @@ import Typography from '@mui/material/Typography';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ReactMarkdown from 'react-markdown';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { Box, CircularProgress, Container } from '@mui/material';
 import { isMobile } from 'react-device-detect';
 
@@ -30,6 +30,8 @@ const TechBlogs = () => {
     const [posts, setPosts] = useState([]);
     const location = useLocation();
     const [isLoading, setIsLoading] = useState(true);
+    const { path } = useParams();
+    const elementRef = useRef(null);
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -54,9 +56,12 @@ const TechBlogs = () => {
         const handleHashChange = () => {
             const hash = location.hash;
             if (hash) {
-                const element = document.getElementById(hash.slice(1));
+                const elementId = hash.slice(1);
+                const element = document.getElementById(elementId);
                 if (element) {
-                    setTimeout(() => element.scrollIntoView({ behavior: 'smooth' }), 100);
+                    element.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    console.error(`Element ${elementId} not found.`);
                 }
             }
         };
@@ -78,6 +83,7 @@ const TechBlogs = () => {
     return (
         <>
             <Container sx={{ display: 'flex', justifyContent: 'center', width: '100%', height: '100%', mt: 1, flexGrow: 1, minHeight: 800, minWidth: isMobile ? '100%' : 1000 }}>
+                {console.log(path)}
                 {isLoading ? (
                     <CircularProgress sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }} />
                 ) : (
@@ -85,7 +91,7 @@ const TechBlogs = () => {
                         {
                             posts.map((post) => (
                                 <Link to={`#post-${post.id}`} key={post.id} style={{ textDecoration: 'none' }}>
-                                    <Card key={post.id} id={`post-${post.id}`}>
+                                    <Card key={post.id} id={`post-${post.id}`} ref={elementRef}>
                                         <CardHeader
                                             title={post.title}
                                             subheader={`${new Date(post.date).toLocaleDateString()} • ${post.readTime} min read`}

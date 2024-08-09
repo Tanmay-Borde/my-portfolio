@@ -1,7 +1,7 @@
 [
     {
         "id": "TB1",
-        "section": "Tech Blogs",
+        "section": "tech-blogs",
         "title": "Why NVIDIA is pushing hard for on-device ML accelerators?",
         "readTime": "2",
         "date": "2024-06-01",
@@ -17,7 +17,7 @@
     },
     {
         "id": "TB2",
-        "section": "Tech Blogs",
+        "section": "tech-blogs",
         "title": "Latest Apple WWDC24 Updates.",
         "readTime": "3",
         "date": "2024-06-01",
@@ -39,7 +39,7 @@
     },
     {
         "id": "TB3",
-        "section": "Tech Blogs",
+        "section": "tech-blogs",
         "title": "Windows doubling down on ARM powered Laptops.",
         "readTime": "3",
         "date": "2024-06-01",
@@ -61,7 +61,7 @@
     },
     {
         "id": "TB4",
-        "section": "Tech Blogs",
+        "section": "tech-blogs",
         "title": "Title of TB4.",
         "readTime": "3",
         "date": "2024-06-01",
@@ -83,7 +83,7 @@
     },
     {
         "id": "TB5",
-        "section": "Tech Blogs",
+        "section": "tech-blogs",
         "title": "Title of TB5.",
         "readTime": "3",
         "date": "2024-06-01",
