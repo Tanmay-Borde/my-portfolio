@@ -1,44 +1,20 @@
 [
     {
         "id": "Q1",
-        "section": "Quotes",
-        "title": "First Post",
-        "readTime": "",
-        "date": "2024-06-01",
-        "content": "This is the content of the first post.",
-        "author": "Tanmay Borde",
+        "section": "quotes",
+        "quote": "Extinction is the rule. Survival is the exception.",
+        "author": "- Carl Sagan",
         "tags": "",
-        "summary": "",
-        "imageURL": "",
-        "metaDescription": "",
-        "relatedPosts": [
-            "",
-            ""
-        ],
-        "sources": [
-            "",
-            ""
-        ]
+        "imageURL": "/content/images/carl_sagan.png",
+        "metaDescription": ""
     },
     {
         "id": "Q2",
-        "section": "Quotes",
-        "title": "Second Post",
-        "readTime": "",
-        "date": "2024-06-01",
-        "content": "This is the content of the first post.",
-        "author": "Tanmay Borde",
+        "section": "quotes",
+        "quote": "Be less curious about people and more curious about ideas.",
+        "author": "- Maria Sklodowska-Curie",
         "tags": "",
-        "summary": "",
-        "imageURL": "",
-        "metaDescription": "",
-        "relatedPosts": [
-            "",
-            ""
-        ],
-        "sources": [
-            "",
-            ""
-        ]
+        "imageURL": "/content/images/Q1.jpg",
+        "metaDescription": ""
     }
 ]
