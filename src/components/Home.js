@@ -62,7 +62,17 @@ const FeaturedBlogs = [
     },
 ]
 
+// const img = styled('CardMedia')({
+//     margin: 'auto',
+//     display: 'block',
+//     width: '100%',
+//     height: 'auto',
+//     objectFit: 'contain'
+
+// });
+
 export default function Home() {
+    const [quotes, setQuotes] = React.useState([]);
     var settings = {
         dots: true,
         infinite: true,
@@ -71,8 +81,19 @@ export default function Home() {
         autoplay: true,
         autoplaySpeed: 2000,
         pauseOnHover: true,
-        arrows: isMobile ? false : true
+        arrows: false
     }
+
+    React.useEffect(() => {
+        const fetchQuotes = async () => {
+            const response = await fetch(`${process.env.PUBLIC_URL}/content/Quotes.json`);
+            const data = await response.json();
+            setQuotes(data);
+        };
+
+        fetchQuotes();
+
+    }, []);
 
     return (
         <>
@@ -88,7 +109,7 @@ export default function Home() {
                         {FeaturedBlogs.map((post) => (
                             <Link href={`${process.env.PUBLIC_URL}#/blogs/${post.section}#post-${post.id}`} underline="none">
                                 {console.log(`${process.env.PUBLIC_URL}#/blogs/${post.section}#post-${post.id}`)}
-                                <Card sx={{ width: '100%' }}>
+                                <Card sx={{ width: '100%', minHeight: 350 }}>
                                     <CardActionArea>
                                         <CardMedia
                                             component="img"
@@ -112,17 +133,18 @@ export default function Home() {
                 </div>
                 <Grid container spacing={1} direction={isMobile ? 'column' : 'row'}>
                     <Grid item xs={6} width={'100%'}>
-                        <Card>
+                        <Card sx={{ width: '100%', minHeight: 300 }}>
                             <CardActionArea>
                                 <CardMedia
                                     component="img"
+                                    className='img'
                                     height="140"
                                     image="/static/images/cards/contemplative-reptile.jpg"
                                     alt="green iguana"
                                 />
                                 <CardContent>
                                     <Typography gutterBottom variant="h5" component="div">
-                                        {`Recent Learnings`}
+                                        {`In the Spotlight`}
                                     </Typography>
                                     <Typography variant="body2" color="text.secondary">
                                         Lizards are a widespread group of squamate reptiles, with over 6,000
@@ -133,26 +155,26 @@ export default function Home() {
                         </Card>
                     </Grid>
                     <Grid item xs={6} width={'100%'}>
-                        <Card>
-                            <CardActionArea>
-                                <CardMedia
-                                    component="img"
-                                    height="140"
-                                    image="/static/images/cards/contemplative-reptile.jpg"
-                                    alt="green iguana"
-                                />
-                                <CardContent>
-                                    <Typography gutterBottom variant="h5" component="div">
-                                        {`Quotes`}
-                                    </Typography>
-                                    <Typography variant="body2" color="text.secondary">
-                                        Lizards are a widespread group of squamate reptiles, with over 6,000
-                                        species, ranging across all continents except Antarctica
-                                    </Typography>
-                                </CardContent>
-                            </CardActionArea>
-                        </Card>
-
+                        <Slider {...settings}>
+                            {quotes.map((quote) => (
+                                <Card sx={{ width: '100%', minHeight: 300 }}>
+                                    <CardMedia
+                                        component="img"
+                                        height="200"
+                                        image={`${process.env.PUBLIC_URL}${quote.imageURL}`}
+                                        alt="image post"
+                                    />
+                                    <CardContent>
+                                        <Typography gutterBottom variant="body1" fontWeight={500} fontStyle={'italic'} component="div">
+                                            {"\""}{quote.quote}{"\""}
+                                        </Typography>
+                                        <Typography variant="body2" color="text.secondary">
+                                            {quote.author}
+                                        </Typography>
+                                    </CardContent>
+                                </Card>
+                            ))}
+                        </Slider>
                     </Grid>
                 </Grid>
             </Container >

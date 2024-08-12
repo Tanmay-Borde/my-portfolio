@@ -26,9 +26,9 @@ export default function Blogs() {
 
   return (
     <>
-      <Container sx={{ display: 'flex', justifyContent: 'center', flexGrow: 1, width: '100%', height: '100%', mt: 1, minWidth: isMobile ? '100%' : 1000 }}>
+      <Container sx={{ display: 'flex', justifyContent: 'center', flexGrow: 1, width: '100%', height: '100%', mt: 1 }} >
         <Tabs value={selectedtab || 'tech-blogs'}>
-          <TabsList sx={{ display: 'flex', justifyContent: 'center', flexGrow: 1, width: '100%', minWidth: isMobile ? '100%' : 1000 }}>
+          <TabsList sx={{ display: 'flex', justifyContent: 'center', flexGrow: 1, width: '100%' }}>
             <Tab value={'tech-blogs'} to={'tech-blogs'} slots={{ root: Link }} style={{ textDecoration: 'none' }}>
               {`Technology`}
             </Tab>
@@ -49,7 +49,7 @@ export default function Blogs() {
             <HumanityBlogs />
           </TabPanel>
         </Tabs>
-      </Container>
+      </Container >
     </>
   )
 
