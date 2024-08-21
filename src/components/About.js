@@ -431,7 +431,7 @@ export default function About() {
                     </Toolbar>
                 </AppBar>
                 <iframe title="Tanmay's Resume" align='center' width={'100%'} height={'100%'} src={embedded_resume} />
-            </Dialog>
+            </Dialog >
         )
     };
 
@@ -718,7 +718,10 @@ export default function About() {
                         </TabPanel >
                         {/* CERTIFICATIONS */}
                         <TabPanel value={value} index={3} overflow={'auto'} maxHeight={1000}>
-                            <Box sx={{ display: 'flex', flexWrap: 'wrap', flexGrow: 1, maxWidth: 1000, overflowY: 'auto', maxHeight: 350, minHeight: 500 }}>
+                            <Box sx={{
+                                display: 'flex', flexWrap: 'wrap', flexGrow: 1, maxWidth: 1000, overflowY: 'auto', maxHeight: 350, minHeight: 500, '-ms-overflow-style': 'none',
+                                'scrollbar-width': 'none',
+                            }}>
                                 <Grid container spacing={2} direction='row' flexWrap={'wrap'}>
                                     {certifications.map((certification, index) => (
                                         <Grid key={index} item xs={6} spacing={2}>

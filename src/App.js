@@ -17,6 +17,7 @@ import { Helmet } from 'react-helmet';
 import TechBlogs from './components/TechBlogs';
 import BusinessBlogs from './components/BusinessBlogs';
 import HumanityBlogs from './components/HumanityBlogs';
+import Feeds from './components/Feeds';
 
 const sections = [
   { title: 'Home', url: '/home' },
@@ -25,6 +26,7 @@ const sections = [
   { title: 'Projects', url: '/projects' },
   { title: 'Publications', url: '/publications' },
   { title: 'Blogs', url: '/blogs' },
+  { title: 'Feeds', url: '/feeds' },
   { title: 'Archive', url: '/archive' },
 ];
 
@@ -54,13 +56,14 @@ function App() {
             <Route path='/blogs' element={<Blogs />} />
             <Route path='/projects' element={<Projects />} />
             <Route path='/publications' element={<Publications />} />
-            <Route path='/archive' element={<Archive />} />
             <Route path='/blogs' element={<Blogs />}>
               <Route path='tech-blogs' element={<TechBlogs />} />
               <Route path='business-blogs' element={<BusinessBlogs />} />
               <Route path='humanity-blogs' element={<HumanityBlogs />} />
               <Route index element={<TechBlogs />} />
             </Route>
+            <Route path='/feeds' element={<Feeds />} />
+            <Route path='/archive' element={<Archive />} />
           </Routes>
           <Divider flexItem='true' />
           <Footer

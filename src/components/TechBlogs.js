@@ -11,8 +11,9 @@ import Typography from '@mui/material/Typography';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ReactMarkdown from 'react-markdown';
-import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Box, CircularProgress, Container } from '@mui/material';
+import { isMobile } from 'react-device-detect';
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -29,7 +30,6 @@ const TechBlogs = () => {
     const [posts, setPosts] = useState([]);
     const location = useLocation();
     const [isLoading, setIsLoading] = useState(true);
-    const { path } = useParams();
     const elementRef = useRef(null);
 
     useEffect(() => {
@@ -81,12 +81,11 @@ const TechBlogs = () => {
 
     return (
         <>
-            <Container sx={{ display: 'flex', justifyContent: 'center', width: '100%', height: '100%', mt: 1, flexGrow: 1, minHeight: 800 }}>
-                {console.log(path)}
+            <Container sx={{ display: 'flex', justifyContent: 'center', width: '100%', height: '100%', mt: 1, flexGrow: 1, minHeight: 800, minWidth: isMobile ? '100%' : 1000 }}>
                 {isLoading ? (
                     <CircularProgress sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }} />
                 ) : (
-                    <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', flexGrow: 1, minHeight: 800 }}>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', flexGrow: 1, minHeight: 800, minWidth: isMobile ? '100%' : 1000, width: '100%' }}>
                         {
                             posts.map((post) => (
                                 <Link to={`#post-${post.id}`} key={post.id} style={{ textDecoration: 'none' }}>

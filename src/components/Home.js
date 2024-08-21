@@ -1,102 +1,119 @@
 import * as React from 'react';
 import Container from '@mui/material/Container';
 import Slider from 'react-slick';
-import { Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from '@mui/material';
-import Link from '@mui/material/Link';
+import { Alert, AppBar, Box, Card, CardActionArea, CardContent, CardMedia, Dialog, Divider, Grid, IconButton, Snackbar, Stack, Toolbar, Typography, Slide } from '@mui/material';
 import { isMobile } from 'react-device-detect';
+import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
+import { Link } from 'react-router-dom';
+import CloseIcon from '@mui/icons-material/Close';
+import ShareIcon from '@mui/icons-material/Share';
+import DownloadIcon from '@mui/icons-material/Download';
 
-const FeaturedBlogs = [
-    {
-        "id": "TB1",
-        "section": "tech-blogs",
-        "title": "Why NVIDIA is pushing hard for on-device ML accelerators?",
-        "readTime": "2",
-        "date": "2024-06-01",
-        "contentFile": "/content/contentFiles/TBMD/TB1.md",
-        "author": "Tanmay Borde",
-        "tags": [],
-        "summary": "This is the summary of TB1 post.",
-        "imageURL": "/content/images/TB1.jpg",
-        "credits": "TechCrunch",
-        "metaDescription": [],
-        "relatedPosts": [],
-        "sources": [],
-    },
-    {
-        "id": "BB2",
-        "section": "business-blogs",
-        "title": "Business Post 2.",
-        "readTime": "3",
-        "date": "2024-06-01",
-        "contentFile": "/content/contentFiles/BBMD/BB2.md",
-        "author": "Tanmay Borde",
-        "tags": "",
-        "summary": "This is the summary of TB2 post.",
-        "imageURL": "/content/images/TB2.jpg",
-        "credits": "TechCrunch",
-        "metaDescription": "",
-        "relatedPosts": [
-            "",
-            ""
-        ],
-        "sources": [
-            "",
-            ""
-        ]
-    },
-    {
-        "id": "HB1",
-        "section": "humanity-blogs",
-        "title": "HB Post 1.",
-        "readTime": "2",
-        "date": "2024-06-01",
-        "contentFile": "/content/contentFiles/HBMD/HB1.md",
-        "author": "Tanmay Borde",
-        "tags": [],
-        "summary": "This is the summary of TB1 post.",
-        "imageURL": "/content/images/TB1.jpg",
-        "credits": "TechCrunch",
-        "metaDescription": [],
-        "relatedPosts": [],
-        "sources": []
-    },
-]
+const embedded_resume = 'https://docs.google.com/document/d/e/2PACX-1vTryJQDskPq33vxEQFd6cjANxgBb9dcmSkzBODBZM7YSpqL5mz8mwjsyrlZAbcK1m-eSrqAZ5SyLBQz/pub?embedded=true';
+const shareable_resume = 'https://docs.google.com/document/d/1xiuDjQRr6vCYP9wvctCO4CM5xerXb1kkQ0hklAgA4QE/edit?usp=sharing';
 
-// const img = styled('CardMedia')({
-//     margin: 'auto',
-//     display: 'block',
-//     width: '100%',
-//     height: 'auto',
-//     objectFit: 'contain'
-
-// });
+const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+});
 
 export default function Home() {
-    const [quotes, setQuotes] = React.useState([]);
+    const [openDialog, setOpenDialog] = React.useState(false);
+    const [isCopied, setIsCopied] = React.useState(false);
+    const [featuredBlogs, setFeaturedBlogs] = React.useState([]);
+    const [featuredFeeds, setFeaturedFeeds] = React.useState([]);
+    const [featuredQuotes, setFeaturedQuotes] = React.useState([]);
+
+    const handleOpenDialog = () => {
+        setOpenDialog(true);
+    };
+
+    const handleCloseDialog = () => {
+        setOpenDialog(false);
+    };
+
+    const handleCopy = (copy_link) => {
+        navigator.clipboard.writeText(copy_link)
+            .then(() => {
+                setIsCopied(true);
+                setTimeout(() => setIsCopied(false), 6000);
+            })
+            .catch(err => {
+                setIsCopied(false);
+                console.error('Failed to copy: ', err);
+            });
+    };
+
+    const fullScreenDialogBox = () => {
+        return (
+            <Dialog
+                fullScreen
+                open={openDialog}
+                onClose={handleCloseDialog}
+                TransitionComponent={Transition}
+            >
+                <AppBar sx={{ position: 'relative' }}>
+                    <Toolbar>
+                        <IconButton
+                            edge="start"
+                            color="inherit"
+                            onClick={handleCloseDialog}
+                            aria-label="close"
+                        >
+                            <CloseIcon />
+                        </IconButton>
+                        <Typography sx={{ ml: 1, flex: 1 }} variant="h6" component="div">
+                            {`Tanmay's Resume`}
+                        </Typography>
+                        <IconButton onClick={() => handleCopy(shareable_resume)}>
+                            <ShareIcon />
+                        </IconButton>
+                        <IconButton href={shareable_resume} target="_blank">
+                            <DownloadIcon />
+                        </IconButton>
+                        <Snackbar open={isCopied} autoHideDuration={6000}>
+                            <Alert severity='success' variant='standard'>
+                                {`Link Copied Successfully`}
+                            </Alert>
+                        </Snackbar>
+                    </Toolbar>
+                </AppBar>
+                <iframe title="Tanmay's Resume" align='center' width={'100%'} height={'100%'} src={embedded_resume} />
+            </Dialog>
+        )
+    };
+
     var settings = {
         dots: true,
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 2000,
+        autoplaySpeed: 4000,
         pauseOnHover: true,
         arrows: false
     }
 
     React.useEffect(() => {
-        const fetchQuotes = async () => {
-            const response = await fetch(`${process.env.PUBLIC_URL}/content/Quotes.json`);
-            const data = await response.json();
-            setQuotes(data);
+        const fetchHomePageContent = async () => {
+            const featuredFeedsContent = await fetch(`${process.env.PUBLIC_URL}/content/FeaturedFeeds.json`);
+            const featuredFeeds = await featuredFeedsContent.json();
+            const featuredBlogsContent = await fetch(`${process.env.PUBLIC_URL}/content/FeaturedPosts.json`);
+            const featuredBlogs = await featuredBlogsContent.json();
+            const featuredQuotesContent = await fetch(`${process.env.PUBLIC_URL}/content/Quotes.json`);
+            const featuredQuotes = await featuredQuotesContent.json();
+
+            setFeaturedFeeds(featuredFeeds);
+            setFeaturedBlogs(featuredBlogs);
+            setFeaturedQuotes(featuredQuotes);
         };
 
-        fetchQuotes();
+        fetchHomePageContent();
 
     }, []);
 
     return (
         <>
+            {/* FEATURED POSTS */}
             <Container sx={{ mt: 1, mb: 1 }}>
                 <div className="slider-container">
                     <Typography variant='h4' component="div">
@@ -106,77 +123,250 @@ export default function Home() {
                         {`Better understanding of the world, one question at a time!`}
                     </Typography>
                     <Slider {...settings}>
-                        {FeaturedBlogs.map((post) => (
-                            <Link href={`${process.env.PUBLIC_URL}#/blogs/${post.section}#post-${post.id}`} underline="none">
-                                {console.log(`${process.env.PUBLIC_URL}#/blogs/${post.section}#post-${post.id}`)}
-                                <Card sx={{ width: '100%', minHeight: 350 }}>
-                                    <CardActionArea>
-                                        <CardMedia
-                                            component="img"
-                                            height="200"
-                                            image={`${process.env.PUBLIC_URL}${post.imageURL}`}
-                                            alt="image post"
-                                        />
-                                        <CardContent>
-                                            <Typography gutterBottom variant="h5" component="div">
-                                                {post.title}
-                                            </Typography>
-                                            <Typography variant="body2" color="text.secondary">
-                                                {post.summary}
-                                            </Typography>
-                                        </CardContent>
-                                    </CardActionArea>
+                        {featuredBlogs.map((post) => (
+                            <Link to={`/blogs/${post.section}`}>
+                                <Card sx={{ minHeight: 300, maxHeight: 300 }}>
+                                    <Box sx={{ position: 'relative', height: '100%' }}>
+                                        {/* <CardActionArea href={`${process.env.PUBLIC_URL}#/blogs/${post.section}#post-${post.id}`}> */}
+                                        <CardActionArea>
+                                            <CardMedia
+                                                component="img"
+                                                height="300"
+                                                image={`${process.env.PUBLIC_URL}${post.imageURL}`}
+                                                alt="image post"
+                                            />
+                                            <CardContent sx={{
+                                                position: 'absolute',
+                                                bottom: 0,
+                                                left: 0,
+                                                right: 0,
+                                                padding: '15px',
+                                                background: 'linear-gradient(to top, rgba(0, 0, 0, 2), rgba(0, 0, 0, 0))'
+                                            }}>
+                                                <Typography gutterBottom variant="h5" component="div" sx={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 2)' }}>
+                                                    {post.title}
+                                                </Typography>
+                                                <Typography variant="body2" color="text.secondary" sx={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 1)' }}>
+                                                    {post.summary}
+                                                </Typography>
+                                            </CardContent>
+                                        </CardActionArea>
+                                    </Box>
                                 </Card>
                             </Link>
                         ))}
                     </Slider>
                 </div>
-                <Grid container spacing={1} direction={isMobile ? 'column' : 'row'}>
-                    <Grid item xs={6} width={'100%'}>
-                        <Card sx={{ width: '100%', minHeight: 300 }}>
-                            <CardActionArea>
-                                <CardMedia
-                                    component="img"
-                                    className='img'
-                                    height="140"
-                                    image="/static/images/cards/contemplative-reptile.jpg"
-                                    alt="green iguana"
-                                />
-                                <CardContent>
-                                    <Typography gutterBottom variant="h5" component="div">
-                                        {`In the Spotlight`}
-                                    </Typography>
-                                    <Typography variant="body2" color="text.secondary">
-                                        Lizards are a widespread group of squamate reptiles, with over 6,000
-                                        species, ranging across all continents except Antarctica
-                                    </Typography>
-                                </CardContent>
-                            </CardActionArea>
-                        </Card>
-                    </Grid>
-                    <Grid item xs={6} width={'100%'}>
-                        <Slider {...settings}>
-                            {quotes.map((quote) => (
-                                <Card sx={{ width: '100%', minHeight: 300 }}>
-                                    <CardMedia
-                                        component="img"
-                                        height="200"
-                                        image={`${process.env.PUBLIC_URL}${quote.imageURL}`}
-                                        alt="image post"
-                                    />
-                                    <CardContent>
-                                        <Typography gutterBottom variant="body1" fontWeight={500} fontStyle={'italic'} component="div">
-                                            {"\""}{quote.quote}{"\""}
-                                        </Typography>
-                                        <Typography variant="body2" color="text.secondary">
-                                            {quote.author}
-                                        </Typography>
-                                    </CardContent>
-                                </Card>
-                            ))}
-                        </Slider>
-                    </Grid>
-                </Grid>
+                <Divider flexItem='true' variant='middle' sx={{ mt: 2 }} />
+
+                {/* WEEKLY FEEDS */}
+
+                {!isMobile && (
+                    <Grid container spacing={1} direction={isMobile ? 'column' : 'row'} mt={1}>
+                        <Grid item xs={6}>
+                            <Box mb={1}>
+                                <Typography variant='h6' component="div">
+                                    {`Weekly feeds`}
+                                </Typography>
+                            </Box>
+                            <Slider {...settings}>
+                                {featuredFeeds.map((feed) => (
+                                    <Link to={'/feeds'}>
+                                        <Card sx={{ minHeight: 300, maxHeight: 300 }}>
+                                            <Box sx={{ position: 'relative', height: '100%' }}>
+                                                <CardActionArea>
+                                                    <CardMedia
+                                                        component="img"
+                                                        height="300"
+                                                        image={feed.imageURL}
+                                                        alt="image post"
+                                                    />
+                                                    <CardContent sx={{
+                                                        position: 'absolute',
+                                                        bottom: 0,
+                                                        left: 0,
+                                                        right: 0,
+                                                        padding: '15px',
+                                                        background: 'linear-gradient(to top, rgba(0, 0, 0, 2), rgba(0, 0, 0, 0))'
+                                                    }}>
+                                                        <Typography gutterBottom variant="h6" component="div" sx={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 2)' }}>
+                                                            {feed.title}
+                                                        </Typography>
+                                                        <Typography variant="body2" color="text.secondary" sx={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 1)' }}>
+                                                            {feed.summary}
+                                                        </Typography>
+                                                    </CardContent>
+                                                </CardActionArea>
+                                            </Box>
+                                        </Card>
+                                    </Link>
+                                ))}
+                            </Slider>
+                        </Grid>
+
+                        {/* QUOTES */}
+
+                        <Grid item xs={6}>
+                            <Box mb={1}>
+                                <Typography variant='h6' component="div">
+                                    {`Profound Quotes`}
+                                </Typography>
+                            </Box>
+                            <Slider {...settings}>
+                                {featuredQuotes.map((quote) => (
+                                    <Card sx={{ minHeight: 300, maxHeight: 300 }}>
+                                        <Box sx={{ position: 'relative', height: '100%' }}>
+                                            <CardMedia
+                                                component="img"
+                                                height="300"
+                                                image={quote.imageURL}
+                                                alt="image post"
+                                            />
+                                            <CardContent sx={{
+                                                position: 'absolute',
+                                                bottom: 0,
+                                                left: 0,
+                                                right: 0,
+                                                padding: '15px',
+                                                background: 'linear-gradient(to top, rgba(0, 0, 0, 2), rgba(0, 0, 0, 0))'
+                                            }}>
+                                                <Typography gutterBottom variant="body1" component="div" fontStyle={'italic'} sx={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 2)' }}>
+                                                    {'"'}{quote.quote}{'"'}
+                                                </Typography>
+                                                <Typography variant="body2" color="text.secondary" sx={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 1)' }}>
+                                                    {'- '}{quote.author}
+                                                </Typography>
+                                            </CardContent>
+                                        </Box>
+                                    </Card>
+                                ))}
+                            </Slider>
+                        </Grid>
+                    </Grid >
+                )}
+
+                {isMobile && (
+                    <>
+                        {/*MOBILE VIEW: WEEKLY FEEDS */}
+                        <div className="slider-container">
+                            <Box mb={1}>
+                                <Typography variant='h6' component="div">
+                                    {`Weekly Feeds`}
+                                </Typography>
+                            </Box>
+                            <Slider {...settings}>
+                                {featuredFeeds.map((feed) => (
+                                    <Link to={'/feeds'}>
+                                        <Card sx={{ minHeight: 300, maxHeight: 300 }}>
+                                            <Box sx={{ position: 'relative', height: '100%' }}>
+                                                <CardActionArea href={feed.source}>
+                                                    <CardMedia
+                                                        component="img"
+                                                        height="300"
+                                                        image={feed.imageURL}
+                                                        alt="image post"
+                                                    />
+                                                    <CardContent sx={{
+                                                        position: 'absolute',
+                                                        bottom: 0,
+                                                        left: 0,
+                                                        right: 0,
+                                                        padding: '15px',
+                                                        background: 'linear-gradient(to top, rgba(0, 0, 0, 2), rgba(0, 0, 0, 0))'
+                                                    }}>
+                                                        <Typography gutterBottom variant="h5" component="div" sx={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 2)' }}>
+                                                            {feed.title}
+                                                        </Typography>
+                                                        <Typography variant="body2" color="text.secondary" sx={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 1)' }}>
+                                                            {feed.summary}
+                                                        </Typography>
+                                                    </CardContent>
+                                                </CardActionArea>
+                                            </Box>
+                                        </Card>
+                                    </Link>
+                                ))}
+                            </Slider>
+                        </div>
+                        {/* MOBILE VIEW: PROFOUND QUOTES */}
+                        <div className="slider-container">
+                            <Box mb={1}>
+                                <Typography variant='h6' component="div">
+                                    {`Profound Quotes`}
+                                </Typography>
+                            </Box>
+                            <Slider {...settings}>
+                                {featuredQuotes.map((quote) => (
+                                    <Card sx={{ minHeight: 300, maxHeight: 300 }}>
+                                        <Box sx={{ position: 'relative', height: '100%' }}>
+                                            <CardMedia
+                                                component="img"
+                                                height="300"
+                                                image={quote.imageURL}
+                                                alt="image post"
+                                            />
+                                            <CardContent sx={{
+                                                position: 'absolute',
+                                                bottom: 0,
+                                                left: 0,
+                                                right: 0,
+                                                padding: '15px',
+                                                background: 'linear-gradient(to top, rgba(0, 0, 0, 2), rgba(0, 0, 0, 0))'
+                                            }}>
+                                                <Typography gutterBottom variant="body1" component="div" fontStyle={'italic'} sx={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 2)' }}>
+                                                    {'"'}{quote.quote}{'"'}
+                                                </Typography>
+                                                <Typography variant="body2" color="text.secondary" sx={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 1)' }}>
+                                                    {'- '}{quote.author}
+                                                </Typography>
+                                            </CardContent>
+                                        </Box>
+                                    </Card>
+                                ))}
+                            </Slider>
+                        </div>
+                    </>
+                )}
+                <Divider flexItem='true' variant='middle' sx={{ mt: 2 }} />
+                <Typography variant='h6' component="div" sx={{ display: 'flex', justifyContent: 'space-evenly', flexGrow: 1 }}>
+                    {`Quick Links`}
+                </Typography>
+                <Stack
+                    spacing={4}
+                    direction={isMobile ? 'column' : 'row'}
+                    sx={{
+                        display: 'flex',
+                        justifyContent: isMobile ? 'space-evenly' : 'center',
+                        alignItems: 'center',
+                        flexGrow: 1,
+                        mt: 3
+                    }}>
+                    <Link onClick={handleOpenDialog}>
+                        < Typography variant='button' style={{ textDecoration: 'none', color: 'ButtonHighlight' }}>
+                            {`My Resume`}
+                            <ArrowOutwardIcon fontSize='inherit' />
+                        </Typography>
+                    </Link>
+                    <Link to={'/about'}>
+                        <Typography variant='button' style={{ textDecoration: 'none', color: 'ButtonHighlight' }}>
+                            {`About me`}
+                            <ArrowOutwardIcon fontSize='inherit' />
+                        </Typography>
+                    </Link>
+                    <Link to={'/experience'}>
+                        <Typography variant='button' style={{ textDecoration: 'none', color: 'ButtonHighlight' }}>
+                            {`Recent Experience`}
+                            <ArrowOutwardIcon fontSize='inherit' />
+                        </Typography>
+                    </Link>
+                    <Link to={'/projects'}>
+                        <Typography variant='button' style={{ textDecoration: 'none', color: 'ButtonHighlight' }}>
+                            {`Recent Projects`}
+                            <ArrowOutwardIcon fontSize='inherit' />
+                        </Typography>
+                    </Link>
+                    {fullScreenDialogBox()}
+                </Stack >
             </Container >
         </>
     );

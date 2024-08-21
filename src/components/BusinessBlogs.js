@@ -80,7 +80,7 @@ const BusinessBlogs = () => {
                 {isLoading ? (
                     <CircularProgress sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }} />
                 ) : (
-                    <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', flexGrow: 1, minHeight: 800, minWidth: isMobile ? '100%' : 1000 }}>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', flexGrow: 1, minHeight: 800, minWidth: isMobile ? '100%' : 1000, width: '100%' }}>
                         {posts.map((post) => (
                             <Link to={`#post-${post.id}`} key={post.id} style={{ textDecoration: 'none' }}>
                                 <Card key={post.id} id={`post-${post.id}`} >

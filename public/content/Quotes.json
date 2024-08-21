@@ -3,18 +3,18 @@
         "id": "Q1",
         "section": "quotes",
         "quote": "Extinction is the rule. Survival is the exception.",
-        "author": "- Carl Sagan",
+        "author": "Carl Sagan",
         "tags": "",
-        "imageURL": "/content/images/carl_sagan.png",
+        "imageURL": "https://media.wired.com/photos/5a04a6d02a76145d1c96ebcf/master/w_1920,c_limit/carlsagan-TA.jpg",
         "metaDescription": ""
     },
     {
         "id": "Q2",
         "section": "quotes",
         "quote": "Be less curious about people and more curious about ideas.",
-        "author": "- Maria Sklodowska-Curie",
+        "author": "Maria Sklodowska-Curie",
         "tags": "",
-        "imageURL": "/content/images/Q1.jpg",
+        "imageURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Marie_Curie_c._1920s.jpg/330px-Marie_Curie_c._1920s.jpg",
         "metaDescription": ""
     }
 ]
