@@ -11,10 +11,100 @@
     {
         "id": "Q2",
         "section": "quotes",
+        "quote": "You have to be burning with an idea, or a problem, or a wrong that you want to right. If you're not passionate enough from the start, you'll never stick it out.",
+        "author": "Steve Jobs",
+        "tags": "",
+        "imageURL": "https://duet-cdn.vox-cdn.com/thumbor/0x0:609x403/828x552/filters:focal(304x201:305x202):format(webp)/cdn.vox-cdn.com/uploads/chorus_asset/file/15104736/steve-jobs-macintosh.0.1418672939.jpg",
+        "metaDescription": ""
+    },
+    {
+        "id": "Q3",
+        "section": "quotes",
         "quote": "Be less curious about people and more curious about ideas.",
         "author": "Maria Sklodowska-Curie",
         "tags": "",
-        "imageURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Marie_Curie_c._1920s.jpg/330px-Marie_Curie_c._1920s.jpg",
+        "imageURL": "https://marie-sklodowska-curie-actions.ec.europa.eu/sites/default/files/styles/eac_ratio_16_9_xl/public/2021-11/Marie-Curie-900PX.jpg?h=9396f34a&itok=u7VVjNMU",
+        "metaDescription": ""
+    },
+    {
+        "id": "Q4",
+        "section": "quotes",
+        "quote": "I... a universe of atoms, an atom in the universe.",
+        "author": "Richard Feynman",
+        "tags": "",
+        "imageURL": "https://upload.wikimedia.org/wikipedia/en/4/42/Richard_Feynman_Nobel.jpg",
+        "metaDescription": ""
+    },
+    {
+        "id": "Q5",
+        "section": "quotes",
+        "quote": "Blind obedience to authority is the greatest enemy of truth.",
+        "author": "Albert Einstein",
+        "tags": "",
+        "imageURL": "https://cdn.mos.cms.futurecdn.net/W2xQZxs7T2gUE2fMbUv4s6-970-80.jpg.webp",
+        "metaDescription": ""
+    },
+    {
+        "id": "Q6",
+        "section": "quotes",
+        "quote": "We are like butterflies who flutter for a day and think it's forever.",
+        "author": "Carl Sagan",
+        "tags": "",
+        "imageURL": "https://friendsofchinacamp.org/wp-content/uploads/2022/04/F39DCDBB-779A-40F3-B8ED-6429C7BBF516.jpeg",
+        "metaDescription": ""
+    },
+    {
+        "id": "Q7",
+        "section": "quotes",
+        "quote": "Not a shark in a suit, not a corporate wolf. In business, all you need to be is a human being with insight.",
+        "author": "Jaggi Vasudev",
+        "tags": "",
+        "imageURL": "https://amansharma5.wordpress.com/wp-content/uploads/2015/12/narayana-murthy.jpg",
+        "metaDescription": ""
+    },
+    {
+        "id": "Q8",
+        "section": "quotes",
+        "quote": "No man should escape our universities without knowing how little he knows.",
+        "author": "J. Robert Oppenheimer",
+        "tags": "",
+        "imageURL": "https://insidestory.org.au/wp-content/uploads/oppenheimer.jpg",
+        "metaDescription": ""
+    },
+    {
+        "id": "Q9",
+        "section": "quotes",
+        "quote": "I skate to where the puck is going to be, not where it has been.",
+        "author": "Wayne Gretzky",
+        "tags": "",
+        "imageURL": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2014/01/04/15/Gretzky.jpg?quality=75&width=1250&crop=3%3A2%2Csmart&auto=webp",
+        "metaDescription": ""
+    },
+    {
+        "id": "Q10",
+        "section": "quotes",
+        "quote": "Any sufficiently advanced technology is indistinguishable from magic.",
+        "author": "Arthur C. Clarke",
+        "tags": "",
+        "imageURL": "https://i0.wp.com/newspaceeconomy.ca/wp-content/uploads/2024/05/newspaceeconomy_portrait_of_arthur_c_clarke_looking_up_into_the_c188f64e-b9bd-4bce-94d4-00138cd1fd32-1-1.png?w=1024&quality=80&ssl=1",
+        "metaDescription": ""
+    },
+    {
+        "id": "Q11",
+        "section": "quotes",
+        "quote": "We are all connected; To each other, biologically. To the earth, chemically. To the rest of the universe atomically.",
+        "author": "Neil DeGrasse Tyson",
+        "tags": "",
+        "imageURL": "https://blog.myneurogym.com/wp-content/uploads/2021/10/4-3.jpg",
+        "metaDescription": ""
+    },
+    {
+        "id": "Q12",
+        "section": "quotes",
+        "quote": "The Universe is under no obligation to make sense to you.",
+        "author": "Neil DeGrasse Tyson",
+        "tags": "",
+        "imageURL": "https://duet-cdn.vox-cdn.com/thumbor/0x0:600x900/828x552/filters:focal(300x450:301x451):format(webp)/cdn.vox-cdn.com/uploads/chorus_asset/file/15301162/IMG_7883---Version-2_sm.0.1426704817.jpg",
         "metaDescription": ""
     }
 ]
