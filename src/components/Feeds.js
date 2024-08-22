@@ -4,6 +4,7 @@ import { isMobile } from 'react-device-detect';
 import Slider from 'react-slick';
 import { styled } from '@mui/material/styles';
 import { useTheme } from '@emotion/react';
+import { useLocation } from 'react-router-dom';
 
 const highlightedFeed = [
     {
@@ -47,6 +48,21 @@ const Feeds = () => {
     const [slider1, setSlider1] = useState(null);
     const [slider2, setSlider2] = useState(null);
     const theme = useTheme();
+    const location = useLocation();
+
+    useEffect(() => {
+        const handleHashChange = () => {
+            window.scrollTo(0, 0);
+        };
+
+        handleHashChange();
+        window.addEventListener('hashchange', handleHashChange);
+
+        return () => {
+            window.removeEventListener('hashchange', handleHashChange);
+
+        };
+    }, [location.hash]);
 
     useEffect(() => {
         const fetchFeeds = async () => {

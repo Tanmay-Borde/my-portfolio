@@ -1,4 +1,22 @@
+import React from "react";
+import { useLocation } from "react-router-dom";
+
 export default function Archive() {
+    const location = useLocation();
+
+    React.useEffect(() => {
+        const handleHashChange = () => {
+            window.scrollTo(0, 0);
+        };
+
+        handleHashChange();
+        window.addEventListener('hashchange', handleHashChange);
+
+        return () => {
+            window.removeEventListener('hashchange', handleHashChange);
+
+        };
+    }, [location.hash]);
     return (
         <div>
             <h1>

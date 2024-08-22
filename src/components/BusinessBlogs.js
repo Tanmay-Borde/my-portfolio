@@ -12,7 +12,7 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ReactMarkdown from 'react-markdown';
 import { Link, useLocation } from 'react-router-dom';
-import { Box, CircularProgress, Container } from '@mui/material';
+import { Alert, Box, CircularProgress, Snackbar } from '@mui/material';
 import { isMobile } from 'react-device-detect';
 
 const ExpandMore = styled((props) => {
@@ -30,6 +30,19 @@ const BusinessBlogs = () => {
     const [posts, setPosts] = useState([]);
     const location = useLocation();
     const [isLoading, setIsLoading] = useState(true);
+    const [isCopied, setIsCopied] = React.useState(false);
+
+    const handleCopy = (copy_link) => {
+        navigator.clipboard.writeText(copy_link)
+            .then(() => {
+                setIsCopied(true);
+                setTimeout(() => setIsCopied(false), 6000);
+            })
+            .catch(err => {
+                setIsCopied(false);
+                console.error('Failed to copy: ', err);
+            });
+    };
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -76,11 +89,11 @@ const BusinessBlogs = () => {
 
     return (
         <>
-            <Container sx={{ display: 'flex', justifyContent: 'center', width: '100%', height: '100%', mt: 1, flexGrow: 1, minHeight: 800, minWidth: isMobile ? '100%' : 1000 }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'center', width: '100%', minWidth: isMobile ? '100%' : 1000 }}>
                 {isLoading ? (
                     <CircularProgress sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }} />
                 ) : (
-                    <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', flexGrow: 1, minHeight: 800, minWidth: isMobile ? '100%' : 1000, width: '100%' }}>
+                    <>
                         {posts.map((post) => (
                             <Link to={`#post-${post.id}`} key={post.id} style={{ textDecoration: 'none' }}>
                                 <Card key={post.id} id={`post-${post.id}`} >
@@ -88,9 +101,7 @@ const BusinessBlogs = () => {
                                         title={post.title}
                                         subheader={`${new Date(post.date).toLocaleDateString()} • ${post.readTime} min read`}
                                         action={
-                                            <IconButton aria-label="share">
-                                                <ShareIcon />
-                                            </IconButton>
+                                            <IconButton onClick={() => handleCopy(`${window.location.origin}#/blogs/${post.section}#post-${post.id}`)}> <ShareIcon /> </IconButton>
                                         }
                                     />
                                     <CardMedia
@@ -122,9 +133,14 @@ const BusinessBlogs = () => {
                                 </Card >
                             </Link>
                         ))}
-                    </Box>
+                    </>
                 )}
-            </Container>
+            </Box>
+            <Snackbar open={isCopied} autoHideDuration={6000}>
+                <Alert severity='success' variant='standard'>
+                    {`Link Copied Successfully`}
+                </Alert>
+            </Snackbar>
         </>
     );
 };

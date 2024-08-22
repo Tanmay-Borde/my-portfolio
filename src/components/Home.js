@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Container from '@mui/material/Container';
 import Slider from 'react-slick';
-import { Alert, AppBar, Box, Card, CardActionArea, CardContent, CardMedia, Dialog, Divider, Grid, IconButton, Snackbar, Stack, Toolbar, Typography, Slide } from '@mui/material';
+import { Alert, AppBar, Box, Card, CardActionArea, CardContent, CardMedia, Dialog, Divider, Grid, IconButton, Snackbar, Stack, Toolbar, Typography, Slide, CircularProgress } from '@mui/material';
 import { isMobile } from 'react-device-detect';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import { Link } from 'react-router-dom';
@@ -22,6 +22,7 @@ export default function Home() {
     const [featuredBlogs, setFeaturedBlogs] = React.useState([]);
     const [featuredFeeds, setFeaturedFeeds] = React.useState([]);
     const [featuredQuotes, setFeaturedQuotes] = React.useState([]);
+    const [isLoading, setIsLoading] = React.useState(true);
 
     const handleOpenDialog = () => {
         setOpenDialog(true);
@@ -83,14 +84,25 @@ export default function Home() {
     };
 
     var settings = {
-        dots: true,
+        dots: false,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        pauseOnHover: true,
+        arrows: false
+    }
+
+    var blogsSettings = {
+        dots: false,
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 4000,
         pauseOnHover: true,
-        arrows: false
+        arrows: isMobile ? false : true
     }
 
     React.useEffect(() => {
@@ -108,6 +120,7 @@ export default function Home() {
         };
 
         fetchHomePageContent();
+        setIsLoading(false);
 
     }, []);
 
@@ -115,70 +128,28 @@ export default function Home() {
         <>
             {/* FEATURED POSTS */}
             <Container sx={{ mt: 1, mb: 1 }}>
-                <div className="slider-container">
-                    <Typography variant='h4' component="div">
-                        {`Featured Blogs`}
-                    </Typography>
-                    <Typography variant='subtitle2' color={'lightgrey'} mb={1}>
-                        {`Better understanding of the world, one question at a time!`}
-                    </Typography>
-                    <Slider {...settings}>
-                        {featuredBlogs.map((post) => (
-                            <Link to={`/blogs/${post.section}`}>
-                                <Card sx={{ minHeight: 300, maxHeight: 300 }}>
-                                    <Box sx={{ position: 'relative', height: '100%' }}>
-                                        {/* <CardActionArea href={`${process.env.PUBLIC_URL}#/blogs/${post.section}#post-${post.id}`}> */}
-                                        <CardActionArea>
-                                            <CardMedia
-                                                component="img"
-                                                height="300"
-                                                image={`${process.env.PUBLIC_URL}${post.imageURL}`}
-                                                alt="image post"
-                                            />
-                                            <CardContent sx={{
-                                                position: 'absolute',
-                                                bottom: 0,
-                                                left: 0,
-                                                right: 0,
-                                                padding: '15px',
-                                                background: 'linear-gradient(to top, rgba(0, 0, 0, 2), rgba(0, 0, 0, 0))'
-                                            }}>
-                                                <Typography gutterBottom variant="h5" component="div" sx={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 2)' }}>
-                                                    {post.title}
-                                                </Typography>
-                                                <Typography variant="body2" color="text.secondary" sx={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 1)' }}>
-                                                    {post.summary}
-                                                </Typography>
-                                            </CardContent>
-                                        </CardActionArea>
-                                    </Box>
-                                </Card>
-                            </Link>
-                        ))}
-                    </Slider>
-                </div>
-                <Divider flexItem='true' variant='middle' sx={{ mt: 2 }} />
-
-                {/* WEEKLY FEEDS */}
-
-                {!isMobile && (
-                    <Grid container spacing={1} direction={isMobile ? 'column' : 'row'} mt={1}>
-                        <Grid item xs={6}>
-                            <Box mb={1}>
-                                <Typography variant='h6' component="div">
-                                    {`Weekly feeds`}
-                                </Typography>
-                            </Box>
-                            <Slider {...settings}>
-                                {featuredFeeds.map((feed) => (
-                                    <Link to={'/feeds'}>
+                {isLoading ? (
+                    <CircularProgress sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }} />
+                ) : (
+                    <>
+                        <div className="slider-container">
+                            <Typography variant='h4' component="div">
+                                {`Featured Blogs`}
+                            </Typography>
+                            <Typography variant='subtitle2' color={'lightgrey'} mb={1}>
+                                {`Better understanding of the world, one question at a time!`}
+                            </Typography>
+                            <Slider {...blogsSettings}>
+                                {featuredBlogs.map((post) => (
+                                    <Link to={`/blogs/${post.section}`}>
                                         <Card sx={{ minHeight: 300, maxHeight: 300 }}>
                                             <Box sx={{ position: 'relative', height: '100%' }}>
+                                                {/* <CardActionArea href={`${process.env.PUBLIC_URL}#/blogs/${post.section}#post-${post.id}`}> */}
                                                 <CardActionArea>
                                                     <CardMedia
                                                         component="img"
                                                         height="300"
-                                                        image={feed.imageURL}
+                                                        image={`${process.env.PUBLIC_URL}${post.imageURL}`}
                                                         alt="image post"
                                                     />
                                                     <CardContent sx={{
@@ -189,11 +160,11 @@ export default function Home() {
                                                         padding: '15px',
                                                         background: 'linear-gradient(to top, rgba(0, 0, 0, 2), rgba(0, 0, 0, 0))'
                                                     }}>
-                                                        <Typography gutterBottom variant="h6" component="div" sx={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 2)' }}>
-                                                            {feed.title}
+                                                        <Typography gutterBottom variant="h5" component="div" sx={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 2)' }}>
+                                                            {post.title}
                                                         </Typography>
                                                         <Typography variant="body2" color="text.secondary" sx={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 1)' }}>
-                                                            {feed.summary}
+                                                            {post.summary}
                                                         </Typography>
                                                     </CardContent>
                                                 </CardActionArea>
@@ -202,47 +173,102 @@ export default function Home() {
                                     </Link>
                                 ))}
                             </Slider>
-                        </Grid>
+                        </div>
+                    </>
+                )}
+                <Divider flexItem='true' variant='middle' sx={{ mt: 2 }} />
 
-                        {/* QUOTES */}
+                {/* WEEKLY FEEDS */}
 
-                        <Grid item xs={6}>
-                            <Box mb={1}>
-                                <Typography variant='h6' component="div">
-                                    {`Profound Quotes`}
-                                </Typography>
-                            </Box>
-                            <Slider {...settings}>
-                                {featuredQuotes.map((quote) => (
-                                    <Card sx={{ minHeight: 300, maxHeight: 300 }}>
-                                        <Box sx={{ position: 'relative', height: '100%' }}>
-                                            <CardMedia
-                                                component="img"
-                                                height="300"
-                                                image={quote.imageURL}
-                                                alt="image post"
-                                            />
-                                            <CardContent sx={{
-                                                position: 'absolute',
-                                                bottom: 0,
-                                                left: 0,
-                                                right: 0,
-                                                padding: '15px',
-                                                background: 'linear-gradient(to top, rgba(0, 0, 0, 2), rgba(0, 0, 0, 0))'
-                                            }}>
-                                                <Typography gutterBottom variant="body1" component="div" fontStyle={'italic'} sx={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 2)' }}>
-                                                    {'"'}{quote.quote}{'"'}
-                                                </Typography>
-                                                <Typography variant="body2" color="text.secondary" sx={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 1)' }}>
-                                                    {'- '}{quote.author}
-                                                </Typography>
-                                            </CardContent>
+                {!isMobile && (
+                    <>
+                        {
+                            isLoading ? (
+                                <CircularProgress sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }} />
+                            ) : (
+                                <Grid container spacing={1} direction={isMobile ? 'column' : 'row'} mt={1}>
+                                    <Grid item xs={6}>
+                                        <Box mb={1}>
+                                            <Typography variant='h6' component="div">
+                                                {`Weekly feeds`}
+                                            </Typography>
                                         </Box>
-                                    </Card>
-                                ))}
-                            </Slider>
-                        </Grid>
-                    </Grid >
+
+                                        <Slider {...settings}>
+                                            {featuredFeeds.map((feed) => (
+                                                <Card sx={{ minHeight: 300, maxHeight: 300 }}>
+                                                    <Box sx={{ position: 'relative', height: '100%' }}>
+                                                        <CardActionArea href={`${process.env.PUBLIC_URL}#/feeds`}>
+                                                            <CardMedia
+                                                                component="img"
+                                                                height="300"
+                                                                image={feed.imageURL}
+                                                                alt="image post"
+                                                            />
+                                                            <CardContent sx={{
+                                                                position: 'absolute',
+                                                                bottom: 0,
+                                                                left: 0,
+                                                                right: 0,
+                                                                padding: '15px',
+                                                                background: 'linear-gradient(to top, rgba(0, 0, 0, 2), rgba(0, 0, 0, 0))'
+                                                            }}>
+                                                                <Typography gutterBottom variant="h6" component="div" sx={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 2)' }}>
+                                                                    {feed.title}
+                                                                </Typography>
+                                                                <Typography variant="body2" color="text.secondary" sx={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 1)' }}>
+                                                                    {feed.summary}
+                                                                </Typography>
+                                                            </CardContent>
+                                                        </CardActionArea>
+                                                    </Box>
+                                                </Card>
+                                            ))}
+                                        </Slider>
+
+                                    </Grid>
+
+                                    {/* QUOTES */}
+
+                                    <Grid item xs={6}>
+                                        <Box mb={1}>
+                                            <Typography variant='h6' component="div">
+                                                {`Profound Quotes`}
+                                            </Typography>
+                                        </Box>
+                                        <Slider {...settings}>
+                                            {featuredQuotes.map((quote) => (
+                                                <Card sx={{ minHeight: 300, maxHeight: 300 }}>
+                                                    <Box sx={{ position: 'relative', height: '100%' }}>
+                                                        <CardMedia
+                                                            component="img"
+                                                            height="300"
+                                                            image={quote.imageURL}
+                                                            alt="image post"
+                                                        />
+                                                        <CardContent sx={{
+                                                            position: 'absolute',
+                                                            bottom: 0,
+                                                            left: 0,
+                                                            right: 0,
+                                                            padding: '15px',
+                                                            background: 'linear-gradient(to top, rgba(0, 0, 0, 2), rgba(0, 0, 0, 0))'
+                                                        }}>
+                                                            <Typography gutterBottom variant="body1" component="div" fontStyle={'italic'} sx={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 2)' }}>
+                                                                {'"'}{quote.quote}{'"'}
+                                                            </Typography>
+                                                            <Typography variant="body2" color="text.secondary" sx={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 1)' }}>
+                                                                {'- '}{quote.author}
+                                                            </Typography>
+                                                        </CardContent>
+                                                    </Box>
+                                                </Card>
+                                            ))}
+                                        </Slider>
+                                    </Grid>
+                                </Grid >
+                            )}
+                    </>
                 )}
 
                 {isMobile && (

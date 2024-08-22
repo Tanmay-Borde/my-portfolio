@@ -8,6 +8,7 @@ import { Avatar, Chip, Container, Stack } from '@mui/material';
 import { isMobile } from 'react-device-detect';
 import Link from '@mui/material/Link';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
+import { useLocation } from 'react-router-dom';
 
 const projects = [
     {
@@ -49,10 +50,25 @@ const projects = [
 ]
 
 export default function Projects() {
+    const location = useLocation();
+
+    React.useEffect(() => {
+        const handleHashChange = () => {
+            window.scrollTo(0, 0);
+        };
+
+        handleHashChange();
+        window.addEventListener('hashchange', handleHashChange);
+
+        return () => {
+            window.removeEventListener('hashchange', handleHashChange);
+
+        };
+    }, [location.hash]);
     return (
         <>
-            <Container sx={{ display: 'flex', justifyContent: 'center', width: '100%', height: '100%', mt: 1 }}>
-                <Box>
+            <Container sx={{ display: 'flex', justifyContent: 'center', width: '100%', height: '100%' }}>
+                <Box margin={1}>
                     <Grid container spacing={1} direction={isMobile ? 'column' : 'row'} flexWrap={'wrap'}>
                         {projects.map((project, index) => (
                             <Grid item xs={6} spacing={2}>

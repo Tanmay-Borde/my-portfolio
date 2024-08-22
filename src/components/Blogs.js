@@ -9,7 +9,6 @@ import TechBlogs from './TechBlogs';
 import BusinessBlogs from './BusinessBlogs';
 import HumanityBlogs from './HumanityBlogs';
 import { Container } from '@mui/material';
-import { isMobile } from 'react-device-detect';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function Blogs() {
@@ -26,9 +25,10 @@ export default function Blogs() {
 
   return (
     <>
-      <Container sx={{ display: 'flex', justifyContent: 'center', flexGrow: 1, width: '100%', height: '100%', mt: 1 }} >
-        <Tabs value={selectedtab || 'tech-blogs'}>
-          <TabsList sx={{ display: 'flex', justifyContent: 'center', flexGrow: 1, width: '100%' }}>
+      <Container sx={{ mt: 1, mb: 1, justifyContent: 'center', display: 'flex', flexGrow: 1, width: '100%' }}>
+        <Tabs value={selectedtab}>
+          {/* sx={{ display: 'flex', justifyContent: 'center', flexGrow: 1, width: '100%', maxWidth: '100%' }} */}
+          <TabsList>
             <Tab value={'tech-blogs'} to={'tech-blogs'} slots={{ root: Link }} style={{ textDecoration: 'none' }}>
               {`Technology`}
             </Tab>

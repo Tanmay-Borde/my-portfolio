@@ -16,6 +16,7 @@ import Fade from '@mui/material/Fade';
 import Box from '@mui/material/Box';
 import { Grid } from '@mui/material';
 import { isMobile } from 'react-device-detect';
+import { useLocation } from 'react-router-dom';
 
 const experiences = [
     {
@@ -59,6 +60,21 @@ const experiences = [
 export default function Experience() {
     const [expanded, setExpanded] = React.useState('');
     const [open, setOpen] = React.useState(false);
+    const location = useLocation();
+
+    React.useEffect(() => {
+        const handleHashChange = () => {
+            window.scrollTo(0, 0);
+        };
+
+        handleHashChange();
+        window.addEventListener('hashchange', handleHashChange);
+
+        return () => {
+            window.removeEventListener('hashchange', handleHashChange);
+
+        };
+    }, [location.hash]);
 
     const handleChange = (panel) => (event, isExpanded) => {
         setOpen(true);

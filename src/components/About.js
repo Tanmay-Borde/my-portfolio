@@ -36,6 +36,7 @@ import TimelineSeparator from '@mui/lab/TimelineSeparator';
 import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
+import { useLocation } from "react-router-dom";
 
 const embedded_resume = 'https://docs.google.com/document/d/e/2PACX-1vTryJQDskPq33vxEQFd6cjANxgBb9dcmSkzBODBZM7YSpqL5mz8mwjsyrlZAbcK1m-eSrqAZ5SyLBQz/pub?embedded=true';
 const shareable_resume = 'https://docs.google.com/document/d/1xiuDjQRr6vCYP9wvctCO4CM5xerXb1kkQ0hklAgA4QE/edit?usp=sharing';
@@ -255,6 +256,21 @@ export default function About() {
     const [openContactCard, setOpenContactCard] = React.useState(false);
     const [view, setView] = React.useState('');
     const [isCopied, setIsCopied] = React.useState(false);
+    const location = useLocation();
+
+    React.useEffect(() => {
+        const handleHashChange = () => {
+            window.scrollTo(0, 0);
+        };
+
+        handleHashChange();
+        window.addEventListener('hashchange', handleHashChange);
+
+        return () => {
+            window.removeEventListener('hashchange', handleHashChange);
+
+        };
+    }, [location.hash]);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -299,7 +315,7 @@ export default function About() {
 
     const fullScreenContactCard = () => {
         return (
-            <Box sx={{ display: 'flex', justifyContent: 'center', flexGrow: 1, width: '100%', alignItems: 'center' }}>
+            <Box sx={{ display: 'flex', justifyContent: 'center', flexGrow: 1, width: '100%', alignItems: 'center', margin: 1 }}>
                 <Dialog
                     fullScreen
                     open={openContactCard}
@@ -946,8 +962,8 @@ export default function About() {
                                 </TabPanel>
                                 {/* SKILLS */}
                                 <TabPanel value={value} index={1}>
-                                    <Box sx={{ minHeight: 800 }}>
-                                        <Card variant='outlined' raised='true' sx={{ width: '100%', flexGrow: 1, minHeight: 600 }}>
+                                    <Box sx={{ minHeight: 900 }}>
+                                        <Card variant='outlined' raised='true' sx={{ width: '100%', flexGrow: 1, minHeight: 800 }}>
                                             <CardContent sx={{ display: 'flex', flexWrap: 'wrap', flexGrow: 1, justifyContent: 'center' }}>
                                                 <Box sx={{ maxHeight: 300, flexFlow: 1, flexWrap: 'wrap' }}>
                                                     <Divider>{`Programming Languages`}</Divider>
