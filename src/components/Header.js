@@ -2,17 +2,16 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
 import { isMobile } from 'react-device-detect';
-import { Box, Divider, Drawer, IconButton, List, ListItem, ListItemText, Stack } from '@mui/material';
+import { Box, Divider, Drawer, IconButton, Link, List, ListItem, ListItemText, Stack, Tooltip } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useTheme } from '@emotion/react';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import ArticleIcon from '@mui/icons-material/Article';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import EmailIcon from '@mui/icons-material/Email';
+import { Link as RouterLink } from 'react-router-dom';
+import XIcon from '@mui/icons-material/X';
 
 const imgStyles = {
   marginTop: "10px",
@@ -39,9 +38,9 @@ function Header(props) {
       <List>
         {sections.map((section) => (
           <ListItem button key={section.title} onClick={() => handleListItemClick(section)}>
-            <Link to={section.url} style={{ textDecoration: 'none', color: 'inherit' }}>
+            <RouterLink to={section.url} style={{ textDecoration: 'none', color: 'inherit' }}>
               <ListItemText primary={section.title} />
-            </Link>
+            </RouterLink>
           </ListItem>
         ))}
       </List>
@@ -61,7 +60,7 @@ function Header(props) {
               noWrap
               sx={{ flex: 1 }}
             >
-              <Link to='/home'>
+              <RouterLink to='/home'>
                 <img
                   alt="LOGO"
                   src={`${process.env.PUBLIC_URL}/logo.png`}
@@ -69,7 +68,7 @@ function Header(props) {
                   width={40}
                   style={imgStyles}
                 />
-              </Link>
+              </RouterLink>
             </Typography>
           </Toolbar>
           <Toolbar
@@ -82,7 +81,7 @@ function Header(props) {
           >
             {sections.map((section) => (
               <Button
-                component={Link}
+                component={RouterLink}
                 raised
                 color='primary'
                 noWrap
@@ -109,7 +108,7 @@ function Header(props) {
               noWrap
               sx={{ flex: 1, display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}
             >
-              <Link to='/home'>
+              <RouterLink to='/home'>
                 <img
                   alt="LOGO"
                   src={`${process.env.PUBLIC_URL}/logo.png`}
@@ -117,7 +116,7 @@ function Header(props) {
                   width={40}
                   style={imgStyles}
                 />
-              </Link>
+              </RouterLink>
             </Typography>
             <IconButton color="inherit" aria-label="open drawer" edge="end" onClick={handleDrawerToggle} sx={{ display: { xs: 'block', md: 'none' } }}>
               <MenuIcon />
@@ -125,7 +124,7 @@ function Header(props) {
             <Toolbar component="nav" variant="dense" sx={{ justifyContent: 'space-between', overflowX: 'auto', display: { xs: 'none', md: 'flex' } }}>
               {sections.map((section) => (
                 <Button
-                  component={Link}
+                  component={RouterLink}
                   color='primary'
                   noWrap
                   key={section.title}
@@ -156,24 +155,28 @@ function Header(props) {
                 <Typography variant="h7" sx={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', p: 2 }}>
                   {`Quick Connect`}
                 </Typography>
-                <Stack direction="row" spacing={2} sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'flex-end', pb: 4, mt: 'auto' }}>
+                <Stack direction="row" spacing={2} sx={{ justifyContent: 'center', alignItems: 'center' }}>
                   <Link href="mailto:tanmayborde64@gmail.com?subject=Hi from the Portfolio" underline="none" target="_blank">
-                    <EmailIcon color='primary' />
+                    <Tooltip title='E-mail' placement='left' arrow>
+                      <EmailIcon fontSize='small' />
+                    </Tooltip>
                   </Link>
                   <Link href="https://www.linkedin.com/in/tanmay-borde-88668b141/" underline="none" target="_blank">
-                    <LinkedInIcon color='primary' />
+                    <Tooltip title='LinkedIn' placement='top' arrow>
+                      <LinkedInIcon fontSize='small' />
+                    </Tooltip>
+                  </Link>
+                  <Link href="https://x.com/tanmay_borde?s=21" underline="none" target="_blank">
+                    <Tooltip title='X (Twitter)' placement='top' arrow>
+                      <XIcon fontSize='small' />
+                    </Tooltip>
                   </Link>
                   <Link href="https://github.com/Tanmay-Borde" underline="none" target="_blank">
-                    <GitHubIcon color='primary' />
-                  </Link>
-                  <Link href={`${process.env.PUBLIC_URL}/blogs`} underline="none" target="_blank">
-                    <ArticleIcon color='primary' />
-                  </Link>
-                  <Link href="https://docs.google.com/document/d/1xiuDjQRr6vCYP9wvctCO4CM5xerXb1kkQ0hklAgA4QE/edit?usp=sharing" underline="none" target="_blank">
-                    <AccountCircleIcon color='primary' />
+                    <Tooltip title='GitHub' placement='top' arrow>
+                      <GitHubIcon fontSize='small' />
+                    </Tooltip>
                   </Link>
                 </Stack>
-                {/* </Box> */}
               </Box>
             </Drawer>
             <Divider />
