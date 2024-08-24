@@ -30,5 +30,52 @@
         "featuredFeed": true,
         "highlightedFeed": true,
         "topFeed": true
+    },
+    {
+        "id": "F3",
+        "section": "feeds",
+        "title": "OnePlus phones could soon support MagSafe accessories without paying Apple a dime",
+        "date": "2024-06-01",
+        "tags": [],
+        "summary": "Don't expect magnets in the phones, though, as is the case with MagSafe on iPhones.",
+        "imageURL": "https://forumstatic.oneplusmobile.com/opforum-gl/upload/image/app/thread/20240118/8660215956145549901/1511203206720389127/1511203206720389127.jpg?x-ocs-process=image/format,webp",
+        "metaDescription": [],
+        "relatedPosts": [],
+        "source": "https://www.androidpolice.com/oneplus-phones-magsafe-qi2-accessories-rumor/",
+        "featured": true,
+        "featuredFeed": false,
+        "highlightedFeed": false,
+        "topFeed": true
+    },
+    {
+        "id": "F1",
+        "section": "feeds",
+        "title": "Open Source is the Future of AI",
+        "date": "2024-08-22",
+        "tags": [],
+        "summary": "Open-source brings much-needed clarity to the often black box of AI development",
+        "imageURL": "https://analyticsindiamag.com/wp-content/uploads/2024/08/Why-Open-Source-AI-Leads-The-Way-1536x864.jpg.webp",
+        "metaDescription": [],
+        "relatedPosts": [],
+        "source": "https://analyticsindiamag.com/ai-trends-future/open-source-is-the-future-of-ai/?utm_source=pocket_shared",
+        "featured": true,
+        "highlighted": false,
+        "topFeed": false
+    },
+    {
+        "id": "F6",
+        "section": "feeds",
+        "title": "Ather Rizta and 450 electric scooter care packs incoming!",
+        "date": "2024-06-01",
+        "tags": [],
+        "summary": "Ather Energy will likely introduce Care Packs for its 450 and Rizta electric scooter lineup.",
+        "imageURL": "https://imgd.aeplcdn.com/642x361/n/cw/ec/185451/ather-rizta-left-front-three-quarter0.jpeg?isig=0&q=80",
+        "metaDescription": [],
+        "relatedPosts": [],
+        "source": "https://www.bikewale.com/news/ather-rizta-and-450-electric-scooter-care-packs-incoming/?utm_source=pocket_shared",
+        "featured": true,
+        "featuredFeed": true,
+        "highlightedFeed": true,
+        "topFeed": true
     }
 ]
