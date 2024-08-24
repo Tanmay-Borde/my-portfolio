@@ -6,35 +6,6 @@ import { styled } from '@mui/material/styles';
 import { useTheme } from '@emotion/react';
 import { useLocation } from 'react-router-dom';
 
-const highlightedFeed = [
-    {
-        id: "HF1",
-        section: "highlighted-feeds",
-        title: "The Made by Google Pixel 9 launch event kicks off tomorrow.",
-        date: "2024-06-01",
-        tags: [],
-        summary: "Pixel Buds Pro 2 and two Pixel Watch 3 sizes could be in the mix.",
-        imageURL: "https://s.yimg.com/ny/api/res/1.2/MAU.ltFGuIV9ClvhSYECVA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTY0MDtjZj13ZWJw/https://s.yimg.com/os/creatr-uploaded-images/2024-07/5d30ff50-502c-11ef-b7dd-34182c5d4914",
-        metaDescription: [],
-        relatedPosts: [],
-        source: "https://www.engadget.com/the-made-by-google-pixel-9-launch-event-kicks-off-tomorrow-heres-what-we-expect-160338624.html",
-        featured: true
-    },
-    {
-        id: "HF2",
-        section: "highlighted-feeds",
-        title: "Smartwatch shipments see sharp decline in India",
-        date: "2024-06-01",
-        tags: [],
-        summary: "India’s smartwatch market dipped by as much as 30% YoY in Q2, according to analysts",
-        imageURL: "https://techcrunch.com/wp-content/uploads/2024/08/boat-ultima-select.jpg",
-        metaDescription: [],
-        relatedPosts: [],
-        source: "https://techcrunch.com/2024/08/09/smartwatches-shipments-see-sharp-decline-in-india/",
-        featured: true
-    },
-]
-
 const Img = styled('img')({
     margin: 'auto',
     display: 'block',
@@ -75,8 +46,7 @@ const Feeds = () => {
     }, []);
 
     const featuredFeeds = feedsData.filter(feed => feed.featured);
-    const feeds = feedsData.filter(feed => feed.featuredFeed);
-    // const highlightedFeeds = feedsData.filter(feed => feed.highlightedFeed);
+    const highlightedFeeds = feedsData.filter(feed => feed.highlighted);
     const topFeeds = feedsData.filter(feed => feed.topFeed);
 
     return (
@@ -95,7 +65,7 @@ const Feeds = () => {
                             {`Techno-Business updates in the spotlight!`}
                         </Typography>
                         <Slider
-                            arrows={false}
+                            arrows={isMobile ? false : true}
                             infinite={true}
                             asNavFor={slider2}
                             ref={(slider) => setSlider1(slider)}
@@ -140,7 +110,7 @@ const Feeds = () => {
                             focusOnSelect={true}
                             arrows={false}
                         >
-                            {feeds.map((feed) => (
+                            {featuredFeeds.map((feed) => (
                                 <Grid container spacing={1} mt={1}>
                                     <Grid item>
                                         <Card sx={{ width: '100%' }}>
@@ -190,7 +160,7 @@ const Feeds = () => {
                                 infinite={true}
                                 autoplay={true}
                                 autoplaySpeed={4000}>
-                                {highlightedFeed.map((feed) => (
+                                {highlightedFeeds.map((feed) => (
                                     <Card sx={{ width: '100%', minHeight: 200, maxHeight: 300 }}>
                                         <CardActionArea href={feed.source} target='_blank'>
                                             <CardMedia
@@ -282,7 +252,7 @@ const Feeds = () => {
                             infinite={true}
                             autoplay={true}
                             autoplaySpeed={4000}>
-                            {highlightedFeed.map((feed) => (
+                            {highlightedFeeds.map((feed) => (
                                 <Card sx={{ width: '100%', minHeight: 200, maxHeight: 300 }}>
                                     <CardActionArea href={feed.source} target='_blank'>
                                         <CardMedia
