@@ -110,7 +110,7 @@ const HumanityBlogs = () => {
                                         <CardMedia
                                             component="img"
                                             height={post.expanded ? 400 : 200}
-                                            image={`${process.env.PUBLIC_URL}${post.imageURL}`}
+                                            image={post.imageURL}
                                             alt={post.credits}
                                         />
                                         <Typography fontSize={5}>{`Image by`} {post.credits}</ Typography>
