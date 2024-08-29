@@ -94,6 +94,24 @@ const TechBlogs = () => {
         );
     };
 
+    const MarkdownComponents = {
+        img(image) {
+            const imagePath = image.url || image.src;
+            const altText = image.alt;
+            const width = isMobile ? '70%' : '40%';
+            const height = isMobile ? '70%' : '40%';
+            return (
+                <img
+                    src={imagePath}
+                    alt={altText}
+                    width={width}
+                    height={height}
+                    style={{ display: 'block', margin: '0 auto' }}
+                />
+            );
+        },
+    };
+
     return (
         <>
             <Box sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'center', width: '100%', minWidth: isMobile ? '100%' : 1100 }}>
@@ -104,7 +122,7 @@ const TechBlogs = () => {
                         {
                             posts.map((post) => (
                                 <Link to={`/blogs/${post.section}#post-${post.id}`} key={post.id} style={{ textDecoration: 'none' }}>
-                                    <Card key={post.id} id={`post-${post.id}`} ref={elementRef}>
+                                    <Card key={post.id} id={`post-${post.id}`} ref={elementRef} sx={{ color: 'white' }}>
                                         <CardHeader
                                             title={post.title}
                                             subheader={`${new Date(post.date).toLocaleDateString()} • ${post.readTime} min read`}
@@ -134,8 +152,10 @@ const TechBlogs = () => {
                                         </CardActions>
                                         <Collapse in={post.expanded} timeout="auto" unmountOnExit>
                                             <CardContent>
-                                                <Typography paragraph>
-                                                    <ReactMarkdown children={post.content} />
+                                                <Typography paragraph color={'white'}>
+                                                    <ReactMarkdown
+                                                        children={post.content}
+                                                        components={MarkdownComponents} />
                                                 </Typography>
                                             </CardContent>
                                         </Collapse>

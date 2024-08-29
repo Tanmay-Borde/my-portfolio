@@ -15,36 +15,19 @@
         "topFeed": false
     },
     {
-        "id": "F1",
+        "id": "F4",
         "section": "feeds",
-        "title": "Pixel 9 Pro and Pixel 9 Pro XL review: Superb cameras, with a side of Gemini AI.",
-        "date": "2024-08-22",
+        "title": "Space startup Reflect Orbital plans to sell 'sunlight on demand' — how will it work?",
+        "date": "2024-08-28",
         "tags": [],
-        "summary": "Google sets its sights on making AI part of your smartphone habits.",
-        "imageURL": "https://s.yimg.com/ny/api/res/1.2/ZUmOhjg2VZbR13CVYbHYVw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTM4NDA7aD0yNTYwO2NmPXdlYnA-/https://s.yimg.com/os/creatr-uploaded-images/2024-08/f4819fc0-5efc-11ef-bd1f-9d99aeff9c9d",
+        "summary": "Reflect Orbital, a California-based startup, has set its sights on a futuristic goal: providing 'sunlight on demand' using orbiting mirrors in space.",
+        "imageURL": "https://www.businessinsider.in/_next/image?url=https%3A%2F%2Fstaticbiassets.in%2Fthumb%2Fmsid-112860679%2Cwidth-700%2Cresizemode-4%2Cimgsize-43068%2Fsunlight-on-demand.jpg&w=1080&q=75",
         "metaDescription": [],
         "relatedPosts": [],
-        "source": "https://www.engadget.com/mobile/smartphones/pixel-9-pro-and-pixel-9-pro-xl-review-superb-cameras-with-a-side-of-gemini-ai-170055834.html",
+        "source": "https://www.businessinsider.in/science/space/news/space-startup-reflect-orbital-plans-to-sell-sunlight-on-demand-how-will-it-work/articleshow/112860594.cms",
         "featured": true,
-        "featuredFeed": true,
-        "highlightedFeed": true,
-        "topFeed": true
-    },
-    {
-        "id": "F7",
-        "section": "feeds",
-        "title": "Meta and Snap are about to show off their new AR glasses",
-        "date": "2024-06-01",
-        "tags": [],
-        "summary": "Snapchat has been the underdog to Meta in social media since turning down its $1 billion acquisition offer. Now, their rivalry is turning to hardware.",
-        "imageURL": "https://duet-cdn.vox-cdn.com/thumbor/0x0:2250x1500/828x552/filters:focal(1125x750:1126x751):format(webp)/cdn.vox-cdn.com/uploads/chorus_asset/file/25582839/Zuckerberg_v_Spiegel.png",
-        "metaDescription": [],
-        "relatedPosts": [],
-        "source": "https://www.theverge.com/2024/8/21/24224862/meta-snap-ar-glasses-orion-spectacles-zuckerberg-spiegel",
-        "featured": true,
-        "featuredFeed": true,
-        "highlightedFeed": true,
-        "topFeed": true
+        "highlighted": true,
+        "topFeed": false
     },
     {
         "id": "F3",
@@ -61,20 +44,5 @@
         "featuredFeed": false,
         "highlightedFeed": false,
         "topFeed": true
-    },
-    {
-        "id": "F1",
-        "section": "feeds",
-        "title": "Open Source is the Future of AI",
-        "date": "2024-08-22",
-        "tags": [],
-        "summary": "Open-source brings much-needed clarity to the often black box of AI development",
-        "imageURL": "https://analyticsindiamag.com/wp-content/uploads/2024/08/Why-Open-Source-AI-Leads-The-Way-1536x864.jpg.webp",
-        "metaDescription": [],
-        "relatedPosts": [],
-        "source": "https://analyticsindiamag.com/ai-trends-future/open-source-is-the-future-of-ai/?utm_source=pocket_shared",
-        "featured": true,
-        "highlighted": false,
-        "topFeed": false
     }
 ]

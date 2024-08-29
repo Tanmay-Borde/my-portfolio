@@ -12,8 +12,20 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ReactMarkdown from 'react-markdown';
 import { Link, useLocation } from 'react-router-dom';
-import { Alert, Box, CircularProgress, Snackbar } from '@mui/material';
+import { Alert, Box, CircularProgress, createTheme, Snackbar } from '@mui/material';
 import { isMobile } from 'react-device-detect';
+import { ThemeProvider } from 'styled-components';
+
+const theme = createTheme({
+    typography: {
+        body1: {
+            color: 'white',
+        },
+        h6: {
+            color: 'white',
+        },
+    },
+});
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -93,8 +105,8 @@ const HumanityBlogs = () => {
         img(image) {
             const imagePath = image.url || image.src;
             const altText = image.alt;
-            const width = isMobile ? '80%' : '40%';
-            const height = isMobile ? '80%' : '40%';
+            const width = isMobile ? '70%' : '40%';
+            const height = isMobile ? '70%' : '40%';
             return (
                 <img
                     src={imagePath}
@@ -109,57 +121,59 @@ const HumanityBlogs = () => {
 
     return (
         <>
-            <Box sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'center', width: '100%', minWidth: isMobile ? '100%' : 1100 }}>
-                {isLoading ? (
-                    <CircularProgress sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }} />
-                ) : (
-                    <>
-                        {
-                            posts.map((post) => (
-                                <Link to={`#post-${post.id}`} key={post.id} style={{ textDecoration: 'none' }}>
-                                    <Card key={post.id} id={`post-${post.id}`} >
-                                        <CardHeader
-                                            title={post.title}
-                                            subheader={`${new Date(post.date).toLocaleDateString()} • ${post.readTime} min read`}
-                                            action={
-                                                <IconButton onClick={() => handleCopy(`${window.location.origin}#/blogs/${post.section}#post-${post.id}`)}> <ShareIcon /> </IconButton>
-                                            }
-                                        />
-                                        <CardMedia
-                                            component="img"
-                                            height={post.expanded ? 400 : 200}
-                                            image={post.imageURL}
-                                            alt={post.credits}
-                                        />
-                                        <Typography fontSize={5}>{`Image by`} {post.credits}</ Typography>
-                                        <CardHeader subheader={post.summary} />
-                                        <CardActions disableSpacing>
-                                            <ExpandMore
-                                                expand={post.expanded}
-                                                onClick={() => handleExpandClick(post.id)}
-                                                aria-expanded={post.expanded}
-                                                aria-label="show more"
-                                                label="Read more"
-                                            >
-                                                <ExpandMoreIcon />
-                                            </ExpandMore>
-                                        </CardActions>
-                                        <Collapse in={post.expanded} timeout="auto" unmountOnExit>
-                                            <CardContent>
-                                                <Typography paragraph>
-                                                    <ReactMarkdown
-                                                        children={post.content}
-                                                        components={MarkdownComponents} />
-                                                </Typography>
-                                            </CardContent>
-                                        </Collapse>
-                                    </Card >
-                                </Link>
-                            ))
-                        }
-                    </>
-                )}
-            </Box>
+            <ThemeProvider theme={theme}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'center', width: '100%', minWidth: isMobile ? '100%' : 1100 }}>
+                    {isLoading ? (
+                        <CircularProgress sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }} />
+                    ) : (
+                        <>
+                            {
+                                posts.map((post) => (
+                                    <Link to={`#post-${post.id}`} key={post.id} style={{ textDecoration: 'none' }}>
+                                        <Card key={post.id} id={`post-${post.id}`} >
+                                            <CardHeader
+                                                title={post.title}
+                                                subheader={`${new Date(post.date).toLocaleDateString()} • ${post.readTime} min read`}
+                                                action={
+                                                    <IconButton onClick={() => handleCopy(`${window.location.origin}#/blogs/${post.section}#post-${post.id}`)}> <ShareIcon /> </IconButton>
+                                                }
+                                            />
+                                            <CardMedia
+                                                component="img"
+                                                height={post.expanded ? 400 : 200}
+                                                image={post.imageURL}
+                                                alt={post.credits}
+                                            />
+                                            <Typography fontSize={5}>{`Image by`} {post.credits}</ Typography>
+                                            <CardHeader subheader={post.summary} />
+                                            <CardActions disableSpacing>
+                                                <ExpandMore
+                                                    expand={post.expanded}
+                                                    onClick={() => handleExpandClick(post.id)}
+                                                    aria-expanded={post.expanded}
+                                                    aria-label="show more"
+                                                    label="Read more"
+                                                >
+                                                    <ExpandMoreIcon />
+                                                </ExpandMore>
+                                            </CardActions>
+                                            <Collapse in={post.expanded} timeout="auto" unmountOnExit>
+                                                <CardContent>
+                                                    <Typography paragraph>
+                                                        <ReactMarkdown
+                                                            children={post.content}
+                                                            components={MarkdownComponents} />
+                                                    </Typography>
+                                                </CardContent>
+                                            </Collapse>
+                                        </Card >
+                                    </Link>
+                                ))
+                            }
+                        </>
+                    )}
+                </Box>
+            </ThemeProvider>
             <Snackbar open={isCopied} autoHideDuration={6000}>
                 <Alert severity='success' variant='standard'>
                     {`Link Copied Successfully`}

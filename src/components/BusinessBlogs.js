@@ -87,6 +87,24 @@ const BusinessBlogs = () => {
         );
     };
 
+    const MarkdownComponents = {
+        img(image) {
+            const imagePath = image.url || image.src;
+            const altText = image.alt;
+            const width = isMobile ? '70%' : '40%';
+            const height = isMobile ? '70%' : '40%';
+            return (
+                <img
+                    src={imagePath}
+                    alt={altText}
+                    width={width}
+                    height={height}
+                    style={{ display: 'block', margin: '0 auto' }}
+                />
+            );
+        },
+    };
+
     return (
         <>
             <Box sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'center', width: '100%', minWidth: isMobile ? '100%' : 1100 }}>
@@ -126,7 +144,9 @@ const BusinessBlogs = () => {
                                     <Collapse in={post.expanded} timeout="auto" unmountOnExit>
                                         <CardContent>
                                             <Typography paragraph>
-                                                <ReactMarkdown children={post.content} />
+                                                <ReactMarkdown
+                                                    children={post.content}
+                                                    components={MarkdownComponents} />
                                             </Typography>
                                         </CardContent>
                                     </Collapse>
