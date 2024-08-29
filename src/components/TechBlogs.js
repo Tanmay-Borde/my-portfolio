@@ -96,7 +96,7 @@ const TechBlogs = () => {
 
     return (
         <>
-            <Box sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'center', width: '100%', minWidth: isMobile ? '100%' : 1000 }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'center', width: '100%', minWidth: isMobile ? '100%' : 1100 }}>
                 {isLoading ? (
                     <CircularProgress sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }} />
                 ) : (
@@ -115,6 +115,7 @@ const TechBlogs = () => {
                                         <CardMedia
                                             component="img"
                                             height={post.expanded ? 400 : 200}
+                                            width={'100%'}
                                             image={post.imageURL}
                                             alt={post.credits}
                                         />

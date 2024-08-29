@@ -1,60 +1,48 @@
 [
     {
-        "id": "TB3",
+        "id": "TB1",
         "section": "tech-blogs",
-        "title": "Windows doubling down on ARM powered Laptops.",
-        "readTime": "3",
-        "date": "2024-06-01",
-        "contentFile": "/content/contentFiles/TBMD/TB3.md",
+        "title": "Guess who helped me develop this Portfolio/Blog Website?",
+        "readTime": "5",
+        "date": "2024-08-29",
+        "contentFile": "/content/contentFiles/TBMD/TB1.md",
         "author": "Tanmay Borde",
-        "tags": "",
-        "summary": "This is the summary of TB3 post.",
-        "imageURL": "/content/images/TB3.jpg",
+        "tags": [],
+        "summary": "Gemini is the all rounder SME always accessible to help me fast track my work and boost productivty.",
+        "imageURL": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/final_keyword_header.width-1600.format-webp.webp",
         "credits": "TechCrunch",
-        "metaDescription": "",
-        "relatedPosts": [
-            "",
-            ""
-        ],
-        "sources": [
-            "",
-            ""
-        ]
+        "metaDescription": [],
+        "relatedPosts": [],
+        "sources": []
     },
     {
-        "id": "BB2",
+        "id": "BB1",
         "section": "business-blogs",
-        "title": "Business Post 2.",
-        "readTime": "3",
-        "date": "2024-06-01",
-        "contentFile": "/content/contentFiles/BBMD/BB2.md",
+        "title": "How is Apple organised for Innovation? [HBR revisited]",
+        "readTime": "5",
+        "date": "2024-08-29",
+        "contentFile": "/content/contentFiles/BBMD/BB1.md",
         "author": "Tanmay Borde",
-        "tags": "",
-        "summary": "This is the summary of TB2 post.",
-        "imageURL": "/content/images/TB2.jpg",
+        "tags": [],
+        "summary": "'It’s about experts leading experts' says Joel M. Podolny and Morten T. in Harvard Business Review.",
+        "imageURL": "https://hbr.org/resources/images/article_assets/2020/10/R2006F_JANSSON-1900x893.jpg",
         "credits": "TechCrunch",
-        "metaDescription": "",
-        "relatedPosts": [
-            "",
-            ""
-        ],
-        "sources": [
-            "",
-            ""
-        ]
+        "metaDescription": [],
+        "relatedPosts": [],
+        "sources": []
     },
     {
         "id": "HB1",
         "section": "humanity-blogs",
-        "title": "HB Post 1.",
+        "title": "Who Will Listen to the Story of Humanity?",
         "readTime": "2",
-        "date": "2024-06-01",
+        "date": "2024-08-25",
         "contentFile": "/content/contentFiles/HBMD/HB1.md",
         "author": "Tanmay Borde",
         "tags": [],
-        "summary": "This is the summary of TB1 post.",
-        "imageURL": "/content/images/TB1.jpg",
-        "credits": "TechCrunch",
+        "summary": "Just like we listen to the story of dinosaurs, who is going to listen to the captivating tale of the human race?",
+        "imageURL": "https://science.nasa.gov/wp-content/uploads/2023/09/PIA23645_PaleBlueDotRevisited_1600.jpg?w=2048&format=webp",
+        "credits": "NASA",
         "metaDescription": [],
         "relatedPosts": [],
         "sources": []

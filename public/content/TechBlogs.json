@@ -2,105 +2,17 @@
     {
         "id": "TB1",
         "section": "tech-blogs",
-        "title": "Why NVIDIA is pushing hard for on-device ML accelerators?",
-        "readTime": "2",
-        "date": "2024-06-01",
+        "title": "Guess who helped me develop this Portfolio/Blog Website?",
+        "readTime": "5",
+        "date": "2024-08-29",
         "contentFile": "/content/contentFiles/TBMD/TB1.md",
         "author": "Tanmay Borde",
         "tags": [],
-        "summary": "This is the summary of TB1 post.",
-        "imageURL": "/content/images/TB1.jpg",
+        "summary": "Gemini is the all rounder SME always accessible to help me fast track my work and boost productivty.",
+        "imageURL": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/final_keyword_header.width-1600.format-webp.webp",
         "credits": "TechCrunch",
         "metaDescription": [],
         "relatedPosts": [],
         "sources": []
-    },
-    {
-        "id": "TB2",
-        "section": "tech-blogs",
-        "title": "Latest Apple WWDC24 Updates.",
-        "readTime": "3",
-        "date": "2024-06-01",
-        "contentFile": "/content/contentFiles/TBMD/TB2.md",
-        "author": "Tanmay Borde",
-        "tags": "",
-        "summary": "This is the summary of TB2 post.",
-        "imageURL": "/content/images/TB2.jpg",
-        "credits": "TechCrunch",
-        "metaDescription": "",
-        "relatedPosts": [
-            "",
-            ""
-        ],
-        "sources": [
-            "",
-            ""
-        ]
-    },
-    {
-        "id": "TB3",
-        "section": "tech-blogs",
-        "title": "Windows doubling down on ARM powered Laptops.",
-        "readTime": "3",
-        "date": "2024-06-01",
-        "contentFile": "/content/contentFiles/TBMD/TB3.md",
-        "author": "Tanmay Borde",
-        "tags": "",
-        "summary": "This is the summary of TB3 post.",
-        "imageURL": "/content/images/TB3.jpg",
-        "credits": "TechCrunch",
-        "metaDescription": "",
-        "relatedPosts": [
-            "",
-            ""
-        ],
-        "sources": [
-            "",
-            ""
-        ]
-    },
-    {
-        "id": "TB4",
-        "section": "tech-blogs",
-        "title": "Title of TB4.",
-        "readTime": "3",
-        "date": "2024-06-01",
-        "contentFile": "/content/contentFiles/TBMD/TB4.md",
-        "author": "Tanmay Borde",
-        "tags": "",
-        "summary": "This is the summary of TB4 post.",
-        "imageURL": "/content/images/TB4.jpg",
-        "credits": "TechCrunch",
-        "metaDescription": "",
-        "relatedPosts": [
-            "",
-            ""
-        ],
-        "sources": [
-            "",
-            ""
-        ]
-    },
-    {
-        "id": "TB5",
-        "section": "tech-blogs",
-        "title": "Title of TB5.",
-        "readTime": "3",
-        "date": "2024-06-01",
-        "contentFile": "/content/contentFiles/TBMD/TB5.md",
-        "author": "Tanmay Borde",
-        "tags": "",
-        "summary": "This is the summary of TB5 post.",
-        "imageURL": "/content/images/TB5.jpg",
-        "credits": "TechCrunch",
-        "metaDescription": "",
-        "relatedPosts": [
-            "",
-            ""
-        ],
-        "sources": [
-            "",
-            ""
-        ]
     }
 ]

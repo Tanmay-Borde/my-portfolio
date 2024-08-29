@@ -149,7 +149,7 @@ export default function Home() {
                                                     <CardMedia
                                                         component="img"
                                                         height="300"
-                                                        image={`${process.env.PUBLIC_URL}${post.imageURL}`}
+                                                        image={post.imageURL}
                                                         alt="image post"
                                                     />
                                                     <CardContent sx={{

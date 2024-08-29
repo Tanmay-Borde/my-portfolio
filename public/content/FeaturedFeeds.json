@@ -1,5 +1,20 @@
 [
     {
+        "id": "F4",
+        "section": "feeds",
+        "title": "Apple’s iPhone 16 launch event is set for September",
+        "date": "2024-08-25",
+        "tags": [],
+        "summary": "Apple’s tagline: ‘It’s Glowtime.’",
+        "imageURL": "https://duet-cdn.vox-cdn.com/thumbor/0x46:2692x1176/828x552/filters:focal(1346x588:1347x589):format(webp)/cdn.vox-cdn.com/uploads/chorus_asset/file/25589562/Screenshot_2024_08_26_at_9.14.19_AM.png",
+        "metaDescription": [],
+        "relatedPosts": [],
+        "source": "https://www.theverge.com/2024/8/26/24223957/apple-iphone-16-launch-event-date-glowtime",
+        "featured": true,
+        "highlighted": true,
+        "topFeed": false
+    },
+    {
         "id": "F1",
         "section": "feeds",
         "title": "Pixel 9 Pro and Pixel 9 Pro XL review: Superb cameras, with a side of Gemini AI.",
@@ -61,21 +76,5 @@
         "featured": true,
         "highlighted": false,
         "topFeed": false
-    },
-    {
-        "id": "F6",
-        "section": "feeds",
-        "title": "Ather Rizta and 450 electric scooter care packs incoming!",
-        "date": "2024-06-01",
-        "tags": [],
-        "summary": "Ather Energy will likely introduce Care Packs for its 450 and Rizta electric scooter lineup.",
-        "imageURL": "https://imgd.aeplcdn.com/642x361/n/cw/ec/185451/ather-rizta-left-front-three-quarter0.jpeg?isig=0&q=80",
-        "metaDescription": [],
-        "relatedPosts": [],
-        "source": "https://www.bikewale.com/news/ather-rizta-and-450-electric-scooter-care-packs-incoming/?utm_source=pocket_shared",
-        "featured": true,
-        "featuredFeed": true,
-        "highlightedFeed": true,
-        "topFeed": true
     }
 ]
