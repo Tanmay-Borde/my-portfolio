@@ -2,105 +2,17 @@
     {
         "id": "BB1",
         "section": "business-blogs",
-        "title": "Business Post 1.",
-        "readTime": "2",
-        "date": "2024-06-01",
+        "title": "How is Apple organised for Innovation? [HBR revisited]",
+        "readTime": "5",
+        "date": "2024-08-29",
         "contentFile": "/content/contentFiles/BBMD/BB1.md",
         "author": "Tanmay Borde",
         "tags": [],
-        "summary": "This is the summary of TB1 post.",
-        "imageURL": "/content/images/TB1.jpg",
+        "summary": "'It’s about experts leading experts' says Joel M. Podolny and Morten T. in Harvard Business Review.",
+        "imageURL": "https://hbr.org/resources/images/article_assets/2020/10/R2006F_JANSSON-1900x893.jpg",
         "credits": "TechCrunch",
         "metaDescription": [],
         "relatedPosts": [],
         "sources": []
-    },
-    {
-        "id": "BB2",
-        "section": "business-blogs",
-        "title": "Business Post 2.",
-        "readTime": "3",
-        "date": "2024-06-01",
-        "contentFile": "/content/contentFiles/BBMD/BB2.md",
-        "author": "Tanmay Borde",
-        "tags": "",
-        "summary": "This is the summary of TB2 post.",
-        "imageURL": "/content/images/TB2.jpg",
-        "credits": "TechCrunch",
-        "metaDescription": "",
-        "relatedPosts": [
-            "",
-            ""
-        ],
-        "sources": [
-            "",
-            ""
-        ]
-    },
-    {
-        "id": "BB3",
-        "section": "business-blogs",
-        "title": "Business Post 3.",
-        "readTime": "3",
-        "date": "2024-06-01",
-        "contentFile": "/content/contentFiles/BBMD/BB3.md",
-        "author": "Tanmay Borde",
-        "tags": "",
-        "summary": "This is the summary of TB3 post.",
-        "imageURL": "/content/images/TB3.jpg",
-        "credits": "TechCrunch",
-        "metaDescription": "",
-        "relatedPosts": [
-            "",
-            ""
-        ],
-        "sources": [
-            "",
-            ""
-        ]
-    },
-    {
-        "id": "BB4",
-        "section": "business-blogs",
-        "title": "Business Post 4.",
-        "readTime": "3",
-        "date": "2024-06-01",
-        "contentFile": "/content/contentFiles/BBMD/BB4.md",
-        "author": "Tanmay Borde",
-        "tags": "",
-        "summary": "This is the summary of TB4 post.",
-        "imageURL": "/content/images/TB4.jpg",
-        "credits": "TechCrunch",
-        "metaDescription": "",
-        "relatedPosts": [
-            "",
-            ""
-        ],
-        "sources": [
-            "",
-            ""
-        ]
-    },
-    {
-        "id": "BB5",
-        "section": "business-blogs",
-        "title": "Business Post 5.",
-        "readTime": "3",
-        "date": "2024-06-01",
-        "contentFile": "/content/contentFiles/BBMD/BB5.md",
-        "author": "Tanmay Borde",
-        "tags": "",
-        "summary": "This is the summary of TB5 post.",
-        "imageURL": "/content/images/TB5.jpg",
-        "credits": "TechCrunch",
-        "metaDescription": "",
-        "relatedPosts": [
-            "",
-            ""
-        ],
-        "sources": [
-            "",
-            ""
-        ]
     }
 ]
