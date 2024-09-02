@@ -113,7 +113,7 @@ const BusinessBlogs = () => {
                 ) : (
                     <>
                         {posts.map((post) => (
-                            <Link to={`#post-${post.id}`} key={post.id} style={{ textDecoration: 'none' }}>
+                            <Link to={`#post-${post.id}`} key={post.id} style={{ textDecoration: 'none' }} onClick={() => handleExpandClick(post.id)}>
                                 <Card key={post.id} id={`post-${post.id}`} >
                                     <CardHeader
                                         title={post.title}

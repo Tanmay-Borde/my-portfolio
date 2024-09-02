@@ -129,7 +129,7 @@ const HumanityBlogs = () => {
                         <>
                             {
                                 posts.map((post) => (
-                                    <Link to={`#post-${post.id}`} key={post.id} style={{ textDecoration: 'none' }}>
+                                    <Link to={`#post-${post.id}`} key={post.id} style={{ textDecoration: 'none' }} onClick={() => handleExpandClick(post.id)}>
                                         <Card key={post.id} id={`post-${post.id}`} >
                                             <CardHeader
                                                 title={post.title}
@@ -174,7 +174,7 @@ const HumanityBlogs = () => {
                     )}
                 </Box>
             </ThemeProvider>
-            <Snackbar open={isCopied} autoHideDuration={6000}>
+            <Snackbar open={isCopied} autoHideDuration={6000} >
                 <Alert severity='success' variant='standard'>
                     {`Link Copied Successfully`}
                 </Alert>

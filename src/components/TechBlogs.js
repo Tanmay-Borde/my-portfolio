@@ -121,7 +121,7 @@ const TechBlogs = () => {
                     <>
                         {
                             posts.map((post) => (
-                                <Link to={`/blogs/${post.section}#post-${post.id}`} key={post.id} style={{ textDecoration: 'none' }}>
+                                <Link to={`/blogs/${post.section}#post-${post.id}`} key={post.id} style={{ textDecoration: 'none' }} onClick={() => handleExpandClick(post.id)}>
                                     <Card key={post.id} id={`post-${post.id}`} ref={elementRef} sx={{ color: 'white' }}>
                                         <CardHeader
                                             title={post.title}
