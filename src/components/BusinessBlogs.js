@@ -12,8 +12,21 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ReactMarkdown from 'react-markdown';
 import { Link, useLocation } from 'react-router-dom';
-import { Alert, Box, CircularProgress, Snackbar } from '@mui/material';
+import { Alert, Box, CircularProgress, createTheme, Snackbar } from '@mui/material';
 import { isMobile } from 'react-device-detect';
+
+const theme = createTheme({
+    typography: {
+        body1: {
+            color: 'white',
+            fontFamily: 'inherit',
+            lineHeight: 2,
+            fontSize: 16,
+            marginBottom: 10,
+            wordSpacing: 1
+        },
+    },
+});
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -119,7 +132,10 @@ const BusinessBlogs = () => {
                                         title={post.title}
                                         subheader={`${new Date(post.date).toLocaleDateString()} • ${post.readTime} min read`}
                                         action={
-                                            <IconButton onClick={() => handleCopy(`${window.location.origin}#/blogs/${post.section}#post-${post.id}`)}> <ShareIcon /> </IconButton>
+                                            <IconButton onClick={() => handleCopy(`${window.location.origin}/my-portfolio/#/blogs/${post.section}#post-${post.id}`)}>
+                                                {console.log('location2: ', `${window.location.origin}/my-portfolio/#/blogs/${post.section}#post-${post.id}`)}
+                                                <ShareIcon />
+                                            </IconButton>
                                         }
                                     />
                                     <CardMedia
@@ -143,7 +159,7 @@ const BusinessBlogs = () => {
                                     </CardActions>
                                     <Collapse in={post.expanded} timeout="auto" unmountOnExit>
                                         <CardContent>
-                                            <Typography paragraph>
+                                            <Typography theme={theme}>
                                                 <ReactMarkdown
                                                     children={post.content}
                                                     components={MarkdownComponents} />

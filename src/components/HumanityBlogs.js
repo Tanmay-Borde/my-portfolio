@@ -20,12 +20,30 @@ const theme = createTheme({
     typography: {
         body1: {
             color: 'white',
+            fontFamily: 'inherit',
+            lineHeight: 2,
+            fontSize: 16,
+            marginBottom: 10,
+            wordSpacing: 1
         },
-        h6: {
-            color: 'white',
+        components: {
+            MuiCardHeader: {
+                defaultProps: {
+                    title: {
+                        color: 'white', // Example color for title
+                    },
+                },
+                // Target the root element for overall styling
+                styleOverrides: {
+                    root: {
+                        backgroundColor: 'inherit', // Example background color
+                    },
+                },
+            },
         },
-    },
+    }
 });
+
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -130,12 +148,16 @@ const HumanityBlogs = () => {
                             {
                                 posts.map((post) => (
                                     <Link to={`#post-${post.id}`} key={post.id} style={{ textDecoration: 'none' }} onClick={() => handleExpandClick(post.id)}>
-                                        <Card key={post.id} id={`post-${post.id}`} >
+                                        <Card key={post.id} id={`post-${post.id}`}>
                                             <CardHeader
+                                                className="MuiCardHeader-root"
                                                 title={post.title}
                                                 subheader={`${new Date(post.date).toLocaleDateString()} • ${post.readTime} min read`}
                                                 action={
-                                                    <IconButton onClick={() => handleCopy(`${window.location.origin}#/blogs/${post.section}#post-${post.id}`)}> <ShareIcon /> </IconButton>
+                                                    <IconButton onClick={() => handleCopy(`${window.location.origin}/my-portfolio/#/blogs/${post.section}#post-${post.id}`)}>
+                                                        {console.log('location2: ', `${window.location.origin}/my-portfolio/#/blogs/${post.section}#post-${post.id}`)}
+                                                        <ShareIcon />
+                                                    </IconButton>
                                                 }
                                             />
                                             <CardMedia
@@ -145,7 +167,7 @@ const HumanityBlogs = () => {
                                                 alt={post.credits}
                                             />
                                             <Typography fontSize={5}>{`Image by`} {post.credits}</ Typography>
-                                            <CardHeader subheader={post.summary} />
+                                            <CardHeader className="MuiCardHeader-root" subheader={post.summary} />
                                             <CardActions disableSpacing>
                                                 <ExpandMore
                                                     expand={post.expanded}
@@ -157,15 +179,15 @@ const HumanityBlogs = () => {
                                                     <ExpandMoreIcon />
                                                 </ExpandMore>
                                             </CardActions>
-                                            <Collapse in={post.expanded} timeout="auto" unmountOnExit>
+                                            {post.expanded && <Collapse in={post.expanded} timeout="auto" unmountOnExit>
                                                 <CardContent>
-                                                    <Typography paragraph>
+                                                    <Typography theme={theme}>
                                                         <ReactMarkdown
                                                             children={post.content}
                                                             components={MarkdownComponents} />
                                                     </Typography>
                                                 </CardContent>
-                                            </Collapse>
+                                            </Collapse>}
                                         </Card >
                                     </Link>
                                 ))
@@ -173,7 +195,7 @@ const HumanityBlogs = () => {
                         </>
                     )}
                 </Box>
-            </ThemeProvider>
+            </ThemeProvider >
             <Snackbar open={isCopied} autoHideDuration={6000} >
                 <Alert severity='success' variant='standard'>
                     {`Link Copied Successfully`}
