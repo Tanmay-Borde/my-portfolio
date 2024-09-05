@@ -1,4 +1,14 @@
-TO-DO:
-- Add analytics
+******** TO-DO *********
+- Update Blogs
+- Update Resume
+- Update content in About me
+- Update skills
+- Add recent projects
 
-npm run deploy -- -m "gh-pages commit msg."
+**** Future Updates ****
+- Add analytics
+- newsletter
+- Quotes and multimedia in Archieve
+
+**** Command ****
+npm run deploy -- -m ""
