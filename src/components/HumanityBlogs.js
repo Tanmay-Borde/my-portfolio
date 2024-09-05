@@ -152,7 +152,7 @@ const HumanityBlogs = () => {
                                             <CardHeader
                                                 className="MuiCardHeader-root"
                                                 title={post.title}
-                                                subheader={`${new Date(post.date).toLocaleDateString()} • ${post.readTime} min read`}
+                                                subheader={`By ${post.author} • ${new Date(post.date).toLocaleDateString()} • ${post.readTime} min read`}
                                                 action={
                                                     <IconButton onClick={() => handleCopy(`${window.location.origin}/my-portfolio/#/blogs/${post.section}#post-${post.id}`)}>
                                                         {console.log('location2: ', `${window.location.origin}/my-portfolio/#/blogs/${post.section}#post-${post.id}`)}
