@@ -123,8 +123,8 @@ const HumanityBlogs = () => {
         img(image) {
             const imagePath = image.url || image.src;
             const altText = image.alt;
-            const width = isMobile ? '70%' : '40%';
-            const height = isMobile ? '70%' : '40%';
+            const width = isMobile ? '100%' : '60%';
+            const height = isMobile ? '100%' : '40%';
             return (
                 <img
                     src={imagePath}
