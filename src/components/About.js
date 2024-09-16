@@ -51,7 +51,7 @@ const about = {
     programmingLanguages: ['Java', 'PLSQL', 'JavaScript', 'TypeScript', 'Python'],
     databases: ['Oracle-DB', 'JSON-Server'],
     frameworks: ['Spring-Boot', 'React', 'Angular'],
-    tools: ['REST-API', 'Git'],
+    tools: ['REST-API', 'Docker', 'Git'],
     methodologies: ['Agile-Development']
 }
 
