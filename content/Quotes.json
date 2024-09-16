@@ -115,5 +115,14 @@
         "tags": "",
         "imageURL": "https://cdn.britannica.com/09/36209-050-66343901/Horace-Mann.jpg?w=740&h=416&c=crop",
         "metaDescription": ""
+    },
+    {
+        "id": "Q14",
+        "section": "quotes",
+        "quote": "The world has enough for everyone's need, but not enough for everyone's greed.",
+        "author": "M.K. Gandhi",
+        "tags": "",
+        "imageURL": "https://media.cnn.com/api/v1/images/stellar/prod/200930184541-01-gandhi-life.jpg?q=w_3000,c_fill",
+        "metaDescription": ""
     }
 ]
