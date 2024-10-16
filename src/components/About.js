@@ -405,7 +405,7 @@ export default function About() {
                             </CardContent>
                         </Box>
                         <Divider orientation='vertical' flexItem='true' variant='middle' />
-                        <CardMedia component='img' sx={{ p: 2, maxWidth: 200, maxHeight: 200, pt: 3 }} image={`${process.env.PUBLIC_URL}/logo.png`} />
+                        <CardMedia component='img' sx={{ p: 2, maxWidth: 200, maxHeight: 250, pt: 3 }} image={`${process.env.PUBLIC_URL}/content/images/Tanmay_portfolio.JPG`} />
                     </Card>
                 </Dialog>
             </Box>
@@ -904,7 +904,7 @@ export default function About() {
                                         </CardContent>
                                     </Box>
                                     <Divider orientation='vertical' flexItem='true' variant='middle' />
-                                    <CardMedia component='img' sx={{ p: 2, width: 220 }} image={`${process.env.PUBLIC_URL}/logo.png`} />
+                                    <CardMedia component='img' sx={{ p: 1, width: 180 }} image={`${process.env.PUBLIC_URL}/content/images/Tanmay_Portfolio.JPG`} />
                                 </Card>
                             </Box>
                         </TabPanel>
