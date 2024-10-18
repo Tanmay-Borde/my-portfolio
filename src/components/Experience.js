@@ -26,18 +26,13 @@ const experiences = [
         tenure: 'JUN 2022 - Present',
         companyLogo: '/Veritas.png',
         highlights: 'Responsible for the development of critical business facing web applications encompassing business flow from OM to Product Entitlement.',
-        brief: `Successfully delivered multiple projects for critical business facing web applications encompassing business flow from OM to Product Entitlement.
-            Worked on both front-end and back-end development including troubleshooting, debugging and patch fixing of multiple Web Applications.
-            Successfully designed and implemented high-performance Java microservices for the company's entitlement management system, improving business efficiency by 30%.
-            Database Management: Designed and Optimized Oracle DB for efficient interaction with Java Web Microservices and UI optimizing the backend by 20%.
-            Agile Development: Successfully implemented Agile methodologies for iterative development and project management.
-            Key Achievements: Played a pivotal role in understanding and delivering a critical business transformation and system implementation projects.
-            Led the retrofitting of multiple web applications, streamlining system integration and contributing to a stable and reliable solution for User Acceptance Testing (UAT).
-            Demonstrated strong analytical skills by simulating live business orders alongside the ERP system.
-            Implemented CI/CD (Continuous Integration and Continuous Delivery) for efficient application development.
-            Fostered effective collaboration with cross-functional teams by actively participating in requirement gathering, knowledge transfer, reporting, and brainstorming sessions.
-            Actively participated in requirement gathering, ideation, brainstorming sessions, and business demos to ensure project success.
-            Other Activities: Developed a Machine Learning-based internal application for the HR department during a Hackathon. This application streamlined the hiring process, resulting in a 20% reduction in time to hire.`,
+        brief: `- Design & Development: Led the initiative to create robust web applications for business operations, achieving a 30% reduction in manual data entry tasks, ultimately saving the team an impressive 15 hrs/week.
+- Architected Microservices: Designed and implemented high-performance RESTful Java microservices and an API gateway utilizing CI/CD practices within Agile frameworks, resulting in a 30% operational efficiency.
+- Database Optimization: Enhanced Oracle Database interactions with Java microservices, leading to a 20% increase in backend performance for the order management application.
+- Project Leadership: Led the implementation and integration of billing and notification modules, improving business process efficiency by 34% through streamlined workflows.
+- Automation Initiatives: Collaborated closely with business teams to automate manual System Integration Testing (SIT), achieving a 40% increase in testing efficiency, significantly reducing time-to-market.
+- Maintenance and Support: Conducted regular maintenance releases and bug fixes, enhancing application performance and user experience, while saving the company approximately $40k annually through efficient resource management.
+`,
         placement: 'right',
         skills: ['Java', 'Spring-Boot', 'React', 'Angular', 'PLSQL', 'REST-API', 'Oracle-DB', 'Oracle-EBS', 'Agile-Development']
     },
@@ -48,10 +43,12 @@ const experiences = [
         tenure: 'JAN 2022 - JUN 2022',
         companyLogo: '/Veritas.png',
         highlights: 'Played a major role in designing and developing a webapp that played a pivotal role in the system implemetation project of the company.',
-        brief: `Designed and developed a brand new webapp for business users from scratch that boosted their business process efficiency by 40%.
-        Cross team collaboration for requirement gathering, business demos and presentations.
-        Key Achievement: Our team's presentation was well received and spotlighted by the Tower Lead.
-        Active participation in various extra curricular activities of the company and hosting a live virtual show.`,
+        brief: `- Full Stack Development: Developed a full-stack application for internal teams that streamlined order processing into a single cloud-based web application dashboard.
+- Cross-Functional Collaboration: Engaged with 25 member downstream and upstream teams for requirement gathering, project ideation, design discussions, and delivered impactful business demos to stakeholders.
+- Innovation in Hackathon: Participated in a company-wide hackathon to develop an AI-based application for HR that expedited the candidate selection process and made the overall process 20% more efficient.
+- System integration: Worked on integrating a third party application that increased quarterly revenue by 15%.
+- Troubleshooting Expertise: Executed full-stack development tasks including troubleshooting, hotfixing, and debugging web applications, ensuring timely project delivery and improving issue resolution by 36%.
+`,
         placement: 'left',
         skills: ['Java', 'Spring-Boot', 'React', 'Oracle-DB', 'PLSQL', 'REST-API', 'Agile-Development']
     }

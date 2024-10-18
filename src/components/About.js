@@ -38,16 +38,16 @@ import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
 import { useLocation } from "react-router-dom";
 
-const embedded_resume = 'https://docs.google.com/document/d/e/2PACX-1vTryJQDskPq33vxEQFd6cjANxgBb9dcmSkzBODBZM7YSpqL5mz8mwjsyrlZAbcK1m-eSrqAZ5SyLBQz/pub?embedded=true';
-const shareable_resume = 'https://docs.google.com/document/d/1xiuDjQRr6vCYP9wvctCO4CM5xerXb1kkQ0hklAgA4QE/edit?usp=sharing';
+const embedded_resume = 'https://docs.google.com/document/d/e/2PACX-1vR3dfE3q4ErM6irOs6DLsjyONaHcv7vry6s6MrJich7EbQgysXRgU01wezXvWlLnRiYtrM9ayn2dCfB/pub?embedded=true';
+const shareable_resume = 'https://docs.google.com/document/d/1YmjxjvBkpyTCGKpMIzn-PQv_UOXEU4Nth5PAS2Alvjg/edit?usp=sharing';
 const portfolio_link = 'https://tanmay-borde.github.io/my-portfolio/';
 
 const about = {
     name: 'Tanmay Borde',
-    briefOverview: `A Technology Enthusiast, passionate about problem-solving and innovation, using technology as a tool to create an impact.
-                    With over 2+ years of experience in Full Stack Web Development, I have a proven track record of working end-to-end on critical system implementation projects.
-                    Successfully contributed for multiple projects encompassing business facing critical web applications from Order Management to Product Entitlement.
-                    As a curious and detail-oriented techno-functional geek with strong technical, business, and presentation skills, my goal is to gain valuable industry experience and drive innovation in both hardware and software domains.`,
+    briefOverview: `Technology Enthusiast | Full Stack Developer | Innovator
+A solution oriented software developer with 3+ years of experience in full-stack web development, dedicated to leveraging latest technologies as a powerful tool for problem-solving and innovation. I have a proven track record of working on end-to-end system implementation, where I have successfully contributed to multiple projects focused on business-facing web applications, including Order Management and Product Entitlement.
+As a curious and detail-oriented techno-functional professional, I thrive on tackling complex challenges and driving impactful solutions. My strong technical skills are complemented by my functional understanding of business needs, allowing me to create user-centric applications that enhance operational efficiency.
+My key attributes include agility, adaptability, and a commitment to continuous learning, with a focus on growth and value addition.`,
     programmingLanguages: ['Java', 'PLSQL', 'JavaScript', 'TypeScript', 'Python'],
     databases: ['Oracle-DB', 'JSON-Server'],
     frameworks: ['Spring-Boot', 'React', 'Angular'],
