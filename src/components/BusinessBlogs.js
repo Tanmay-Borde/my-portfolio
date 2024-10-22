@@ -100,6 +100,14 @@ const BusinessBlogs = () => {
         );
     };
 
+    const handleExpandClick1 = (postId) => {
+        setPosts((prevPosts) =>
+            prevPosts.map((post) =>
+                post.id === postId ? { ...post, expanded: !post.expanded } : post
+            )
+        );
+    };
+
     const MarkdownComponents = {
         img(image) {
             const imagePath = image.url || image.src;
@@ -148,7 +156,10 @@ const BusinessBlogs = () => {
                                     <CardActions disableSpacing>
                                         <ExpandMore
                                             expand={post.expanded}
-                                            onClick={() => handleExpandClick(post.id)}
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                handleExpandClick1(post.id);
+                                            }}
                                             aria-expanded={post.expanded}
                                             aria-label="show more"
                                             label="Read more"

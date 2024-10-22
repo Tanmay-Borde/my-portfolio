@@ -100,6 +100,16 @@ const TechBlogs = () => {
     }, [location.hash]);
 
     const handleExpandClick = (postId) => {
+        console.log('test103: ', postId)
+        setPosts((prevPosts) =>
+            prevPosts.map((post) =>
+                post.id === postId ? { ...post, expanded: !post.expanded } : post
+            )
+        );
+    };
+
+    const handleExpandClick1 = (postId) => {
+        console.log('test112: ', postId)
         setPosts((prevPosts) =>
             prevPosts.map((post) =>
                 post.id === postId ? { ...post, expanded: !post.expanded } : post
@@ -157,7 +167,10 @@ const TechBlogs = () => {
                                         <CardActions disableSpacing>
                                             <ExpandMore
                                                 expand={post.expanded}
-                                                onClick={() => handleExpandClick(post.id)}
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    handleExpandClick1(post.id);
+                                                }}
                                                 aria-expanded={post.expanded}
                                                 aria-label="show more"
                                                 label="Read more"
