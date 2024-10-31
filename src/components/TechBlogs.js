@@ -23,7 +23,7 @@ const theme = createTheme({
             lineHeight: 2,
             fontSize: 16,
             marginBottom: 10,
-            wordSpacing: 1
+            wordSpacing: 1,
         },
     },
 });
@@ -118,6 +118,9 @@ const TechBlogs = () => {
     };
 
     const MarkdownComponents = {
+        p: (props) => <Typography {...props} sx={{ padding: 0, margin: 0 }} />,
+        ul: (props) => <ul {...props} style={{ padding: 0, margin: 0, listStylePosition: 'inside' }} />,  // 'listStylePosition' moves bullets inside the list box
+        li: (props) => <li {...props} style={{ padding: 0, margin: 0 }} />,
         img(image) {
             const imagePath = image.url || image.src;
             const altText = image.alt;
@@ -133,7 +136,7 @@ const TechBlogs = () => {
                 />
             );
         },
-    };
+    };    
 
     return (
         <>
@@ -179,11 +182,9 @@ const TechBlogs = () => {
                                             </ExpandMore>
                                         </CardActions>
                                         <Collapse in={post.expanded} timeout="auto" unmountOnExit>
-                                            <CardContent>
-                                                <Typography theme={theme}>
-                                                    <ReactMarkdown
-                                                        children={post.content}
-                                                        components={MarkdownComponents} />
+                                            <CardContent sx={{ padding: 0 }}>
+                                                <Typography theme={theme} sx={{ padding: 0, margin: 0 }}>
+                                                    <ReactMarkdown components={MarkdownComponents} children={post.content} />
                                                 </Typography>
                                             </CardContent>
                                         </Collapse>
