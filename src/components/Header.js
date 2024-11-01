@@ -156,7 +156,7 @@ function Header(props) {
                   {`Quick Connect`}
                 </Typography>
                 <Stack direction="row" spacing={2} sx={{ justifyContent: 'center', alignItems: 'center' }}>
-                  <Link href="mailto:tanmayborde64@gmail.com?subject=Hi from the Portfolio" underline="none" target="_blank">
+                  <Link href="mailto:tanmayborde64@gmail.com?subject=Hi from the Blogfolio" underline="none" target="_blank">
                     <Tooltip title='E-mail' placement='left' arrow>
                       <EmailIcon fontSize='small' />
                     </Tooltip>

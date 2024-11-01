@@ -40,8 +40,8 @@ function App() {
   return (
     <>
       <Helmet>
-        <title>{`Tanmay's Portfolio`}</title>
-        <meta name='Tanmay Portfolio'></meta>
+        <title>{`Tanmay's Blogfolio`}</title>
+        <meta name='Tanmay Blogfolio'></meta>
       </Helmet>
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />

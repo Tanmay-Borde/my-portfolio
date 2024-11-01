@@ -1,1 +1,1 @@
-Welcome to my Portfolio & Blog!
+Welcome to the src code of my Blogfolio!
