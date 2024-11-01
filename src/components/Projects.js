@@ -13,13 +13,13 @@ import { useLocation } from 'react-router-dom';
 const projects = [
     {
         projectId: 'pid1',
-        projectTitle: 'Personal Blogfolio Website',
+        projectTitle: 'Personal Blogfolio Website.',
         projectBrief: 'Dynamic SPA Portfolio website hosted on GitHub pages with dynamic content JSON content loading.',
         skills: ['React', 'REST-API', 'JSON-Server']
     },
     {
         projectId: 'pid1',
-        projectTitle: 'Multi-container Docker Application',
+        projectTitle: 'Multi-container Docker Application.',
         projectBrief: 'Simple multi-container Docker application with React front-end and Java Backend.',
         skills: ['Docker', 'React', 'Java']
     },
