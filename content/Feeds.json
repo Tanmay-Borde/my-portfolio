@@ -1,5 +1,80 @@
 [
     {
+        "id": "F7",
+        "section": "feeds",
+        "title": "What Donald Trump's Win Will Mean for Big Tech",
+        "date": "2024-06-01",
+        "tags": [],
+        "summary": "A capitalist president, elected by a billionaire in a capitalist country after buying the townhall of US (Twitter).",
+        "imageURL": "https://media.wired.com/photos/672bcd1062c380013856bb0f/master/w_2240,c_limit/Business_bigtech_GettyImages-697900116.jpg",
+        "metaDescription": [],
+        "relatedPosts": [],
+        "source": "https://www.theverge.com/24289730/apple-mac-mini-m4-review",
+        "featured": true,
+        "highlighted": false,
+        "topFeed": false
+    },
+    {
+        "id": "F7",
+        "section": "feeds",
+        "title": "Apple Mac Mini M4 review: a tiny wonder",
+        "date": "2024-06-01",
+        "tags": [],
+        "summary": "Now the best value in Apple’s lineup, the Mac Mini takes its ideal form with an impressively small design that compromises on very little.",
+        "imageURL": "https://duet-cdn.vox-cdn.com/thumbor/0x0:2040x1360/2048x1365/filters:focal(877x573:878x574):format(webp)/cdn.vox-cdn.com/uploads/chorus_asset/file/25717370/DSC_1249.jpg",
+        "metaDescription": [],
+        "relatedPosts": [],
+        "source": "https://www.theverge.com/24289730/apple-mac-mini-m4-review",
+        "featured": true,
+        "highlighted": false,
+        "topFeed": false
+    },
+    {
+        "id": "F7",
+        "section": "feeds",
+        "title": "Apple MacBook Pro M4 review: the Pro for everyone",
+        "date": "2024-06-01",
+        "tags": [],
+        "summary": "More ports, more RAM, a nicer screen, and a better webcam for a little less money.",
+        "imageURL": "https://duet-cdn.vox-cdn.com/thumbor/0x0:2040x1360/2048x1365/filters:focal(1020x680:1021x681):format(webp)/cdn.vox-cdn.com/uploads/chorus_asset/file/25718390/247372_MacBook_Pro_M4_ADiBenedetto_0029.jpg",
+        "metaDescription": [],
+        "relatedPosts": [],
+        "source": "https://www.theverge.com/24289831/apple-macbook-pro-m4-review-14-2024-laptop-specs-benchmarks",
+        "featured": true,
+        "highlighted": false,
+        "topFeed": false
+    },
+    {
+        "id": "F7",
+        "section": "feeds",
+        "title": "European Union to build its own satellite-internet constellation",
+        "date": "2024-06-01",
+        "tags": [],
+        "summary": "The Russian military aggression against Ukraine has demonstrated how crucial space-based sovereign and secure communication services are.",
+        "imageURL": "https://static.euronews.com/articles/stories/08/82/70/90/1920x1080_cmsv2_ee55ce7d-fac0-5cdf-b853-636782725006-8827090.jpg",
+        "metaDescription": [],
+        "relatedPosts": [],
+        "source": "https://www.space.com/european-union-satellite-internet-constellation-iriss",
+        "featured": true,
+        "highlighted": false,
+        "topFeed": false
+    },
+    {
+        "id": "F7",
+        "section": "feeds",
+        "title": "Understanding Amazon’s AI Strategy",
+        "date": "2024-06-01",
+        "tags": [],
+        "summary": "A Comprehensive set of AWS Services Powered by Silicon Innovation",
+        "imageURL": "https://media.licdn.com/dms/image/D4D12AQGqbZlVGN3NiQ/article-cover_image-shrink_600_2000/0/1683181233691?e=2147483647&v=beta&t=NFjY7cP0B5FXSGDzFYnciO4jicIBJLK7ADxa4PXvLwE",
+        "metaDescription": [],
+        "relatedPosts": [],
+        "source": "http://robustcloud.com/understanding-amazons-ai-strategy/?utm_source=pocket_shared",
+        "featured": true,
+        "highlighted": false,
+        "topFeed": false
+    },
+    {
         "id": "F4",
         "section": "feeds",
         "title": "The Open Source AI Definition Is Out",
@@ -55,8 +130,8 @@
         "metaDescription": [],
         "relatedPosts": [],
         "source": "https://www.forbes.com/sites/quickerbettertech/2024/10/25/how-ai-is-killing-the-harvard-mba/?utm_source=pocket_shared",
-        "featured": true,
-        "highlighted": false,
+        "featured": false,
+        "highlighted": true,
         "topFeed": false
     },
     {
@@ -85,8 +160,8 @@
         "metaDescription": [],
         "relatedPosts": [],
         "source": "https://www.theverge.com/2024/8/21/24224862/meta-snap-ar-glasses-orion-spectacles-zuckerberg-spiegel",
-        "featured": true,
-        "highlighted": false,
+        "featured": false,
+        "highlighted": true,
         "topFeed": false
     },
     {
@@ -115,9 +190,9 @@
         "metaDescription": [],
         "relatedPosts": [],
         "source": "https://www.androidpolice.com/oneplus-phones-magsafe-qi2-accessories-rumor/",
-        "featured": true,
-        "highlighted": true,
-        "topFeed": false
+        "featured": false,
+        "highlighted": false,
+        "topFeed": true
     },
     {
         "id": "F5",
@@ -145,8 +220,8 @@
         "metaDescription": [],
         "relatedPosts": [],
         "source": "https://analyticsindiamag.com/ai-insights-analysis/openai-is-building-the-iphone-of-ai/?utm_source=pocket_shared",
-        "featured": true,
-        "highlighted": false,
+        "featured": false,
+        "highlighted": true,
         "topFeed": false
     },
     {
@@ -161,8 +236,8 @@
         "relatedPosts": [],
         "source": "https://www.theverge.com/2024/9/29/24256056/meta-orion-quest-3s-smart-glasses-balatro-mobile-zelda-game-installer?utm_source=pocket_shared",
         "featured": false,
-        "highlighted": false,
-        "topFeed": true
+        "highlighted": true,
+        "topFeed": false
     },
     {
         "id": "F7",
