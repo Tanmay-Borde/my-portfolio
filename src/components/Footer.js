@@ -39,7 +39,7 @@ function Footer(props) {
               <EmailIcon fontSize='small' />
             </Tooltip>
           </Link>
-          <Link href="https://www.linkedin.com/in/tanmay-borde-88668b141/" underline="none" target="_blank">
+          <Link href="https://www.linkedin.com/in/tanmay-borde/" underline="none" target="_blank">
             <Tooltip title='LinkedIn' placement='top' arrow>
               <LinkedInIcon fontSize='small' />
             </Tooltip>

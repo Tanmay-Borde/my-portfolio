@@ -356,7 +356,7 @@ export default function About() {
                             </CardContent>
                             <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 2, p: 1 }}>
                                 <Stack direction="row" spacing={0.8} sx={{ justifyContent: 'center', alignItems: 'center' }}>
-                                    <IconButton href="https://www.linkedin.com/in/tanmay-borde-88668b141/" underline="none" target="_blank">
+                                    <IconButton href="https://www.linkedin.com/in/tanmay-borde/" underline="none" target="_blank">
                                         <Tooltip title='LinkedIn' placement='top' arrow>
                                             <LinkedInIcon />
                                         </Tooltip>
@@ -855,7 +855,7 @@ export default function About() {
                                         </CardContent>
                                         <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 2 }}>
                                             <Stack direction="row" spacing={0.8} sx={{ justifyContent: 'center', alignItems: 'center' }}>
-                                                <IconButton href="https://www.linkedin.com/in/tanmay-borde-88668b141/" underline="none" target="_blank">
+                                                <IconButton href="https://www.linkedin.com/in/tanmay-borde/" underline="none" target="_blank">
                                                     <Tooltip title='LinkedIn' placement='top' arrow>
                                                         <LinkedInIcon />
                                                     </Tooltip>
