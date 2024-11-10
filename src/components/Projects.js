@@ -14,7 +14,7 @@ const projects = [
     {
         projectId: 'pid1',
         projectTitle: 'Personal Blogfolio Website.',
-        projectBrief: 'Dynamic SPA Portfolio website hosted on GitHub pages with dynamic content JSON content loading.',
+        projectBrief: 'Dynamic SPA Portfolio website hosted on GitHub pages with dynamic JSON content loading.',
         skills: ['React', 'REST-API', 'JSON-Server']
     },
     {
