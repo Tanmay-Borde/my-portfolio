@@ -44,14 +44,14 @@ const portfolio_link = 'https://tanmay-borde.github.io/my-portfolio/';
 
 const about = {
     name: 'Tanmay Borde',
-    briefOverview: `Technology Enthusiast | Full Stack Developer | Innovator
-A solution oriented software developer with 3+ years of experience in full-stack web development, dedicated to leveraging latest technologies as a powerful tool for problem-solving and innovation. I have a proven track record of working on end-to-end system implementation, where I have successfully contributed to multiple projects focused on business-facing web applications, including Order Management and Product Entitlement.
-As a curious and detail-oriented techno-functional professional, I thrive on tackling complex challenges and driving impactful solutions. My strong technical skills are complemented by my functional understanding of business needs, allowing me to create user-centric applications that enhance operational efficiency.
-My key attributes include agility, adaptability, and a commitment to continuous learning, with a focus on growth and value addition.`,
+    briefOverview: `Technology Enthusiast | Full Stack Developer | Innovator | Polymath connecting the dots . . . .
+    A solution oriented software developer with 3+ years of experience in full-stack web development, dedicated to leveraging latest technologies as a powerful tool for problem-solving and innovation. I have a proven track record of working on end-to-end system implementation, where I have successfully contributed to multiple projects focused on business-facing web applications, including Order Management and Product Entitlement.
+    As a curious and detail-oriented techno-functional professional, I thrive on tackling complex challenges and driving impactful solutions. My strong technical skills are complemented by my functional understanding of business needs, allowing me to create user-centric applications that enhance operational efficiency.
+    My key attributes include agility, adaptability, and a commitment to continuous learning, with a strong focus on growth and value addition.`,
     programmingLanguages: ['Java', 'PLSQL', 'JavaScript', 'TypeScript', 'Python'],
     databases: ['Oracle-DB', 'JSON-Server'],
     frameworks: ['Spring-Boot', 'React', 'Angular'],
-    tools: ['REST-API', 'Docker', 'Git'],
+    tools: ['REST-API', 'Docker', 'Kubernetes', 'Git'],
     methodologies: ['Agile-Development']
 }
 

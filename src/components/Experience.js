@@ -6,13 +6,12 @@ import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
 import TimelineDot from '@mui/lab/TimelineDot';
-import { Avatar, Card, CardContent, Chip, Container, Divider, Stack, Tooltip } from '@mui/material';
+import { Avatar, Card, CardContent, Chip, Container, Divider, Stack } from '@mui/material';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Fade from '@mui/material/Fade';
 import Box from '@mui/material/Box';
 import { Grid } from '@mui/material';
 import { isMobile } from 'react-device-detect';
@@ -20,11 +19,22 @@ import { useLocation } from 'react-router-dom';
 
 const experiences = [
     {
-        id: 'job1',
+        id: 'job3',
+        title: 'Software Engineer-1',
+        company: 'Cohesity',
+        tenure: 'DEC 2024 - Present',
+        companyLogo: '/cohesity_logo.png',
+        highlights: 'Enterprise Applications Development',
+        brief: ``,
+        placement: 'right',
+        skills: ['Java', 'Spring-Boot', 'React', 'Angular', 'PLSQL', 'REST-API', 'Oracle-DB', 'Oracle-EBS', 'Agile-Development']
+    },
+    {
+        id: 'job2',
         title: 'Assoc. IT Developer',
         company: 'Veritas',
         tenure: 'JUN 2022 - Present',
-        companyLogo: '/Veritas.png',
+        companyLogo: '/veritas_logo.png',
         highlights: 'Responsible for the development of critical business facing web applications encompassing business flow from OM to Product Entitlement.',
         brief: `- Design & Development: Led the initiative to create robust web applications for business operations, achieving a 30% reduction in manual data entry tasks, ultimately saving the team an impressive 15 hrs/week.
 - Architected Microservices: Designed and implemented high-performance RESTful Java microservices and an API gateway utilizing CI/CD practices within Agile frameworks, resulting in a 30% operational efficiency.
@@ -37,11 +47,11 @@ const experiences = [
         skills: ['Java', 'Spring-Boot', 'React', 'Angular', 'PLSQL', 'REST-API', 'Oracle-DB', 'Oracle-EBS', 'Agile-Development']
     },
     {
-        id: 'job2',
+        id: 'job1',
         title: 'Intern Masters level',
         company: 'Veritas',
         tenure: 'JAN 2022 - JUN 2022',
-        companyLogo: '/Veritas.png',
+        companyLogo: '/veritas_logo.png',
         highlights: 'Played a major role in designing and developing a webapp that played a pivotal role in the system implemetation project of the company.',
         brief: `- Full Stack Development: Developed a full-stack application for internal teams that streamlined order processing into a single cloud-based web application dashboard.
 - Cross-Functional Collaboration: Engaged with 25 member downstream and upstream teams for requirement gathering, project ideation, design discussions, and delivered impactful business demos to stakeholders.
@@ -56,7 +66,7 @@ const experiences = [
 
 export default function Experience() {
     const [expanded, setExpanded] = React.useState('');
-    const [open, setOpen] = React.useState(false);
+    // const [open, setOpen] = React.useState(false);
     const location = useLocation();
 
     React.useEffect(() => {
@@ -74,12 +84,8 @@ export default function Experience() {
     }, [location.hash]);
 
     const handleChange = (panel) => (event, isExpanded) => {
-        setOpen(true);
+        // setOpen(true);
         setExpanded(isExpanded ? panel : false);
-    };
-
-    const handleTooltipClose = () => {
-        setOpen(false);
     };
 
     return (
@@ -100,9 +106,9 @@ export default function Experience() {
                                     <TimelineConnector />
                                     <TimelineDot>
                                         <img
-                                            src={`${process.env.PUBLIC_URL}${experience.companyLogo}`}
-                                            width={30}
-                                            height={30}
+                                            src={`${process.env.PUBLIC_URL}/content/images/${experience.companyLogo}`}
+                                            width={35}
+                                            height={35}
                                             alt="Veritas Logo"
                                         />
                                     </TimelineDot>
@@ -113,25 +119,9 @@ export default function Experience() {
                                         {experience.company}
                                     </Typography>
                                     <Typography>
-                                        {!isMobile && (
-                                            <Tooltip
-                                                arrow
-                                                title={experience.highlights}
-                                                placement={experience.placement}
-                                                TransitionComponent={Fade}
-                                                TransitionProps={{ timeout: 400 }}
-                                                PopperProps={{
-                                                    disablePortal: true,
-                                                }}
-                                                onClose={handleTooltipClose}
-                                                open={open}
-                                                disableFocusListener
-                                            >
-                                                <Typography>
-                                                    {experience.title}
-                                                </Typography>
-                                            </Tooltip>
-                                        )}
+                                        <Typography>
+                                            {experience.title}
+                                        </Typography>
                                     </Typography>
                                 </TimelineContent>
                             </TimelineItem>
