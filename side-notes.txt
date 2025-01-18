@@ -1,5 +1,7 @@
 ******** TO-DO *********
-- Add content in archieve page
+- Add content in archieve page.
+- Modal for quick news summary.
+- Revamp feeds page.
 
 **** Future Updates ****
 - Add analytics

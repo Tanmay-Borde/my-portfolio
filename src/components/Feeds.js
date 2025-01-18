@@ -77,7 +77,7 @@ const Feeds = () => {
                                         <CardActionArea href={feed.source} target='_blank'>
                                             <CardMedia
                                                 component="img"
-                                                height="300"
+                                                height="400"
                                                 image={feed.imageURL}
                                                 alt="image post"
                                             />
