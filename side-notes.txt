@@ -1,9 +1,5 @@
 ******** TO-DO *********
-- Update Blogs
-- Update Resume
-- Update content in About me
-- Update skills
-- Add recent projects
+- Add content in archieve page
 
 **** Future Updates ****
 - Add analytics

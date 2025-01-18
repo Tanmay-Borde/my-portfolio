@@ -44,15 +44,14 @@ const portfolio_link = 'https://tanmay-borde.github.io/my-portfolio/';
 
 const about = {
     name: 'Tanmay Borde',
-    briefOverview: `Technology Enthusiast | Full Stack Developer | Innovator | Polymath connecting the dots . . . .
-    A solution oriented software developer with 3+ years of experience in full-stack web development, dedicated to leveraging latest technologies as a powerful tool for problem-solving and innovation. I have a proven track record of working on end-to-end system implementation, where I have successfully contributed to multiple projects focused on business-facing web applications, including Order Management and Product Entitlement.
-    As a curious and detail-oriented techno-functional professional, I thrive on tackling complex challenges and driving impactful solutions. My strong technical skills are complemented by my functional understanding of business needs, allowing me to create user-centric applications that enhance operational efficiency.
-    My key attributes include agility, adaptability, and a commitment to continuous learning, with a strong focus on growth and value addition.`,
+    briefOverview: `Tech Enthusiast | Patent Holder | Innovator | The Product Guy!
+    A solution oriented software developer with 3+ years of experience in Full-Stack Web Development, dedicated to leveraging latest technologies as a powerful tool for problem-solving and innovation. I have a proven track record of working on end-to-end system implementation, where I have successfully contributed to multiple projects focused on business-facing web applications, encompassing business flow from Order Management to Product Entitlement.
+    My strong technical skills are complemented by my functional understanding of business needs, allowing me to create user-centric products that enhance operational efficiency. As a curious and detail-oriented techno-functional professional, I have a knack for building and creating things with craftsmanship. I thrive on tackling complex challenges and driving impactful solutions with first principles thinking and evolving mental models.
+    My key attributes include agility, adaptability, and a commitment to continuous learning, with a focus on growth and value addition. Outside of my work I read, write and listen to music.`,
     programmingLanguages: ['Java', 'PLSQL', 'JavaScript', 'TypeScript', 'Python'],
-    databases: ['Oracle-DB', 'JSON-Server'],
-    frameworks: ['Spring-Boot', 'React', 'Angular'],
-    tools: ['REST-API', 'Docker', 'Kubernetes', 'Git'],
-    methodologies: ['Agile-Development']
+    databases: ['Oracle-DB', 'JSON-Server', 'MySQL', 'Redis'],
+    frameworks: ['Spring-Boot', 'React', 'Angular', 'REST-API'],
+    tools: ['Docker', 'Kubernetes', 'Git', 'Agile-Development', 'Product Development']
 }
 
 const certifications = [
@@ -64,54 +63,60 @@ const certifications = [
     },
     {
         id: 'c2',
+        title: 'Introduction to Containers, Docker, K8s & OpenShift',
+        issuedDate: 'Issued January 2025',
+        url: 'https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~7F21JGWA4L6I/CERTIFICATE_LANDING_PAGE~7F21JGWA4L6I.jpeg'
+    },
+    {
+        id: 'c3',
         title: 'AI for Business Leaders',
         issuedDate: 'Issued Apr 2024',
         url: 'https://www.udemy.com/certificate/UC-e4fec80f-57d7-4f3d-994d-6cea9f260c59/'
     },
     {
-        id: 'c3',
+        id: 'c4',
         title: 'The Complete PLSQL Bootcamp',
         issuedDate: 'Issued Dec 2023',
         url: 'https://udemy-certificate.s3.amazonaws.com/pdf/UC-0c756df9-e190-428f-acf9-10c69daa5901.pdf'
     },
     {
-        id: 'c4',
+        id: 'c5',
         title: 'Git-The Complete Guide',
         issuedDate: 'Issued Aug 2022',
         url: 'https://www.udemy.com/certificate/UC-57253988-9f24-4556-a977-de61a9c6aa2b/'
     },
     {
-        id: 'c5',
+        id: 'c6',
         title: 'Java Full Stack-Spring Boot & React',
         issuedDate: 'Issued Jun 2022',
         url: 'http://ude.my/UC-1f4e67cc-6394-4698-85b0-077d6d35687c'
     },
     {
-        id: 'c6',
+        id: 'c7',
         title: 'Introduction to DevOps & SRE',
         issuedDate: 'Issued Dec 2021',
         url: 'https://courses.edx.org/certificates/6a26b745178b44499af6491a72340bb1'
     },
     {
-        id: 'c7',
+        id: 'c8',
         title: 'Front-End JS Framework-Angular',
         issuedDate: 'Issued Jul 2021',
         url: 'https://coursera.org/share/23d81ed7a2163d82f43df0d62a96ceb7'
     },
     {
-        id: 'c8',
+        id: 'c9',
         title: 'IBM-Introduction to AI',
         issuedDate: 'Issued Feb 2021',
         url: 'https://www.coursera.org/account/accomplishments/certificate/Y6GRLEBBB33E'
     },
     {
-        id: 'c9',
+        id: 'c10',
         title: 'Exec Briefing- AI & LLMs',
         issuedDate: 'Issued Apr 2024',
         url: 'https://www.udemy.com/certificate/UC-73572894-eb99-4baf-9d46-9eb5e2085e7c/'
     },
     {
-        id: 'c10',
+        id: 'c11',
         title: 'UOM-Beginners Guide for Python',
         issuedDate: 'Issued Jan 2021',
         url: 'https://www.coursera.org/account/accomplishments/certificate/EJC2K39G3KDG'
@@ -621,7 +626,7 @@ export default function About() {
                                                 ))
                                                 }
                                             </Stack>
-                                            <Divider>{`Tools`}</Divider>
+                                            <Divider>{`Tools & Methodologies`}</Divider>
                                             <Stack p={3} direction='row' spacing={3} justifyContent={"center"}>
                                                 {about.tools.map((tool, index) => (
                                                     <Grid item xs={12} md={4} key={index}>
@@ -993,7 +998,7 @@ export default function About() {
                                                         ))
                                                         }
                                                     </Stack>
-                                                    <Divider>{`Tools`}</Divider>
+                                                    <Divider>{`Tools & Methodologies`}</Divider>
                                                     <Stack p={2} direction='row' spacing={2} display={'flex'} flexGrow={1} flexWrap={'wrap'} justifyContent={'center'}>
                                                         {about.tools.map((tool, index) => (
                                                             <Grid item xs={12} md={4} key={index} p={1}>

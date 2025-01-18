@@ -15,13 +15,13 @@ const projects = [
         projectId: 'pid1',
         projectTitle: 'Personal Blogfolio Website.',
         projectBrief: 'Dynamic SPA Portfolio website hosted on GitHub pages with dynamic JSON content loading.',
-        skills: ['React', 'REST-API', 'JSON-Server']
+        skills: ['React', 'REST-API', 'JSON-Server', 'Git']
     },
     {
         projectId: 'pid1',
         projectTitle: 'Multi-container Docker Application.',
         projectBrief: 'Simple multi-container Docker application with React front-end and Java Backend.',
-        skills: ['Docker', 'React', 'Java']
+        skills: ['Docker', 'React', 'Java', 'Git']
     },
     {
         projectId: 'pid1',

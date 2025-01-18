@@ -19,48 +19,67 @@ import { useLocation } from 'react-router-dom';
 
 const experiences = [
     {
-        id: 'job3',
+        id: 'job4',
         title: 'Software Engineer-1',
         company: 'Cohesity',
         tenure: 'DEC 2024 - Present',
         companyLogo: '/cohesity_logo.png',
         highlights: 'Enterprise Applications Development',
-        brief: ``,
+        brief: `- Currently working on Legacy Veritas and Cohesity BizApps and system applications integration.
+        - Engaging in data migration and techno-functional design discussions.
+        - Providing priority bug fix support for system applications at Cohesity.`,
         placement: 'right',
         skills: ['Java', 'Spring-Boot', 'React', 'Angular', 'PLSQL', 'REST-API', 'Oracle-DB', 'Oracle-EBS', 'Agile-Development']
     },
     {
-        id: 'job2',
+        id: 'job3',
         title: 'Assoc. IT Developer',
         company: 'Veritas',
         tenure: 'JUN 2022 - Present',
         companyLogo: '/veritas_logo.png',
         highlights: 'Responsible for the development of critical business facing web applications encompassing business flow from OM to Product Entitlement.',
         brief: `- Design & Development: Led the initiative to create robust web applications for business operations, achieving a 30% reduction in manual data entry tasks, ultimately saving the team an impressive 15 hrs/week.
-- Architected Microservices: Designed and implemented high-performance RESTful Java microservices and an API gateway utilizing CI/CD practices within Agile frameworks, resulting in a 30% operational efficiency.
-- Database Optimization: Enhanced Oracle Database interactions with Java microservices, leading to a 20% increase in backend performance for the order management application.
-- Project Leadership: Led the implementation and integration of billing and notification modules, improving business process efficiency by 34% through streamlined workflows.
-- Automation Initiatives: Collaborated closely with business teams to automate manual System Integration Testing (SIT), achieving a 40% increase in testing efficiency, significantly reducing time-to-market.
-- Maintenance and Support: Conducted regular maintenance releases and bug fixes, enhancing application performance and user experience, while saving the company approximately $40k annually through efficient resource management.
-`,
+        - Architected Microservices: Designed and implemented high-performance RESTful Java microservices and an API gateway utilizing CI/CD practices within Agile frameworks, resulting in a 30% operational efficiency.
+        - Database Optimization: Enhanced Oracle Database interactions with Java microservices, leading to a 20% increase in backend performance for the order management application.
+        - Project Leadership: Led the implementation and integration of billing and notification modules, improving business process efficiency by 34% through streamlined workflows.
+        - Automation Initiatives: Collaborated closely with business teams to automate manual System Integration Testing (SIT), achieving a 40% increase in testing efficiency, significantly reducing time-to-market.
+        - Maintenance and Support: Conducted regular maintenance releases and bug fixes, enhancing application performance and user experience, while saving the company approximately $40k annually through efficient resource management.`,
         placement: 'right',
         skills: ['Java', 'Spring-Boot', 'React', 'Angular', 'PLSQL', 'REST-API', 'Oracle-DB', 'Oracle-EBS', 'Agile-Development']
     },
     {
-        id: 'job1',
+        id: 'job2',
         title: 'Intern Masters level',
         company: 'Veritas',
         tenure: 'JAN 2022 - JUN 2022',
         companyLogo: '/veritas_logo.png',
         highlights: 'Played a major role in designing and developing a webapp that played a pivotal role in the system implemetation project of the company.',
-        brief: `- Full Stack Development: Developed a full-stack application for internal teams that streamlined order processing into a single cloud-based web application dashboard.
-- Cross-Functional Collaboration: Engaged with 25 member downstream and upstream teams for requirement gathering, project ideation, design discussions, and delivered impactful business demos to stakeholders.
-- Innovation in Hackathon: Participated in a company-wide hackathon to develop an AI-based application for HR that expedited the candidate selection process and made the overall process 20% more efficient.
-- System integration: Worked on integrating a third party application that increased quarterly revenue by 15%.
-- Troubleshooting Expertise: Executed full-stack development tasks including troubleshooting, hotfixing, and debugging web applications, ensuring timely project delivery and improving issue resolution by 36%.
-`,
+        brief: `- Full-Stack Development: Built a cloud-based web application dashboard that streamlined order processing and enhanced efficiency.
+        - System Integration: Integrated third-party applications, boosting quarterly revenue by 15%.
+        - SaaS Migration: Contributed to migrating perpetual licensing applications to cloud-native platforms, improving order management and business processes by 40%.
+        - Cross-Functional Collaboration: Engaged with multiple downstream and upstream team members for requirement gathering, design discussions, and stakeholder demos.
+        - Hackathon Innovation: Developed an AI-powered HR application, expediting candidate selection and increasing efficiency by 20%.
+        - Troubleshooting Expertise: Improved web application issue resolution by 36% through debugging, hotfixes, and maintenance.`,
         placement: 'left',
         skills: ['Java', 'Spring-Boot', 'React', 'Oracle-DB', 'PLSQL', 'REST-API', 'Agile-Development']
+    },
+    {
+        id: 'job1',
+        title: 'Technical Product Lead',
+        company: '[Freelancing]',
+        tenure: 'JUN 2019 - DEC 2021',
+        companyLogo: '/Freelancing.png',
+        highlights: 'Played a major role in designing and developing a webapp that played a pivotal role in the system implemetation project of the company.',
+        brief: `- Spearheaded the end-to-end development of a wearable power bank prototype, transforming the concept into a tangible product ready for pitching and patent filing.
+        - Directed the complete product lifecycle, from ideation and designing to manufacturing and implementation, ensuring technical feasibility and innovative solutions.
+        - Managed materials and components sourcing, negotiating with suppliers and optimizing costs for high-quality resources.
+        - Conducted vendor and factory visits, coordinating with manufacturers to align product specifications and production processes.
+        - Designed, developed, and tested electrical, mechanical, and electronic components, ensuring compliance with safety, durability, and performance standards.
+        - Created and maintained detailed project documentation, including technical specifications, design iterations, and testing results, to support the patent application process.
+        - Actively pitched the prototype to stakeholders, showcasing its innovative features and market potential, while incorporating feedback to refine the product.
+`,
+        placement: 'left',
+        skills: ['Agile-Development', 'Product Development', 'Prototyping', 'Product Roadmap']
     }
 ]
 
