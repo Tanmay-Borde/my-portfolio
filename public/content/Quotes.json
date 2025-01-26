@@ -50,7 +50,7 @@
         "quote": "We are like butterflies who flutter for a day and think it's forever.",
         "author": "Carl Sagan",
         "tags": "",
-        "imageURL": "https://friendsofchinacamp.org/wp-content/uploads/2022/04/F39DCDBB-779A-40F3-B8ED-6429C7BBF516.jpeg",
+        "imageURL": "https://img.freepik.com/premium-photo/butterflies-fluttering-around-campfire-evening_1170794-329151.jpg",
         "metaDescription": ""
     },
     {
@@ -123,6 +123,15 @@
         "author": "M.K. Gandhi",
         "tags": "",
         "imageURL": "https://media.cnn.com/api/v1/images/stellar/prod/200930184541-01-gandhi-life.jpg?q=w_3000,c_fill",
+        "metaDescription": ""
+    },
+    {
+        "id": "Q14",
+        "section": "quotes",
+        "quote": "Unthinking respect for authority is the greatest enemy of truth.",
+        "author": "Albert Einstein",
+        "tags": "",
+        "imageURL": "https://www.worldatlas.com/r/w1200/upload/9d/fd/aa/shutterstock-550751473.jpg",
         "metaDescription": ""
     }
 ]
