@@ -2,17 +2,17 @@
     {
         "id": "F7",
         "section": "feeds",
-        "title": "Rigetti Launches 84-Qubit Ankaa-3: A Leap in Quantum Computing",
-        "date": "2025-01-25",
-        "tags": [],
-        "summary": "Rigetti Computing's Ankaa-3 quantum computer launches with advanced features and integration plans.",
-        "imageURL": "https://ml.globenewswire.com/Resource/Download/ec541bde-8376-437d-a751-cbf9029f8d87",
-        "metaDescription": [],
+        "title": "Next-Gen Protocols Set the Stage for Universal AI Agent Interoperability",
+        "date": "2024-06-01",
+        "tags": ["AI Agents", "Interoperability", "Protocols", "LLM", "MCP", "ACP", "A2A", "ANP", "Decentralized Identity"],
+        "summary": "A deep dive into MCP, ACP, A2A, and ANP—the emerging protocols poised to standardize and scale communication among autonomous AI agents.",
+        "imageURL": "https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3399a364-9bd7-4302-b0a4-40cd956ba23d_5246x3200.png",
+        "metaDescription": "Explore how Model Context Protocol, Agent Communication Protocol, Agent-to-Agent Protocol, and Agent Network Protocol are transforming AI agent interoperability, enabling secure, modular, and scalable collaboration across platforms and the open web.",
         "relatedPosts": [],
-        "source": "https://quantumcomputingreport.com/rigetti-computing-launches-84-qubit-ankaa-3-its-quantum-cloud-services-platform-qcs/",
-        "featured": false,
+        "source": "https://www.marktechpost.com/2025/05/09/a-deep-technical-dive-into-next-generation-interoperability-protocols-model-context-protocol-mcp-agent-communication-protocol-acp-agent-to-agent-protocol-a2a-and-agent-network-protocol-anp/",
+        "featured": true,
         "highlighted": true,
-        "topFeed": false
+        "topFeed": true
     },
     {
         "id": "F7",
