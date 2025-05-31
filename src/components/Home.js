@@ -367,15 +367,15 @@ export default function Home() {
                         flexGrow: 1,
                         mt: 3
                     }}>
-                    <Link onClick={handleOpenDialog}>
-                        < Typography variant='button' style={{ textDecoration: 'none', color: 'ButtonHighlight' }}>
-                            {`My Resume`}
-                            <ArrowOutwardIcon fontSize='inherit' />
-                        </Typography>
-                    </Link>
                     <Link to={'/about'}>
                         <Typography variant='button' style={{ textDecoration: 'none', color: 'ButtonHighlight' }}>
                             {`About me`}
+                            <ArrowOutwardIcon fontSize='inherit' />
+                        </Typography>
+                    </Link>
+                    <Link onClick={handleOpenDialog}>
+                        < Typography variant='button' style={{ textDecoration: 'none', color: 'ButtonHighlight' }}>
+                            {`My Resume`}
                             <ArrowOutwardIcon fontSize='inherit' />
                         </Typography>
                     </Link>

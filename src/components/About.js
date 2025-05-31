@@ -125,6 +125,11 @@ const certifications = [
 
 const honors = [
     {
+        id: 'PB1',
+        title: 'Patent (Govt. of India)',
+        issuedDate: 'Issued May 2024'
+    },
+    {
         id: 'RP1',
         title: 'Research Paper Presentation',
         issuedDate: 'Issued Feb 2022'
@@ -133,16 +138,6 @@ const honors = [
         id: 'RP2',
         title: 'Research Paper Presentation',
         issuedDate: 'Issued Feb 2022'
-    },
-    {
-        id: 'RP3',
-        title: 'Seminar Competition',
-        issuedDate: 'Issued Feb 2020'
-    },
-    {
-        id: 'Seed',
-        title: 'Seed Certification',
-        issuedDate: 'Issued July 2018'
     }
 ];
 
@@ -515,6 +510,21 @@ export default function About() {
                                 }}>
                                 <Tab sx={{ pt: 4 }} icon={<SchoolIcon />} {...a11yProps(2)} />
                             </Tooltip>
+                            <Tooltip title='Publications' placement='left' arrow
+                                slotProps={{
+                                    popper: {
+                                        modifiers: [
+                                            {
+                                                name: 'offset',
+                                                options: {
+                                                    offset: [0, -14],
+                                                },
+                                            },
+                                        ],
+                                    },
+                                }}>
+                                <Tab sx={{ pt: 4 }} icon={<EmojiEventsIcon />} {...a11yProps(3)} />
+                            </Tooltip>
                             <Tooltip title='Certificates' placement='left' arrow
                                 slotProps={{
                                     popper: {
@@ -528,22 +538,7 @@ export default function About() {
                                         ],
                                     },
                                 }}>
-                                <Tab sx={{ pt: 4 }} icon={<MilitaryTech />} {...a11yProps(3)} />
-                            </Tooltip>
-                            <Tooltip title='Honors' placement='left' arrow
-                                slotProps={{
-                                    popper: {
-                                        modifiers: [
-                                            {
-                                                name: 'offset',
-                                                options: {
-                                                    offset: [0, -14],
-                                                },
-                                            },
-                                        ],
-                                    },
-                                }}>
-                                <Tab sx={{ pt: 4 }} icon={<EmojiEventsIcon />} {...a11yProps(4)} />
+                                <Tab sx={{ pt: 4 }} icon={<MilitaryTech />} {...a11yProps(4)} />
                             </Tooltip>
                             <Tooltip title='Resume' placement='left' arrow
                                 slotProps={{
@@ -737,9 +732,54 @@ export default function About() {
                                 </Card>
                             </Box>
                         </TabPanel >
-                        {/* CERTIFICATIONS */}
+                        {/* PUBLICATIONS */}
                         <TabPanel value={value} index={3} overflow={'auto'} maxHeight={1000}>
-                            <Box sx={{
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', flexGrow: 1, minWidth: 1000, width: '100%', maxHeight: 350, minHeight: 500, alignItems: 'center' }}>
+                                {honors.map((certificate, index) => (
+                                    <ImageButton
+                                        focusRipple
+                                        onClick={() => handleOpen(certificate.id)}
+                                        key={certificate.title}
+                                        style={{
+                                            width: '30%',
+                                        }}
+                                    >
+                                        <ImageSrc style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/content/images/${certificate.id}.jpg)` }} />
+                                        <ImageBackdrop className="MuiImageBackdrop-root" />
+                                        <Image>
+                                            <Typography
+                                                component="span"
+                                                variant="subtitle1"
+                                                color="inherit"
+                                                sx={{
+                                                    position: 'relative',
+                                                    p: 4,
+                                                    pt: 2,
+                                                    pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
+                                                }}
+                                            >
+                                                {certificate.title}
+                                                <ImageMarked className="MuiImageMarked-root" />
+                                            </Typography>
+                                        </Image>
+                                    </ImageButton>
+                                ))}
+                                <Backdrop
+                                    sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                                    open={open}
+                                    onClick={handleClose}
+                                >
+                                    <img className='contain' alt="Honors" style={{
+                                        height: isMobile ? '200%' : '100%',
+                                        width: isMobile ? '100%' : '50%',
+                                    }}
+                                        src={`${process.env.PUBLIC_URL}/content/images/${view}`} />
+                                </Backdrop>
+                            </Box>
+                        </TabPanel>
+                        {/* CERTIFICATIONS */}
+                        <TabPanel value={value} index={4}>
+                        <Box sx={{
                                 display: 'flex', flexWrap: 'wrap', flexGrow: 1, maxWidth: 1000, overflowY: 'auto', maxHeight: 350, minHeight: 500, '-ms-overflow-style': 'none',
                                 'scrollbar-width': 'none',
                             }}>
@@ -776,51 +816,6 @@ export default function About() {
                                         </Grid>
                                     ))}
                                 </Grid>
-                            </Box>
-                        </TabPanel>
-                        {/* HONORS */}
-                        <TabPanel value={value} index={4}>
-                            <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', flexGrow: 1, minWidth: 1000, width: '100%', maxHeight: 350, minHeight: 500, alignItems: 'center' }}>
-                                {honors.map((certificate, index) => (
-                                    <ImageButton
-                                        focusRipple
-                                        onClick={() => handleOpen(certificate.id)}
-                                        key={certificate.title}
-                                        style={{
-                                            width: '20%',
-                                        }}
-                                    >
-                                        <ImageSrc style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/content/images/${certificate.id}.jpg)` }} />
-                                        <ImageBackdrop className="MuiImageBackdrop-root" />
-                                        <Image>
-                                            <Typography
-                                                component="span"
-                                                variant="subtitle1"
-                                                color="inherit"
-                                                sx={{
-                                                    position: 'relative',
-                                                    p: 4,
-                                                    pt: 2,
-                                                    pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
-                                                }}
-                                            >
-                                                {certificate.title}
-                                                <ImageMarked className="MuiImageMarked-root" />
-                                            </Typography>
-                                        </Image>
-                                    </ImageButton>
-                                ))}
-                                <Backdrop
-                                    sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-                                    open={open}
-                                    onClick={handleClose}
-                                >
-                                    <img className='contain' alt="Honors" style={{
-                                        height: isMobile ? '200%' : '100%',
-                                        width: isMobile ? '100%' : '50%',
-                                    }}
-                                        src={`${process.env.PUBLIC_URL}/content/images/${view}`} />
-                                </Backdrop>
                             </Box>
                         </TabPanel>
                         {/* RESUME */}
@@ -1086,7 +1081,42 @@ export default function About() {
                                 </TabPanel>
                                 {/* CERTIFICATIONS */}
                                 <TabPanel value={value} index={3}>
-                                    <Box sx={{ minHeight: 800 }}>
+                                    <Box sx={{ minHeight: 300 }}>
+                                    <Card variant='outlined' raised='true' sx={{ width: '100%', minHeight: 500, flexGrow: 1 }}>
+                                            <Box sx={{ display: 'flex', flexWrap: 'wrap', flexGrow: 1, maxWidth: 1000, overflowY: 'auto', minHeight: 400, flexDirection: 'column' }}>
+                                                <Grid container spacing={2} direction='column' flexWrap={'wrap'}>
+                                                    {honors.map((honor, index) => (
+                                                        <Grid key={index} item xs={6} spacing={2}>
+                                                            <Card key={index} sx={{ display: 'flex', justifyContent: 'space-between', flexGrow: 1, minHeight: 170 }}>
+                                                                <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                                                                    <CardContent sx={{ flex: '1 0 auto' }}>
+                                                                        <Typography component="div" variant="h6">
+                                                                            {honor.title}
+                                                                        </Typography>
+                                                                        <Typography variant="subtitle2" color="text.secondary" component="div">
+                                                                            {honor.issuedDate}
+                                                                        </Typography>
+                                                                    </CardContent>
+                                                                    <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
+                                                                        <IconButton aria-label="view" onClick={() => handleOpen(honor.id)}>
+                                                                            <FullscreenIcon fontSize="small" />
+                                                                        </IconButton>
+                                                                    </Box>
+                                                                </Box>
+                                                                <CardMedia
+                                                                    component="img"
+                                                                    sx={{ width: 180, cursor: 'pointer' }}
+                                                                    image={`${process.env.PUBLIC_URL}/content/images/${honor.id}.jpg`}
+                                                                    alt={honor.title}
+                                                                    onClick={() => handleOpen(honor.id)}
+                                                                />
+                                                            </Card>
+                                                        </Grid>
+                                                    ))}
+                                                </Grid>
+                                            </Box>
+                                        </Card>
+                                        <Divider flexItem='true' variant='middle' sx={{ pt: 3 }}>{`CERTIFICATIONS`}</Divider><br />
                                         <Card variant='outlined' raised='true' sx={{ width: '100%', minHeight: 800, flexGrow: 1 }}>
                                             <Box sx={{ display: 'flex', flexWrap: 'wrap', flexGrow: 1, overflowY: 'auto', minHeight: 800, flexDirection: 'column' }}>
                                                 <Grid container spacing={2} direction='column' flexWrap={'wrap'}>
@@ -1117,41 +1147,6 @@ export default function About() {
                                                                     image={`${process.env.PUBLIC_URL}/content/images/${certification.title}.jpg`}
                                                                     alt={certification.title}
                                                                     onClick={() => handleOpen(certification.title)}
-                                                                />
-                                                            </Card>
-                                                        </Grid>
-                                                    ))}
-                                                </Grid>
-                                            </Box>
-                                        </Card>
-                                        <Divider flexItem='true' variant='middle' sx={{ pt: 3 }}>{`HONORS`}</Divider><br />
-                                        <Card variant='outlined' raised='true' sx={{ width: '100%', minHeight: 800, flexGrow: 1 }}>
-                                            <Box sx={{ display: 'flex', flexWrap: 'wrap', flexGrow: 1, maxWidth: 1000, overflowY: 'auto', minHeight: 800, flexDirection: 'column' }}>
-                                                <Grid container spacing={2} direction='column' flexWrap={'wrap'}>
-                                                    {honors.map((honor, index) => (
-                                                        <Grid key={index} item xs={6} spacing={2}>
-                                                            <Card key={index} sx={{ display: 'flex', justifyContent: 'space-between', flexGrow: 1, minHeight: 170 }}>
-                                                                <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                                                                    <CardContent sx={{ flex: '1 0 auto' }}>
-                                                                        <Typography component="div" variant="h6">
-                                                                            {honor.title}
-                                                                        </Typography>
-                                                                        <Typography variant="subtitle2" color="text.secondary" component="div">
-                                                                            {honor.issuedDate}
-                                                                        </Typography>
-                                                                    </CardContent>
-                                                                    <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
-                                                                        <IconButton aria-label="view" onClick={() => handleOpen(honor.id)}>
-                                                                            <FullscreenIcon fontSize="small" />
-                                                                        </IconButton>
-                                                                    </Box>
-                                                                </Box>
-                                                                <CardMedia
-                                                                    component="img"
-                                                                    sx={{ width: 180, cursor: 'pointer' }}
-                                                                    image={`${process.env.PUBLIC_URL}/content/images/${honor.id}.jpg`}
-                                                                    alt={honor.title}
-                                                                    onClick={() => handleOpen(honor.id)}
                                                                 />
                                                             </Card>
                                                         </Grid>
