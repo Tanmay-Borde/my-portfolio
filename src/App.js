@@ -24,7 +24,7 @@ const sections = [
   { title: 'About Me', url: '/about' },
   { title: 'Experience', url: '/experience' },
   { title: 'Projects', url: '/projects' },
-  // { title: 'Publications', url: '/publications' },
+  { title: 'Publications', url: '/publications' },
   { title: 'Blogs', url: '/blogs' },
   { title: 'Feeds', url: '/feeds' },
   { title: 'Archive', url: '/archive' },

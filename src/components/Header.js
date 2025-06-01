@@ -157,7 +157,7 @@ function Header(props) {
                 </Typography>
                 <Stack direction="row" spacing={2} sx={{ justifyContent: 'center', alignItems: 'center' }}>
                   <Link href="mailto:tanmayborde64@gmail.com?subject=Hi from the Blogfolio" underline="none" target="_blank">
-                    <Tooltip title='E-mail' placement='left' arrow>
+                    <Tooltip title='E-mail' placement='top' arrow>
                       <EmailIcon fontSize='small' />
                     </Tooltip>
                   </Link>
