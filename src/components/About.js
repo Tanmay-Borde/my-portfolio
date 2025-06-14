@@ -44,10 +44,10 @@ const portfolio_link = 'https://tanmay-borde.github.io/my-portfolio/';
 
 const about = {
     name: 'Tanmay Borde',
-    briefOverview: `Tech Enthusiast | Patent Holder | Innovator | The Product Guy!
-    A solution oriented software developer with 3+ years of experience in Full-Stack Web Development, dedicated to leveraging latest technologies as a powerful tool for problem-solving and innovation. I have a proven track record of working on end-to-end system implementation, where I have successfully contributed to multiple projects focused on business-facing web applications, encompassing business flow from Order Management to Product Entitlement.
+    briefOverview: `Tech Enthusiast | Innovator | Patent Holder | The Product Guy!
+    Product‑Driven Technical Leader with 4+ years of Full‑Stack Java development and a proven track record of conceiving, architecting, and delivering scalable enterprise products. First‑principles thinker who bridges engineering and business, guiding cross‑functional teams through the full product lifecycle from market research and prototyping to launch and go‑to‑market strategy. Passionate about leveraging data‑driven insights, stakeholder management, and agile methodologies to solve complex problems, accelerate time‑to‑value, and drive user adoption.
     My strong technical skills are complemented by my functional understanding of business needs, allowing me to create user-centric products that enhance operational efficiency. As a curious and detail-oriented techno-functional professional, I have a knack for building and creating things with craftsmanship. I thrive on tackling complex challenges and driving impactful solutions with first principles thinking and evolving mental models.
-    My key attributes include agility, adaptability, and a commitment to continuous learning, with a focus on growth and value addition. Outside of my work I read, write and listen to music.`,
+    My key attributes include curiosity, agility, adaptability, and a commitment to continuous learning, with a focus on growth and value addition. Outside of my work I read, write, explore, travel and listen to music.`,
     programmingLanguages: ['Java', 'PLSQL', 'JavaScript', 'TypeScript', 'Python'],
     databases: ['Oracle-DB', 'JSON-Server', 'MySQL', 'Redis'],
     frameworks: ['Spring-Boot', 'React', 'Angular', 'REST-API'],
