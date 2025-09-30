@@ -38,20 +38,25 @@ import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
 import { useLocation } from "react-router-dom";
 
-const embedded_resume = 'https://docs.google.com/document/d/e/2PACX-1vR7hImtwsOfQb0RxLrKgJ6RtTWHG2H9C73GUdWPzqzmBDBZV_0Khsmj9Ohbiek0I6-iy1Wvo2Kuzarg/pub';
-const shareable_resume = 'https://docs.google.com/document/d/1ANZMOzxjyzEHNlQpBVbbn4s-cRE5uPcLVsXypeuvoYs/edit?usp=sharing';
+const embedded_resume = 'https://docs.google.com/document/d/e/2PACX-1vRp_msbw4p3ZJZMgYmZbh1ZzaXxWaamgC90N3-kam42Ed6ynnBHIzJoRC7uEdPa7bxJIDcfb8vwilSm/pub';
+const shareable_resume = 'https://docs.google.com/document/d/1Vj2n7_lOrHnStoFWn9us3FIYTBicH4nFA1VpvmOxY8I/edit?usp=sharing';
 const portfolio_link = 'https://tanmay-borde.github.io/my-portfolio/';
 
 const about = {
     name: 'Tanmay Borde',
-    briefOverview: `Tech Enthusiast | Innovator | Patent Holder | The Product Guy!
-    Product‑Driven Technical Leader with 4+ years of Full‑Stack Java development and a proven track record of conceiving, architecting, and delivering scalable enterprise products. First‑principles thinker who bridges engineering and business, guiding cross‑functional teams through the full product lifecycle from market research and prototyping to launch and go‑to‑market strategy. Passionate about leveraging data‑driven insights, stakeholder management, and agile methodologies to solve complex problems, accelerate time‑to‑value, and drive user adoption.
-    My strong technical skills are complemented by my functional understanding of business needs, allowing me to create user-centric products that enhance operational efficiency. As a curious and detail-oriented techno-functional professional, I have a knack for building and creating things with craftsmanship. I thrive on tackling complex challenges and driving impactful solutions with first principles thinking and evolving mental models.
-    My key attributes include curiosity, agility, adaptability, and a commitment to continuous learning, with a focus on growth and value addition. Outside of my work I read, write, explore, travel and listen to music.`,
-    programmingLanguages: ['Java', 'PLSQL', 'JavaScript', 'TypeScript', 'Python'],
+    briefOverview: `Technologist · Innovator · AI-Product Developer · Patent Holder
+    With 4+ years of Full-Stack development and enterprise product delivery experience, I now lead techno-functional initiatives in AI Product Development, helping bridge gaps between engineering, design, and business value. I specialize in building products from the ground up from ideation and market validation, through prototyping, delivery, and go-to-market launch.
+    My core strength is translating ambiguous, data-rich problems into scalable AI-enabled solutions. I combine strong technical chops (Java, Python FastAPI, Microservices, APIs, cloud deployments) with experience in stakeholder engagement, data insights, UX considerations, and agile product workflows. I thrive where engineering meets business outcomes optimizing time-to-value, improving user adoption, and driving measurable impact.
+    Some of my recent achievements include:
+    • Successfully delivered the PoC of an interactive AI chat-bot designed and architected (ML + LLM hybrid approach) to assist sales reps for better decision making for pricing and discounting recommendation.
+    • Spearheaded cross-functional teams to define product roadmaps in uncertain problem spaces, especially where data/instrumentation were lacking
+    • Worked on AI/data-driven features or integrations, building familiarity with ML pipelines, inference, model evaluation, and monitoring
+    Outside work, I read, write, listen to music and explore techno-business trends through blogging, experiment with side projects, and am committed to continuous learning because in AI/ML, today’s models are tomorrow’s baselines.`,
+    programmingLanguages: ['Python', 'Java', 'PLSQL', 'JavaScript', 'TypeScript'],
+    aiml: ['RAG', 'MCP', 'Machine Learning', 'MLOps', 'MS-Copilot', 'GPT'],
     databases: ['Oracle-DB', 'JSON-Server', 'MySQL', 'Redis'],
-    frameworks: ['Spring-Boot', 'React', 'Angular', 'REST-API'],
-    tools: ['Docker', 'Kubernetes', 'Git', 'Agile-Development', 'Product Development']
+    frameworks: ['Spring-Boot', 'React', 'Angular', 'REST-API', 'FastAPI'],
+    tools: ['Azure Cloud', 'Docker', 'Kubernetes', 'Git', 'Agile-Development', 'Product Development']
 }
 
 const certifications = [
@@ -612,20 +617,29 @@ export default function About() {
                                                 ))
                                                 }
                                             </Stack>
+                                            <Divider>{`AI/ML`}</Divider>
+                                            <Stack p={3} direction='row' spacing={3} justifyContent={"center"}>
+                                                {about.aiml.map((aiml, index) => (
+                                                    <Grid item xs={12} md={4} key={index}>
+                                                        <Chip avatar={<Avatar src={`${process.env.PUBLIC_URL}/content/images/${aiml}.png`} />} label={aiml} />
+                                                    </Grid>
+                                                ))
+                                                }
+                                            </Stack>
+                                            <Divider>{`Technologies & Methodologies`}</Divider>
+                                            <Stack p={3} direction='row' spacing={3} justifyContent={"center"}>
+                                                {about.tools.map((tool, index) => (
+                                                    <Grid item xs={12} md={4} key={index}>
+                                                        <Chip avatar={<Avatar src={`${process.env.PUBLIC_URL}/content/images/${tool}.png`} />} label={tool} />
+                                                    </Grid>
+                                                ))
+                                                }
+                                            </Stack>
                                             <Divider>{`Database`}</Divider>
                                             <Stack p={3} direction='row' spacing={3} justifyContent={"center"}>
                                                 {about.databases.map((database, index) => (
                                                     <Grid item xs={12} md={4} key={index}>
                                                         <Chip avatar={<Avatar src={`${process.env.PUBLIC_URL}/content/images/${database}.png`} />} label={database} />
-                                                    </Grid>
-                                                ))
-                                                }
-                                            </Stack>
-                                            <Divider>{`Tools & Methodologies`}</Divider>
-                                            <Stack p={3} direction='row' spacing={3} justifyContent={"center"}>
-                                                {about.tools.map((tool, index) => (
-                                                    <Grid item xs={12} md={4} key={index}>
-                                                        <Chip avatar={<Avatar src={`${process.env.PUBLIC_URL}/content/images/${tool}.png`} />} label={tool} />
                                                     </Grid>
                                                 ))
                                                 }
@@ -984,20 +998,29 @@ export default function About() {
                                                         ))
                                                         }
                                                     </Stack>
+                                                    <Divider>{`AI & ML`}</Divider>
+                                                    <Stack p={2} direction='row' spacing={2} display={'flex'} flexGrow={1} flexWrap={'wrap'} justifyContent={'center'}>
+                                                        {about.aiml.map((aiml, index) => (
+                                                            <Grid item xs={12} md={4} key={index} p={1}>
+                                                                <Chip avatar={<Avatar src={`${process.env.PUBLIC_URL}/content/images/${aiml}.png`} />} label={aiml} />
+                                                            </Grid>
+                                                        ))
+                                                        }
+                                                    </Stack>
+                                                    <Divider>{`Technologies & Methodologies`}</Divider>
+                                                    <Stack p={2} direction='row' spacing={2} display={'flex'} flexGrow={1} flexWrap={'wrap'} justifyContent={'center'}>
+                                                        {about.tools.map((tool, index) => (
+                                                            <Grid item xs={12} md={4} key={index} p={1}>
+                                                                <Chip avatar={<Avatar src={`${process.env.PUBLIC_URL}/content/images/${tool}.png`} />} label={tool} />
+                                                            </Grid>
+                                                        ))
+                                                        }
+                                                    </Stack>
                                                     <Divider>{`Database`}</Divider>
                                                     <Stack p={2} direction='row' spacing={2} display={'flex'} flexGrow={1} flexWrap={'wrap'} justifyContent={'center'}>
                                                         {about.databases.map((database, index) => (
                                                             <Grid item xs={12} md={4} key={index} p={1}>
                                                                 <Chip avatar={<Avatar src={`${process.env.PUBLIC_URL}/content/images/${database}.png`} />} label={database} />
-                                                            </Grid>
-                                                        ))
-                                                        }
-                                                    </Stack>
-                                                    <Divider>{`Tools & Methodologies`}</Divider>
-                                                    <Stack p={2} direction='row' spacing={2} display={'flex'} flexGrow={1} flexWrap={'wrap'} justifyContent={'center'}>
-                                                        {about.tools.map((tool, index) => (
-                                                            <Grid item xs={12} md={4} key={index} p={1}>
-                                                                <Chip avatar={<Avatar src={`${process.env.PUBLIC_URL}/content/images/${tool}.png`} />} label={tool} />
                                                             </Grid>
                                                         ))
                                                         }

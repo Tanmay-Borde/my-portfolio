@@ -22,14 +22,14 @@ const experiences = [
         id: 'job4',
         title: 'Software Engineer-1',
         company: 'Cohesity',
-        tenure: 'DEC 2024 - Present',
+        tenure: 'JAN 2025 - Present',
         companyLogo: '/cohesity_logo.png',
         highlights: 'Enterprise Applications Development',
         brief: `
-        - Led System Integration Roadmap & Zero‑Downtime Patches: Spearheaded the merger of Cohesity and Arctera platforms by defining the integration roadmap, scoping priority patches and hot‑fixes, and coordinating cross‑functional rollout—achieving seamless ISMO convergence with 100% business continuity and zero SLA breaches.
+        - Spearheaded techno-functional development of an AI/ML + LLM-backed price optimization engine, reducing revenue loss by ~40% through predictive and dynamic pricing models as AI assistant to Sales reps.
+        - Built and maintained full-stack features (frontend + backend) for VEMS-SFDC integration, ensuring seamless workflows and critical TSA deliverables.
         - Architected & Delivered High‑Priority Features: Owned the end‑to‑end lifecycle for critical issues and new feature requests: formulated technical architecture, drove detailed edge‑case and negative testing plans, and managed sprint prioritization, cutting production incidents by 35% and accelerating time‑to‑fix by 50%.
         - Productized VEMS–SFDC Integration: Defined requirements, planned data‑migration strategy, and built secure, versioned RESTful APIs to sync VEMS workflows with Salesforce CRM. Collaborated with PMO and QA to validate deliverables against TSA compliance, enabling a 25% faster service‑order turnaround.
-        - AI‑Driven Pricing Optimization Engine (MCP + LLM): Shaping the product vision, conducting market research, and prototyping an LLM‑powered pricing engine forecast to reduce extreme discounting and manual adjustments by 40%, improve forecast accuracy by 20%, and establish a scalable, data‑driven pricing strategy framework saving $500k annually.
         - Chatbot MVP for IT Service Automation: Leading the research, requirements gathering, and Azure cloud architecture for an AI chatbot that leverages LLMs to automate IT‑issue triage. Designed metrics dashboards to track a projected 50% reduction in turnaround time (TAT) and drive continuous improvement through user feedback loops.
         `,
         placement: 'right',
@@ -39,7 +39,7 @@ const experiences = [
         id: 'job3',
         title: 'Assoc. IT Developer',
         company: 'Veritas',
-        tenure: 'JUN 2022 - Present',
+        tenure: 'JUN 2022 - DEC 2024',
         companyLogo: '/veritas_logo.png',
         highlights: 'Responsible for the development of critical business facing web applications encompassing business flow from OM to Product Entitlement.',
         brief: `

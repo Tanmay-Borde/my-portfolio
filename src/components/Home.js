@@ -9,8 +9,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import ShareIcon from '@mui/icons-material/Share';
 import DownloadIcon from '@mui/icons-material/Download';
 
-const embedded_resume = 'https://docs.google.com/document/d/e/2PACX-1vR7hImtwsOfQb0RxLrKgJ6RtTWHG2H9C73GUdWPzqzmBDBZV_0Khsmj9Ohbiek0I6-iy1Wvo2Kuzarg/pub';
-const shareable_resume = 'https://docs.google.com/document/d/1ANZMOzxjyzEHNlQpBVbbn4s-cRE5uPcLVsXypeuvoYs/edit?usp=sharing';
+const embedded_resume = 'https://docs.google.com/document/d/e/2PACX-1vRp_msbw4p3ZJZMgYmZbh1ZzaXxWaamgC90N3-kam42Ed6ynnBHIzJoRC7uEdPa7bxJIDcfb8vwilSm/pub';
+const shareable_resume = 'https://docs.google.com/document/d/1Vj2n7_lOrHnStoFWn9us3FIYTBicH4nFA1VpvmOxY8I/edit?usp=sharing';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
