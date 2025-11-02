@@ -1,5 +1,21 @@
 [
     {
+        "id": "TB2",
+        "section": "tech-blogs",
+        "title": "Why Wireless Charging is the Future?",
+        "readTime": "5",
+        "date": "2025-11-02",
+        "contentFile": "/content/contentFiles/TBMD/TB2.md",
+        "author": "Tanmay Borde",
+        "tags": [],
+        "summary": "Wireless Connectivity redefined how we communicate, Wireless Charging is transforming how we interact with the world.",
+        "imageURL": "/content/images/tesla_tower.png",
+        "credits": "Tesla Tower",
+        "metaDescription": [],
+        "relatedPosts": [],
+        "sources": []
+    },
+    {
         "id": "TB1",
         "section": "tech-blogs",
         "title": "What can the 'Evolution of Technology' teach us about the future?",
