@@ -1,8 +1,8 @@
 ******** TO-DO *********
+- Build a git pipeline
 - Add content in archieve page.
 - Modal for quick news summary.
 - Revamp feeds page.
-- Tooltip correction of Email icon in footer.
 
 **** Future Updates ****
 - Add analytics
@@ -11,3 +11,6 @@
 
 **** Command ****
 npm run deploy -- -m ""
+
+-- Update Regularly --
+npx update-browserslist-db@latest

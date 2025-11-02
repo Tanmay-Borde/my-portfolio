@@ -8,9 +8,8 @@ import { Tab as BaseTab, tabClasses } from '@mui/base/Tab';
 import TechBlogs from './TechBlogs';
 import BusinessBlogs from './BusinessBlogs';
 import HumanityBlogs from './HumanityBlogs';
-import { Container } from '@mui/material';
+import { Box } from '@mui/material';
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { isMobile } from 'react-device-detect';
 
 export default function Blogs() {
   const location = useLocation();
@@ -25,101 +24,127 @@ export default function Blogs() {
   }, [location, navigate]);
 
   return (
-    <>
-      <Container sx={{ mt: 1, mb: 1, justifyContent: 'center', display: 'flex', flexGrow: 1, minWidth: isMobile ? '100%' : 1000 }}>
-        <Tabs value={selectedtab}>
-          <TabsList>
-            <Tab value={'tech-blogs'} to={'tech-blogs'} slots={{ root: Link }} style={{ textDecoration: 'none' }}>
-              {`Technology`}
-            </Tab>
-            <Tab value={'business-blogs'} to={'business-blogs'} slots={{ root: Link }} style={{ textDecoration: 'none' }}>
-              {`Business`}
-            </Tab>
-            <Tab value={'humanity-blogs'} to={'humanity-blogs'} slots={{ root: Link }} style={{ textDecoration: 'none' }}>
-              {`Humanity`}
-            </Tab>
-          </TabsList>
-          <TabPanel value={'tech-blogs'}>
-            <TechBlogs />
-          </TabPanel>
-          <TabPanel value={'business-blogs'}>
-            <BusinessBlogs />
-          </TabPanel>
-          <TabPanel value={'humanity-blogs'}>
-            <HumanityBlogs />
-          </TabPanel>
-        </Tabs>
-      </Container >
-    </>
+    <OuterShell>
+      <Tabs value={selectedtab} sx={{ width: '100%' }}>
+        <TabsBar>
+          <Tab value={'tech-blogs'} to={'tech-blogs'} slots={{ root: Link }} style={{ textDecoration: 'none' }}>
+            {`Technology`}
+          </Tab>
+          <Tab value={'business-blogs'} to={'business-blogs'} slots={{ root: Link }} style={{ textDecoration: 'none' }}>
+            {`Business`}
+          </Tab>
+          <Tab value={'humanity-blogs'} to={'humanity-blogs'} slots={{ root: Link }} style={{ textDecoration: 'none' }}>
+            {`Humanity`}
+          </Tab>
+        </TabsBar>
+        <ContentPanel value={'tech-blogs'}>
+          <TechBlogs />
+        </ContentPanel>
+        <ContentPanel value={'business-blogs'}>
+          <BusinessBlogs />
+        </ContentPanel>
+        <ContentPanel value={'humanity-blogs'}>
+          <HumanityBlogs />
+        </ContentPanel>
+      </Tabs>
+    </OuterShell>
   )
 
 }
 
-const grey = {
-  50: '#F3F6F9',
-  100: '#E5EAF2',
-  200: '#DAE2ED',
-  300: '#C7D0DD',
-  400: '#B0B8C4',
-  500: '#9DA8B7',
-  600: '#6B7A90',
-  700: '#434D5B',
-  800: '#303740',
-  900: '#1C2025',
-};
+const OuterShell = styled(Box)(({ theme }) => ({
+  width: '100%',
+  maxWidth: 1100,
+  minWidth: 280,
+  margin: '0 auto',
+  display: 'flex',
+  justifyContent: 'center',
+  marginTop: theme.spacing(3),
+  marginBottom: theme.spacing(3.5),
+  paddingLeft: theme.spacing(1),
+  paddingRight: theme.spacing(1),
+  [theme.breakpoints.up('md')]: {
+    paddingLeft: 0,
+    paddingRight: 0,
+  },
+}));
 
-const Tab = styled(BaseTab)`
-  color: #fff;
-  cursor: pointer;
-  font-size: 0.875rem;
-  font-weight: 600;
-  background-color: transparent;
-  width: 100%;
-  padding: 10px 12px;
-  margin: 6px;
-  border: none;
-  border-radius: 7px;
-  display: flex;
-  justify-content: center;
+const TabsBar = styled(BaseTabsList)(({ theme }) => ({
+  width: '100%',
+  maxWidth: 1100,
+  minWidth: 280,
+  backgroundColor: 'rgba(15, 23, 42, 0.7)',
+  borderRadius: theme.spacing(2.5),
+  marginLeft: 'auto',
+  marginRight: 'auto',
+  marginBottom: theme.spacing(3.5),
+  display: 'flex',
+  gap: theme.spacing(1.5),
+  padding: theme.spacing(1.3),
+  flexWrap: 'nowrap',
+  justifyContent: 'center',
+  boxShadow: '0 18px 45px rgba(15, 23, 42, 0.55)',
+  backdropFilter: 'blur(14px)',
+  border: '1px solid rgba(255,255,255,0.05)',
+  overflowX: 'auto',
+  scrollbarWidth: 'none',
+  '&::-webkit-scrollbar': {
+    display: 'none',
+  },
+  [theme.breakpoints.down('sm')]: {
+    gap: theme.spacing(1),
+    padding: theme.spacing(1),
+    justifyContent: 'flex-start',
+  },
+}));
 
-  &:hover {
-    background-color: ${grey[400]};
-  }
+const Tab = styled(BaseTab)(({ theme }) => ({
+  color: '#fff',
+  cursor: 'pointer',
+  fontSize: '0.98rem',
+  fontWeight: 600,
+  backgroundColor: 'rgba(255, 255, 255, 0.06)',
+  padding: theme.spacing(1.3, 2.6),
+  border: '1px solid transparent',
+  borderRadius: theme.spacing(2),
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flex: '1 1 0',
+  minWidth: 160,
+  transition: 'all 0.2s ease',
+  whiteSpace: 'nowrap',
 
-  &:focus {
-    color: #fff;
-    outline: 3px solid ${grey[200]};
-  }
+  '&:hover': {
+    backgroundColor: 'rgba(255, 255, 255, 0.16)',
+  },
 
-  &.${tabClasses.selected} {
-    background-color: #fff;
-    color: ${grey[600]};
-  }
+  [`&.${buttonClasses.disabled}`]: {
+    opacity: 0.5,
+    cursor: 'not-allowed',
+  },
 
-  &.${buttonClasses.disabled} {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-`;
+  [`&.${tabClasses.selected}`]: {
+    backgroundColor: '#fff',
+    color: '#0f172a',
+    boxShadow: '0 10px 24px rgba(15, 23, 42, 0.35)',
+    borderColor: 'rgba(15, 23, 42, 0.18)',
+  },
 
-const TabPanel = styled(BaseTabPanel)(({ theme }) => `
-  width: 100%;
-  font-size: 0.875rem;
-  padding: 2px 2px;
-  background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
-  border: 1px solid ${theme.palette.mode === 'dark' ? grey[900] : grey[200]};
-  border-radius: 12px;
-  opacity: 0.6;
-`);
+  [theme.breakpoints.down('sm')]: {
+    flex: '0 0 auto',
+    minWidth: 120,
+    padding: theme.spacing(1, 2.1),
+    fontSize: '0.9rem',
+  },
+}));
 
-const TabsList = styled(BaseTabsList)(({ theme }) => `
-  min-width: 400px;
-  background-color: ${grey[900]};
-  border-radius: 12px;
-  margin-bottom: 1px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  align-content: space-between;
-  box-shadow: 0px 4px 30px ${theme.palette.mode === 'dark' ? grey[900] : grey[200]};
-`);
+const ContentPanel = styled(BaseTabPanel)(({ theme }) => ({
+  width: '100%',
+  maxWidth: 1100,
+  margin: '0 auto',
+  background: 'transparent',
+  padding: 0,
+  border: 'none',
+  opacity: 1,
+}));
