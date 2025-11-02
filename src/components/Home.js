@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import CloseIcon from '@mui/icons-material/Close';
 import ShareIcon from '@mui/icons-material/Share';
 import DownloadIcon from '@mui/icons-material/Download';
+import { resolveAssetPath } from '../utils/assetPaths';
 
 const embedded_resume = 'https://docs.google.com/document/d/e/2PACX-1vRp_msbw4p3ZJZMgYmZbh1ZzaXxWaamgC90N3-kam42Ed6ynnBHIzJoRC7uEdPa7bxJIDcfb8vwilSm/pub';
 const shareable_resume = 'https://docs.google.com/document/d/1Vj2n7_lOrHnStoFWn9us3FIYTBicH4nFA1VpvmOxY8I/edit?usp=sharing';
@@ -141,7 +142,7 @@ export default function Home() {
                             </Typography>
                             <Slider {...blogsSettings}>
                                 {featuredBlogs.map((post) => (
-                                    <Link to={`/blogs/${post.section}`}>
+                                    <Link to={`/blogs/${post.section}`} key={post.id}>
                                         <Card sx={{ minHeight: 300, maxHeight: 300 }}>
                                             <Box sx={{ position: 'relative', height: '100%' }}>
                                                 {/* <CardActionArea href={`${process.env.PUBLIC_URL}#/blogs/${post.section}#post-${post.id}`}> */}
@@ -149,7 +150,7 @@ export default function Home() {
                                                     <CardMedia
                                                         component="img"
                                                         height="300"
-                                                        image={post.imageURL}
+                                                        image={resolveAssetPath(post.imageURL)}
                                                         alt="image post"
                                                     />
                                                     <CardContent sx={{
@@ -196,13 +197,13 @@ export default function Home() {
 
                                         <Slider {...settings}>
                                             {featuredFeeds.map((feed) => (
-                                                <Card sx={{ minHeight: 300, maxHeight: 300 }}>
+                                                <Card sx={{ minHeight: 300, maxHeight: 300 }} key={feed.id || feed.title}>
                                                     <Box sx={{ position: 'relative', height: '100%' }}>
                                                         <CardActionArea href={`${process.env.PUBLIC_URL}#/feeds`}>
                                                             <CardMedia
                                                                 component="img"
                                                                 height="300"
-                                                                image={feed.imageURL}
+                                                                image={resolveAssetPath(feed.imageURL)}
                                                                 alt="image post"
                                                             />
                                                             <CardContent sx={{
@@ -238,12 +239,12 @@ export default function Home() {
                                         </Box>
                                         <Slider {...settings}>
                                             {featuredQuotes.map((quote) => (
-                                                <Card sx={{ minHeight: 300, maxHeight: 300 }}>
+                                                <Card sx={{ minHeight: 300, maxHeight: 300 }} key={quote.id || quote.author}>
                                                     <Box sx={{ position: 'relative', height: '100%' }}>
                                                         <CardMedia
                                                             component="img"
                                                             height="300"
-                                                            image={quote.imageURL}
+                                                            image={resolveAssetPath(quote.imageURL)}
                                                             alt="image post"
                                                         />
                                                         <CardContent sx={{
@@ -323,12 +324,12 @@ export default function Home() {
                             </Box>
                             <Slider {...settings}>
                                 {featuredQuotes.map((quote) => (
-                                    <Card sx={{ minHeight: 300, maxHeight: 300 }}>
+                                    <Card sx={{ minHeight: 300, maxHeight: 300 }} key={`mobile-quote-${quote.id || quote.author}`}>
                                         <Box sx={{ position: 'relative', height: '100%' }}>
                                             <CardMedia
                                                 component="img"
                                                 height="300"
-                                                image={quote.imageURL}
+                                                image={resolveAssetPath(quote.imageURL)}
                                                 alt="image post"
                                             />
                                             <CardContent sx={{
