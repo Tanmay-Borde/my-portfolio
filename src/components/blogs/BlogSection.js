@@ -40,7 +40,65 @@ const ExpandMore = styled((props) => {
     }),
 }));
 
+const bodyFontSizes = { xs: 16, sm: 17, md: 18 };
+
 const createMarkdownComponents = () => ({
+    h1: ({ node: _node, ...props }) => (
+        <Typography
+            component="h1"
+            sx={{
+                margin: 0,
+                marginBottom: 3,
+                fontWeight: 700,
+                fontSize: { xs: 26, sm: 30, md: 34 },
+                lineHeight: 1.2,
+                color: 'rgba(255,255,255,0.95)',
+            }}
+            {...props}
+        />
+    ),
+    h2: ({ node: _node, ...props }) => (
+        <Typography
+            component="h2"
+            sx={{
+                margin: 0,
+                marginBottom: 3,
+                fontWeight: 700,
+                fontSize: { xs: 22, sm: 24, md: 26 },
+                lineHeight: 1.3,
+                color: 'rgba(255,255,255,0.95)',
+            }}
+            {...props}
+        />
+    ),
+    h3: ({ node: _node, ...props }) => (
+        <Typography
+            component="h3"
+            sx={{
+                margin: 0,
+                marginBottom: 2.5,
+                fontWeight: 600,
+                fontSize: { xs: 20, sm: 21, md: 22 },
+                lineHeight: 1.35,
+                color: 'rgba(255,255,255,0.9)',
+            }}
+            {...props}
+        />
+    ),
+    h4: ({ node: _node, ...props }) => (
+        <Typography
+            component="h4"
+            sx={{
+                margin: 0,
+                marginBottom: 2,
+                fontWeight: 600,
+                fontSize: { xs: 18, sm: 19, md: 20 },
+                lineHeight: 1.4,
+                color: 'rgba(255,255,255,0.88)',
+            }}
+            {...props}
+        />
+    ),
     p: ({ node: _node, ...props }) => (
         <Typography
             component="p"
@@ -48,7 +106,7 @@ const createMarkdownComponents = () => ({
                 margin: 0,
                 marginBottom: 3,
                 lineHeight: 1.9,
-                fontSize: { xs: 15.5, sm: 16.5, md: 17.5 },
+                fontSize: bodyFontSizes,
                 color: 'rgba(255,255,255,0.9)',
                 whiteSpace: 'pre-line',
                 wordBreak: 'break-word',
@@ -61,23 +119,28 @@ const createMarkdownComponents = () => ({
             {...props}
             style={{
                 paddingLeft: '1.1rem',
-                margin: '0 0 1.1rem',
-                lineHeight: 1.85,
+                margin: '0 0 1.2rem',
+                lineHeight: 1.9,
+                listStylePosition: 'outside',
             }}
         />
     ),
     li: ({ node: _node, ...props }) => (
-        <li
-            {...props}
-            style={{
-                marginBottom: '0.75rem',
+        <Typography
+            component="li"
+            sx={{
+                marginBottom: 1.5,
+                fontSize: bodyFontSizes,
+                lineHeight: 1.9,
+                color: 'rgba(255,255,255,0.9)',
             }}
+            {...props}
         />
     ),
     img({ node: _node, ...props }) {
         const imagePath = props.src;
         const altText = props.alt;
-        const maxWidth = isMobile ? '100%' : '72%';
+        const maxWidth = isMobile ? '100%' : '80%';
 
         return (
             <img
