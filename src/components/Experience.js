@@ -19,10 +19,24 @@ import { useLocation } from 'react-router-dom';
 
 const experiences = [
     {
+        id: 'job5',
+        title: 'Software Engineer Consultant',
+        company: 'Deloitte USI',
+        tenure: 'JAN 2026 - Present',
+        companyLogo: '/deloitte_logo.png',
+        highlights: 'Engineering as a Service',
+        brief: `
+        - Working on building cloud AI capabilities for government document classfiication and information extraction use cases, leveraging cloud AI services.
+        - Generated 50+ document extraction reports ensuring 95%+ accuracy across diverse document types, and collaborated with cross-functional teams to integrate AI capabilities into client workflows, reducing manual processing time by 40%.
+        `,
+        placement: 'right',
+        skills: ['Java', 'Spring-Boot', 'AWS', 'GCP', 'REST-API', 'Agile-Development']
+    },
+    {
         id: 'job4',
         title: 'Software Engineer-1',
         company: 'Cohesity',
-        tenure: 'JAN 2025 - Present',
+        tenure: 'JAN 2025 - DEC 2025',
         companyLogo: '/cohesity_logo.png',
         highlights: 'Enterprise Applications Development',
         brief: `
@@ -135,7 +149,7 @@ export default function Experience() {
                                             src={`${process.env.PUBLIC_URL}/content/images/${experience.companyLogo}`}
                                             width={35}
                                             height={35}
-                                            alt="Veritas Logo"
+                                            alt="Company Logo"
                                         />
                                     </TimelineDot>
                                     <TimelineConnector />
