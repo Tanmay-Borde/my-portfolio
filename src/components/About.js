@@ -45,7 +45,7 @@ const portfolio_link = 'https://tanmay-borde.github.io/my-portfolio/';
 const about = {
     name: 'Tanmay Borde',
     briefOverview: `Technologist · Innovator · AI-Product Developer · Patent Holder
-    With 4+ years of Full-Stack development and enterprise product delivery experience, I now lead techno-functional initiatives in AI Product Development, helping bridge gaps between engineering, design, and business value. I specialize in building products from the ground up from ideation and market validation, through prototyping, delivery, and go-to-market launch.
+    With 5+ years of Full-Stack development and enterprise product delivery experience, I now lead techno-functional initiatives in AI Product Development, helping bridge gaps between engineering, design, and business value. I specialize in building products from the ground up from ideation and market validation, through prototyping, delivery, and go-to-market launch.
     My core strength is translating ambiguous, data-rich problems into scalable AI-enabled solutions. I combine strong technical chops (Java, Python FastAPI, Microservices, APIs, cloud deployments) with experience in stakeholder engagement, data insights, UX considerations, and agile product workflows. I thrive where engineering meets business outcomes optimizing time-to-value, improving user adoption, and driving measurable impact.
     Some of my recent achievements include:
     • Successfully delivered the PoC of an interactive AI chat-bot designed and architected (ML + LLM hybrid approach) to assist sales reps for better decision making for pricing and discounting recommendation.
