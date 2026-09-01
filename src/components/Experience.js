@@ -26,8 +26,12 @@ const experiences = [
         companyLogo: '/deloitte_logo.png',
         highlights: 'Engineering as a Service',
         brief: `
-        - Working on building cloud AI capabilities for government document classfiication and information extraction use cases, leveraging cloud AI services.
-        - Generated 50+ document extraction reports ensuring 95%+ accuracy across diverse document types, and collaborated with cross-functional teams to integrate AI capabilities into client workflows, reducing manual processing time by 40%.
+        - Working on building cloud AI capabilities for US government document classification, extraction and document tampering detection use cases, leveraging cloud AI services.
+        - Led the end to end implementation of building document Document AI processors on GCP and AWS integrating with spring boot and python micorsrvises backend improving the overall accuracy to 98%.
+        - Led the feature developement and integration of LLM based document summarization and question answering capabilities into the existing document processing pipeline.
+        - Worked on building iOS proprietery heic/heif image format document processing capabilities using cloud native services and integrating with existing document processing pipeline.
+        - Worked on feature development and integration of LLM based document summarization and question answering capabilities into the existing document processing pipeline.
+        - Generated 500+ document extraction reports ensuring 95%+ accuracy across diverse document types, and collaborated with cross-functional teams to integrate AI capabilities into client workflows, reducing manual processing time by 40%.
         `,
         placement: 'right',
         skills: ['Java', 'Spring-Boot', 'AWS', 'GCP', 'REST-API', 'Agile-Development']
