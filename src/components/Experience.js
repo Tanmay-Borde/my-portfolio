@@ -34,7 +34,7 @@ const experiences = [
         - Generated 500+ document extraction reports ensuring 95%+ accuracy across diverse document types, and collaborated with cross-functional teams to integrate AI capabilities into client workflows, reducing manual processing time by 40%.
         `,
         placement: 'right',
-        skills: ['Java', 'Spring-Boot', 'AWS', 'GCP', 'REST-API', 'Agile-Development']
+        skills: ['Java', 'Spring-Boot', 'AWS', 'GCP', 'REST-API', 'Agile-Development', 'Python']
     },
     {
         id: 'job4',
